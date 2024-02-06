@@ -5,4 +5,8 @@ export const StyledFooter = styled.footer`
 
     padding: var(--s3) var(--s1);
     
+    display: flex;
+    flex-wrap: wrap;
+    
+    gap: var(--s1);
 `

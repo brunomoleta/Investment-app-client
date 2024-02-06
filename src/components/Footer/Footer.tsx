@@ -9,10 +9,9 @@ import SocialMediaIcons from "@/components/Footer/SocialMediaIcons";
 function Footer() {
   return (
     <StyledFooter>
-      <div>
-        <Logo src={LogoDark} />
-        <SocialMediaIcons />
-      </div>
+      <Logo src={LogoDark} />
+      <SocialMediaIcons />
+
       <FooterAnchors />
       <Button content="entrar" />
       <p>© Easybank 2024. Todos os direitos reservados.</p>
