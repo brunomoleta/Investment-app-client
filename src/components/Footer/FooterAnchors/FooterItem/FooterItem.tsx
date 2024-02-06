@@ -1,7 +1,16 @@
 import React from 'react';
+import {Li, LiLink} from '@/components/Footer/FooterAnchors/FooterItem/FooterItem.style';
 
-function FooterItem() {
-  return <div></div>;
+interface FooterItemProps {
+    anchor: string;
+}
+
+function FooterItem({ anchor }: FooterItemProps) {
+    return (
+        <Li>
+            <LiLink href={"/"}>{anchor}</LiLink>
+        </Li>
+    );
 }
 
 export default FooterItem;
