@@ -1,5 +1,5 @@
-'use client'
-import { createGlobalStyle } from 'styled-components';
+"use client";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 
@@ -249,7 +249,7 @@ const GlobalStyles = createGlobalStyle`
 
         color: var(--grey-400);
     }
-    
+
 `;
 
 export default GlobalStyles;
