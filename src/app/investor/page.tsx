@@ -1,12 +1,12 @@
 import Template from "@/components/Template";
-import InvestorLoginForm from "../../components/Login/InvestorLoginForm";
+import LoginForm from "../../components/Login/LoginForm";
 
 export default function InvestorLogin() {
   return (
     <>
       <Template>
         <div>Login Investidor</div>
-        <InvestorLoginForm />
+        <LoginForm userType="investor" />
       </Template>
     </>
   );

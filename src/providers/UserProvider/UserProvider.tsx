@@ -1,8 +1,9 @@
+"use client";
 import React from "react";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
 import { ILogin } from "@/types/login";
-import { IUserContext } from "@/types/user";
+import { IUserContext, UserType } from "@/types/user";
 import { redirect } from "next/navigation";
 
 const UserContext = React.createContext({});
@@ -13,23 +14,22 @@ function useUserContext() {
 
 function UserProvider(props: { children: React.ReactNode }) {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const [whoLoggedIn, setWhoLoggedIn] = React.useState(null);
+
   const [isLoading, setIsLoading] = React.useState(false);
 
+  const [whoLoggedIn, setWhoLoggedIn] = React.useState<UserType>(null);
   const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
 
   const [step, setStep] = React.useState(0);
 
-  const storedToken = localStorage.getItem("@TOKEN");
-  const token: string | null | undefined = storedToken || null;
-
-  const loginRequest = async (formData: ILogin) => {
+  const loginRequest = async (formData: ILogin, userType: UserType) => {
     try {
-      const { data } = await api.post("/login", formData);
+      const { data } = await api.post(`/session/${userType}`, formData);
       localStorage.setItem("@TOKEN", JSON.stringify(data.token));
 
       toast.success("Tu estás logado :)");
       setIsLoggedIn(!isLoggedIn);
+      setWhoLoggedIn(userType);
     } catch (error: any) {
       if (error.response.status === 404) {
         toast.error("Por favor verifique sua conexão com a internet :)");
@@ -55,6 +55,9 @@ function UserProvider(props: { children: React.ReactNode }) {
 
     changePasswordVisibility,
 
+    isPasswordVisible,
+    setIsPasswordVisible,
+
     step,
     setStep,
 
@@ -62,8 +65,6 @@ function UserProvider(props: { children: React.ReactNode }) {
 
     isLoading,
     setIsLoading,
-
-    token,
 
     quitAccount,
   };

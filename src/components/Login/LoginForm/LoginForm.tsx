@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useUserContext } from "@/providers/UserProvider";
-import { IUserContext } from "@/types/user";
+import {IUserContext, UserType} from "@/types/user";
 import { ILogin } from "@/types/login";
 import loginSchema from "@/schemas/loginSchema";
 import { useForm } from "react-hook-form";
@@ -9,7 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 
-function InvestorLoginForm() {
+function LoginForm({ userType }: { userType: UserType }) {
   const { loginRequest, isPasswordVisible } = useUserContext() as IUserContext;
 
   const id = React.useId();
@@ -26,7 +26,7 @@ function InvestorLoginForm() {
 
   async function submit(formData: ILogin) {
     console.log("ANTES SUBMIT");
-    await loginRequest(formData);
+    await loginRequest(formData, userType);
     console.log("Depois SUBMIT");
   }
 
@@ -50,4 +50,4 @@ function InvestorLoginForm() {
   );
 }
 
-export default InvestorLoginForm;
+export default LoginForm;

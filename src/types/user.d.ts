@@ -1,4 +1,8 @@
-import {ILogin} from "@/types/login";
+import { ILogin } from "@/types/login";
+import React from "react";
+
+export type UserType = 'admin' | 'advisor' | 'investor' | null;
+
 
 export interface IUserContext {
   isLoggedIn: boolean;
@@ -7,13 +11,13 @@ export interface IUserContext {
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 
-  loginRequest: (formData: ILogin) => Promise<void>;
+  loginRequest: (formData: ILogin, userType: UserType) => Promise<void>;
 
   quitAccount: () => void;
 
   changePasswordVisibility: () => void;
-
-  token: string | null | undefined;
+  isPasswordVisible: boolean;
+  setIsPasswordVisible: React.Dispatch<React.SetStateAction<boolean>>;
 
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
