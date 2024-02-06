@@ -1,8 +1,7 @@
+'use client'
 import React from 'react';
 import { headeritems } from '@/services/data';
-import Link from 'next/link';
-import { ItemLi, Items } from '@/components/Header/HeaderItems/HeaderItems.style';
-import { Upper } from '@/services/service';
+import { Items } from '@/components/Header/HeaderItems/HeaderItems.style';
 import HeaderItem from '@/components/Header/HeaderItems/HeaderItem';
 
 function HeaderItems() {

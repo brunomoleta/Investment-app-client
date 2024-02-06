@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 import { StyledFooter } from "@/components/Footer/Footer.style";
 import LogoDark from "../../assets/images/logo-dark.svg";
 import Logo from "@/components/Logo";
