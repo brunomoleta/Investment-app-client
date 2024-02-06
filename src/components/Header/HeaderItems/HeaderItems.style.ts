@@ -11,5 +11,4 @@ export const Items = styled.ol`
 `;
 
 export const ItemLi = styled.li`
-    color: var(--grey-400);
 `

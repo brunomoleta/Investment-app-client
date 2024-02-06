@@ -21,5 +21,15 @@ export const PrimaryButton = styled(ButtonStyle)`
     border: var(--border-thickness);
     color: var(--pure-white);
     text-decoration: none;
-    
+
+    transition: opacity 300ms ease;
+
+    &:hover {
+        opacity: .5;
+    }
+
+    &:focus {
+        outline: 4px solid var(--primary-green);
+        outline-offset: 2px;
+    }
 `;

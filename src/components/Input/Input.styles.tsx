@@ -17,7 +17,6 @@ export const ErrorSpan = styled.span`
 export const StyledInput = styled.input`
     &:focus {
     }
-}
 `;
 
 export const PasswordButton = styled.button`
