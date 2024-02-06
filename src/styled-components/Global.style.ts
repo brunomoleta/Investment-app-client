@@ -243,6 +243,12 @@ const GlobalStyles = createGlobalStyle`
         font-size: var(--font-small);
         text-align: initial;
     }
+
+    li {
+
+        color: var(--grey-400);
+    }
+    
 `;
 
 export default GlobalStyles;

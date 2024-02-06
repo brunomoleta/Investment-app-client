@@ -9,8 +9,13 @@
     --primary-gradient: linear-gradient(to right,
     var(--primary-green),
     var(--primary-blue));
+     --primary-gradient-hover: linear-gradient(to right,
+    var(--primary-blue),
+    var(--primary-green));
+
 
     --pure-white: hsl(223, 100%, 100%);
+    --rich-black: hsl(250, 100%, 12.5%);
     --grey-100: hsl(0, 0%, 98%);
     --grey-200: hsl(223, 18%, 96%);
     --grey-300: hsl(232.5, 8.16%, 61.57%);
