@@ -1,9 +1,7 @@
-'use client'
 import Input from '@/components/Input';
 import React from 'react';
 import Button from '@/components/Button';
 import Template from '@/components/Template';
-import GlobalStyle from '@/styled-components/Global.style';
 
 
 export default function AdminLogin() {
@@ -19,7 +17,6 @@ export default function AdminLogin() {
           <Button content="logar" />
         </form>
       </Template>
-      <GlobalStyle />
     </>
   );
 }
