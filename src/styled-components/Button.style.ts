@@ -11,7 +11,7 @@ export const ButtonStyle = styled.button`
     padding-inline: var(--s2);
     padding-block: var(--s-2);
     font-weight: bold;
-    border-radius: var(--s1);
+    border-radius: var(--s-2);
 
     max-width: 400px;
 `;
@@ -22,6 +22,8 @@ export const PrimaryButton = styled(ButtonStyle)`
     color: var(--pure-white);
     text-decoration: none;
 
+    box-shadow: 3px 3px 10px 3px var(--grey-400-t);
+        
     transition: opacity 300ms ease;
 
     &:hover {
@@ -29,7 +31,7 @@ export const PrimaryButton = styled(ButtonStyle)`
     }
 
     &:focus {
-        outline: 4px solid var(--primary-green);
+        outline: 4px solid var(--primary-blue);
         outline-offset: 2px;
     }
 `;
