@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
+import {Form} from "@/components/Login/LoginForm/LoginForm.style";
 
 function LoginForm({ userType }: { userType: UserType }) {
   const { loginRequest, isPasswordVisible } = useUserContext() as IUserContext;
@@ -31,7 +32,7 @@ function LoginForm({ userType }: { userType: UserType }) {
   }
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
+    <Form onSubmit={handleSubmit(submit)}>
       <Input
         label="email"
         error={errors.email}
@@ -46,7 +47,7 @@ function LoginForm({ userType }: { userType: UserType }) {
         id={passwordId}
       />
       <Button content="login" />
-    </form>
+    </Form>
   );
 }
 
