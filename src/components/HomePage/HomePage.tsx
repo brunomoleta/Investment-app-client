@@ -7,9 +7,11 @@ import BlogFeed from "@/components/BlogFeed";
 function HomePage() {
   return (
     <Template>
-      <Hero />
-      <WhyUs />
-      <BlogFeed />
+      <main>
+        <Hero />
+        <WhyUs />
+        <BlogFeed />
+      </main>
     </Template>
   );
 }
