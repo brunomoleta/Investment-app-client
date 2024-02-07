@@ -1,22 +1,17 @@
-import Input from '@/components/Input';
-import React from 'react';
-import Button from '@/components/Button';
-import Template from '@/components/Template';
+import React from "react";
+import LoginPage from "@/components/LoginPage";
+import LoginForm from "@/components/Login/LoginForm";
+import SignInAlternative from "@/components/SignInAlternative";
 
 
 export default function AdminLogin() {
-  const id = React.useId();
-  const adminId = `${id}-admin`;
-  const passwordId = `${id}-password`;
+
   return (
     <>
-      <Template>
-        <form>
-          <Input error="a" type={undefined} label="usuário" id={adminId} />
-          <Input error="a" type={undefined} label="senha" id={passwordId} />
-          <Button content="logar" />
-        </form>
-      </Template>
+      <LoginPage
+          loginForm={<LoginForm userType="admin" />}
+          signInAlternative={<SignInAlternative />}
+      />
     </>
   );
 }

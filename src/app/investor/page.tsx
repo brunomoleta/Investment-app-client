@@ -1,13 +1,12 @@
-import Template from "@/components/Template";
 import LoginForm from "../../components/Login/LoginForm";
+import LoginPage from "@/components/LoginPage";
+import SignInAlternative from "@/components/SignInAlternative";
 
 export default function InvestorLogin() {
   return (
-    <>
-      <Template>
-        <div>Login Investidor</div>
-        <LoginForm userType="investor" />
-      </Template>
-    </>
+    <LoginPage
+      loginForm={<LoginForm userType="investor" />}
+      signInAlternative={<SignInAlternative />}
+    />
   );
 }
