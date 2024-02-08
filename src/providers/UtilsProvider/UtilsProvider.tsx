@@ -1,6 +1,6 @@
+"use client";
 import React from "react";
-import {IUtilsContext} from "@/types/utils";
-
+import { IUtilsContext } from "@/types/utils";
 
 const UtilsContext = React.createContext({});
 
@@ -12,6 +12,7 @@ function UtilsProvider(props: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = React.useState(false);
 
   const [step, setStep] = React.useState(0);
+
   const [formInfo, setFormInfo] = React.useState({});
 
   function cleanForm() {

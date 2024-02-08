@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { PrimaryButton } from "@/styled-components/Button.style";
 import Input from "@/components/Input";
@@ -5,7 +6,7 @@ import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useUserContext } from "@/providers/UserProvider";
-import { IUserContext, UserType } from "@/types/user";
+import { IUserContext, UserType } from "@/types/userContext";
 import singlePasswordSchema from "@/schemas/singlePasswordSchema";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";

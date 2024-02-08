@@ -3,7 +3,7 @@ import React from "react";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
 import { ILogin } from "@/types/login";
-import { IUserContext, UserName, UserType } from "@/types/user";
+import { IUserContext, UserName, UserType } from "@/types/userContext";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import { useRouter } from "next/navigation";
