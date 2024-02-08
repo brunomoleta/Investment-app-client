@@ -6,6 +6,7 @@ export type UserType = "admin" | "advisor" | "investor";
 export type UserName = string | null
 
 export interface IUserContext {
+
   userName: UserName;
   setUserName: React.Dispatch<React.SetStateAction<UserName>>;
 
@@ -14,9 +15,6 @@ export interface IUserContext {
 
   isLoggedIn: boolean;
   setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
-
-  isLoading: boolean;
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 
   loginRequest: (formData: ILogin, userType: UserType) => Promise<void>;
 
@@ -27,6 +25,4 @@ export interface IUserContext {
   isPasswordVisible: boolean;
   setIsPasswordVisible: React.Dispatch<React.SetStateAction<boolean>>;
 
-  step: number;
-  setStep: React.Dispatch<React.SetStateAction<number>>;
 }
