@@ -63,3 +63,24 @@
     --s5: calc(var(--s4) * var(--ratio));
 
 }
+input[type='radio'] {
+    width: 40px;
+    height: 40px;
+    accent-color: var(--primary-green);
+    outline: revert;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    outline-offset: 0;
+    padding-inline-end: var(--s2);
+
+    transform: translateY(-0.5em) translateX(1.125em);
+
+}
+
+input[type='radio']:focus{
+    outline: revert;
+    border: 0;
+    outline: 0;
+    outline-offset: 0;
+}

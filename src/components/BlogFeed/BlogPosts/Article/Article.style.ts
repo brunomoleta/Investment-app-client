@@ -3,15 +3,17 @@ import styled from "styled-components";
 import Image from "next/image";
 
 export const StyledArticle = styled.article`
-  background-color: var(--pure-white);
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s0);
-  border-radius: 10px;
+    background-color: var(--pure-white);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s0);
+    border-radius: 10px;
 
-  overflow: hidden;
+    overflow: hidden;
 
-  padding-block-end: var(--s0);
+    padding-block-end: var(--s0);
+
+    box-shadow: 3px 3px 16px 12px var(--grey-200);
 `;
 
 export const ArticleImage = styled(Image)`

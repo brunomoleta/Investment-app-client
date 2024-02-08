@@ -1,38 +1,42 @@
 import styled from "styled-components";
 
-export const Field = styled.fieldset`
+export const StyledField = styled.fieldset`
     border-radius: var(--s-2);
     border: var(--border-thickness) solid transparent;
-    box-shadow: 3px 3px 10px 3px var(--grey-400-t);
-
-    &:focus-within {
-        border: 2px solid var(--primary-blue);
-        box-shadow: 3px 3px 10px 3px var(--primary-green);
-    }
+    
+    max-width: 480px;
 `;
 export const Label = styled.label`
     display: inline-flex;
     cursor: text;
     width: 100%;
+    
+    margin-block-end: var(--s-4);
+    
 `;
 
 export const ErrorSpan = styled.span`
     width: fit-content;
-    color: var(--red-70);
+    color: var(--red-60);
     font-size: var(--font-small);
 `;
 
 export const StyledInput = styled.input`
+    padding-inline-start: var(--s-1);
+    padding-block: var(--s-4);
+    
     border-radius: var(--s-2);
-    border: var(--border-thickness) solid var(--grey-300);
+    outline: var(--border-thickness) solid var(--grey-300);
     background-color: var(--grey-200);
 
+    width: 100%;
     &:focus {
-        
+        outline: 4px solid var(--primary-blue-hover)
     }
+    
 `;
 
-export const PasswordButton = styled.button`
+export const StyledPasswordButton = styled.button`
   background-color: inherit;
   position: absolute;
   top: 0;
