@@ -3,15 +3,19 @@
 
     /*colors*/
     --primary-green: hsl(136, 64%, 51%);
-    --secondary-green: hsl(158, 61%, 49%);
+    --primary-green-hover: hsl(136, 64%, 40%);
+
     --primary-blue: hsl(192, 69%, 51%);
+    --primary-blue-hover: hsl(192, 69%, 40%);
+
+    --secondary-green: hsl(158, 61%, 49%);
 
     --primary-gradient: linear-gradient(to right,
     var(--primary-green),
     var(--primary-blue));
-     --primary-gradient-hover: linear-gradient(to right,
-    var(--primary-blue),
-    var(--primary-green));
+    --primary-gradient-hover: linear-gradient(to right,
+    var(--primary-green-hover),
+    var(--primary-blue-hover));
 
 
     --pure-white: hsl(223, 100%, 100%);
@@ -21,6 +25,11 @@
     --grey-300: hsl(232.5, 8.16%, 61.57%);
     --grey-400: hsl(232.5, 0%, 59%);
     --grey-400-t: hsl(232.5, 0%, 0%, 30%);
+    --red-80: hsla(4, 86%, 36%, 1);
+    --red-70: hsla(4, 86%, 47%, 1);
+    --red-60: hsla(4, 86%, 58%, 1);
+    --red-50: hsla(4, 86%, 66%, 1);
+    --red-40: hsla(4, 86%, 74%, 1);
 
     --blue-100: hsl(231, 26%, 24%);
 

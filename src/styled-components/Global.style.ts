@@ -250,6 +250,9 @@ const GlobalStyles = createGlobalStyle`
         color: var(--grey-400);
     }
 
+    a:disabled, button:disabled {
+        opacity: .6;
+    }
 `;
 
 export default GlobalStyles;
