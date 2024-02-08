@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { PrimaryButton } from "@/styled-components/Button.style";
+import {ButtonStyle, PrimaryButton} from "@/styled-components/Button.style";
 import Input from "@/components/Input";
 import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -51,7 +51,7 @@ function Password({ userType }: { userType: UserType }) {
           {isLoading ? <Spinner /> : "LOGIN"}
         </PrimaryButton>
       </Form>
-      <button onClick={cleanForm}>alterar e-mail</button>
+
     </>
   );
 }
