@@ -7,4 +7,5 @@ export interface ChildrenProps {
 export interface ButtonProps{
   content: string;
   href?: string;
+  isPrimary?: boolean;
 }
