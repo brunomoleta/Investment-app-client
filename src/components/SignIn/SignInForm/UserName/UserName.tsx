@@ -12,7 +12,7 @@ import { PrimaryButton } from "@/styled-components/Button.style";
 import { Upper } from "@/services/service";
 
 function UserName() {
-  const { setStep, step, formInfo, setFormInfo } =
+  const { setStep, setFormInfo } =
     useUtilsContext() as IUtilsContext;
 
   const id = React.useId();
@@ -33,8 +33,6 @@ function UserName() {
 
     setFormInfo({ ...newFormData, name: fullName });
     setStep((prevStep) => prevStep + 1);
-    console.log(fullName);
-    console.log(step);
   }
 
   return (
@@ -55,7 +53,7 @@ function UserName() {
           id={lastNameId}
         />
 
-        <PrimaryButton type="submit">AVANÇAR</PrimaryButton>
+        <PrimaryButton type="submit">Avançar</PrimaryButton>
       </Form>
     </>
   );
