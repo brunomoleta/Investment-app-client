@@ -6,17 +6,20 @@ import { ToastContainer } from "react-toastify";
 import React from "react";
 import "react-toastify/dist/ReactToastify.css";
 import StyledComponentsRegistry from "../../lib/registry";
+import { UtilsProvider } from "@/providers/UtilsProvider";
 
 const Providers = (props: React.PropsWithChildren) => {
   return (
     <>
       <StyledComponentsRegistry>
-        <UserProvider>
-          {props.children}
+        <UtilsProvider>
+          <UserProvider>
+            {props.children}
 
-          <GlobalStyle />
-          <ToastContainer position="bottom-right" autoClose={4 * 1000} />
-        </UserProvider>
+            <GlobalStyle />
+            <ToastContainer position="bottom-right" autoClose={4 * 1000} />
+          </UserProvider>
+        </UtilsProvider>
       </StyledComponentsRegistry>
     </>
   );
