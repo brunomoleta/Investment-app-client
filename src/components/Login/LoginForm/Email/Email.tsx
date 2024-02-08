@@ -1,6 +1,5 @@
+"use client";
 import React from "react";
-import { useUserContext } from "@/providers/UserProvider";
-import { IUserContext } from "@/types/user";
 import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Input from "@/components/Input";
 import { PrimaryButton } from "@/styled-components/Button.style";
@@ -10,9 +9,9 @@ import emailSchema from "@/schemas/emailSchema";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 
-function Email() {
-
-  const { setStep, formInfo, setFormInfo } = useUtilsContext() as IUtilsContext;
+function Email({ isLogin = true }: { isLogin?: boolean }) {
+  const { step, setStep, formInfo, setFormInfo } =
+    useUtilsContext() as IUtilsContext;
 
   const id = React.useId();
   const emailId = `${id}-email`;
@@ -27,7 +26,7 @@ function Email() {
 
   function submit(formData: { email: string }) {
     setFormInfo({ ...formInfo, ...formData });
-    setStep(1);
+    setStep((prevStep) => prevStep + 1);
   }
 
   return (
