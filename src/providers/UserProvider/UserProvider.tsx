@@ -50,7 +50,7 @@ function UserProvider(props: { children: React.ReactNode }) {
         }
       } else {
         console.error("Error:", error);
-        toast.error("An unexpected error occurred :)");
+        toast.error("Verifique sua conexão :)");
       }
     } finally {
       setIsLoading(false);
