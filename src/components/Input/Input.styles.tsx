@@ -6,7 +6,7 @@ export const Field = styled.fieldset`
     box-shadow: 3px 3px 10px 3px var(--grey-400-t);
 
     &:focus-within {
-        border: 2px solid var(--primary-green);
+        border: 2px solid var(--primary-blue);
         box-shadow: 3px 3px 10px 3px var(--primary-green);
     }
 `;
@@ -17,7 +17,9 @@ export const Label = styled.label`
 `;
 
 export const ErrorSpan = styled.span`
-  width: fit-content;
+    width: fit-content;
+    color: var(--red-70);
+    font-size: var(--font-small);
 `;
 
 export const StyledInput = styled.input`
