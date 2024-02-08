@@ -12,17 +12,29 @@ function SignInAlternative({
   href: string;
   isSignin?: boolean;
 }) {
-  const { setStep } = useUtilsContext() as IUtilsContext;
+  const { cleanForm, step } = useUtilsContext() as IUtilsContext;
 
   return (
     <Wrapper>
-      <h2>Não tem uma conta?</h2>
-
-      <Button
-        href={href}
-        isPrimary={false}
-        content={isSignin ? "cadastre-se" : "fazer login"}
-      />
+      {step === 0 ? (
+        <>
+          <h2>{isSignin ? "Ainda não tens uma conta?" : "Já possui uma conta?"}</h2>
+          <Button
+            onClick={cleanForm}
+            href={href}
+            isPrimary={false}
+            content={isSignin ? "cadastre-se" : "entrar"}
+          />
+        </>
+      ) : (
+        <>
+          <Button
+            onClick={cleanForm}
+            isPrimary={false}
+            content={isSignin ? "alterar e-mail" : "voltar ao início"}
+          />
+        </>
+      )}
     </Wrapper>
   );
 }
