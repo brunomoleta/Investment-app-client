@@ -1,5 +1,5 @@
+'use client'
 import styled from 'styled-components';
-
 
 export const ButtonStyle = styled.button`
     font-size: var(--font-small);
