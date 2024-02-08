@@ -8,4 +8,5 @@ export interface ButtonProps{
   content: string;
   href?: string;
   isPrimary?: boolean;
+  onClick?: ()=>void;
 }
