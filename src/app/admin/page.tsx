@@ -1,8 +1,6 @@
 import React from "react";
-import LoginPage from "@/components/LoginPage";
+import LoginPage from "../../components/Login/LoginPage";
 import LoginForm from "@/components/Login/LoginForm";
-import SignInAlternative from "@/components/SignInAlternative";
-
 
 export default function AdminLogin() {
 
@@ -10,7 +8,6 @@ export default function AdminLogin() {
     <>
       <LoginPage
           loginForm={<LoginForm userType="admin" />}
-          signInAlternative={<SignInAlternative />}
       />
     </>
   );

@@ -9,8 +9,8 @@ import emailSchema from "@/schemas/emailSchema";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 
-function Email({ isLogin = true }: { isLogin?: boolean }) {
-  const { step, setStep, formInfo, setFormInfo } =
+function Email() {
+  const { setStep, formInfo, setFormInfo } =
     useUtilsContext() as IUtilsContext;
 
   const id = React.useId();

@@ -26,6 +26,8 @@ interface IUserSignIn extends IAdminSignIn {
   image?: string;
 }
 
+export type IImageOnly = Pick<IUserSignIn, 'image'>;
+
 export interface IAdvisorSignIn extends IUserSignIn {
   experience?: Experience;
 }
