@@ -4,7 +4,9 @@ import { api } from "@/services/api";
 import { toast } from "react-toastify";
 import { ILogin } from "@/types/login";
 import { IUserContext, UserName, UserType } from "@/types/user";
-import { redirect } from "next/navigation";
+import { useUtilsContext } from "@/providers/UtilsProvider";
+import { IUtilsContext } from "@/types/utils";
+import { useRouter } from "next/navigation";
 
 const UserContext = React.createContext({});
 
@@ -13,34 +15,45 @@ function useUserContext() {
 }
 
 function UserProvider(props: { children: React.ReactNode }) {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const router = useRouter();
+  const { setIsLoading, setStep } = useUtilsContext() as IUtilsContext;
 
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
   const [userType, setUserType] = React.useState<UserType>("investor");
   const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
-
-  const [step, setStep] = React.useState(0);
 
   const [userName, setUserName] = React.useState<UserName>(null);
 
   const loginRequest = async (formData: ILogin, userType: UserType) => {
     try {
+      setIsLoading(true);
       const { data } = await api.post(`/session/${userType}`, formData);
       window.localStorage.setItem("@TYPE", JSON.stringify(userType));
       window.localStorage.setItem("@TOKEN", JSON.stringify(data.token));
 
       toast.success("Tu estás logado :)");
 
-      setIsLoggedIn(!isLoggedIn);
       setUserType(userType);
+      setIsLoggedIn(true);
+
+      router.push(`/${userType}/dashboard`);
     } catch (error: any) {
-      if (error.response.status === 404) {
-        toast.error("Por favor verifique sua conexão com a internet :)");
-      } else if (error.response.status === 401) {
-        toast.error("Senha ou e-mail incorreto :)");
+      if (error?.response) {
+        switch (error.response.status) {
+          case 401:
+            toast.error("Senha ou e-mail incorreto :)");
+            break;
+          case 404:
+            toast.error("Por favor verifique sua conexão com a internet :)");
+            break;
+        }
+      } else {
+        console.error("Error:", error);
+        toast.error("An unexpected error occurred :)");
       }
-      console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -61,16 +74,24 @@ function UserProvider(props: { children: React.ReactNode }) {
           Authorization: `Bearer ${userToken}`,
         },
       });
-      toast.success(`Bem vindo ${data.name} :)`)
+      toast.success(`Bem vindo ${data.name} :)`);
       setUserName(data.name);
     } catch (error: any) {
-      if (error.response.status === 404) {
-        toast.error("Conexão inexistente. Por favor prove mais tarde.");
+      if (error?.response) {
+        switch (error.response.status) {
+          case 401:
+            toast.error("Senha ou e-mail incorreto :)");
+            break;
+          case 404:
+            toast.error("Por favor verifique sua conexão com a internet :)");
+            break;
+        }
+      } else {
+        console.error("Error:", error);
+        toast.error("An unexpected error occurred :)");
       }
-      if (error.response.status === 401) {
-        toast.error("Este id não foi encontrado.");
-      }
-      console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -80,7 +101,7 @@ function UserProvider(props: { children: React.ReactNode }) {
 
   function quitAccount(): void {
     localStorage.removeItem("@TOKEN");
-    redirect("/");
+    router.push("/");
   }
 
   const values: IUserContext = {
@@ -95,15 +116,9 @@ function UserProvider(props: { children: React.ReactNode }) {
     userName,
     setUserName,
 
-    step,
-    setStep,
-
     loginRequest,
 
     retrieveUserFromId,
-
-    isLoading,
-    setIsLoading,
 
     setUserType,
     userType,
