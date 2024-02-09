@@ -1,42 +1,19 @@
-export enum Experience {
-  Beginner = "beginner",
-  Intermediate = "intermediate",
-  Advanced = "advanced",
-  Expert = "expert",
-}
+import { IAdmin, IAdvisor, IInvestor, IUser } from "@/types/users";
 
-export enum InvestmentAmount {
-  Starter = "starter",
-  WellRounded = "well-rounded",
-  Multimillionaire = "multimillionaire",
-  Wealthy = "wealthy",
-}
+type LoginCredentials = Pick<IAdmin, "email" | "password">;
 
-export interface ILogin {
-  email?: string;
-  password?: string;
-}
+export interface ILogin extends Partial<LoginCredentials> {}
 
-export interface IAdminSignIn extends ILogin {
-  name?: string;
-}
+export type AdvisorData = Omit<IAdvisor, "id" | "created_at" | "updated_at">;
+export type InvestorData = Omit<IInvestor, "id" | "created_at" | "updated_at">;
 
-interface IUserSignIn extends IAdminSignIn {
-  phone_number?: string;
-  image?: string;
-}
+export interface IAdvisorSignIn extends Partial<AdvisorData> {}
 
-export type IImageOnly = Pick<IUserSignIn, 'image'>;
+export interface IInvestorSignIn extends Partial<InvestorData> {}
 
-export interface IAdvisorSignIn extends IUserSignIn {
-  experience?: Experience;
-}
+export type UserSignIn = ILogin | IAdvisorSignIn | IInvestorSignIn;
 
-export interface IInvestorSignIn extends IUserSignIn {
-  amount?: InvestmentAmount;
-}
-
-export type UserSignIn = ILogin | IAdminSignIn | IAdvisorSignIn | IInvestorSignIn;
+export type IImageOnly = Pick<IUser, "image">;
 
 export interface CustomError {
   response?: {
