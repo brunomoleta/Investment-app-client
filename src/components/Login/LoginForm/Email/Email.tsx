@@ -2,12 +2,12 @@
 import React from "react";
 import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Input from "@/components/Input";
-import { PrimaryButton } from "@/styled-components/Button.style";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import emailSchema from "@/schemas/emailSchema";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
+import Button from "@/components/Button";
 
 function Email() {
   const { setStep, formInfo, setFormInfo } =
@@ -39,7 +39,7 @@ function Email() {
           {...register("email")}
           id={emailId}
         />
-        <PrimaryButton type="submit">Avançar</PrimaryButton>
+        <Button type="submit" content='avançar'/>
       </Form>
     </>
   );

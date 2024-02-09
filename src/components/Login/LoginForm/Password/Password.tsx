@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import {ButtonStyle, PrimaryButton} from "@/styled-components/Button.style";
 import Input from "@/components/Input";
 import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -11,6 +10,7 @@ import singlePasswordSchema from "@/schemas/singlePasswordSchema";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import Spinner from "@/components/Spinner";
+import Button from "@/components/Button";
 
 function Password({ userType }: { userType: UserType }) {
   const { loginRequest, isPasswordVisible } = useUserContext() as IUserContext;
@@ -47,11 +47,11 @@ function Password({ userType }: { userType: UserType }) {
           id={passwordId}
         />
 
-        <PrimaryButton disabled={isLoading}>
-          {isLoading ? <Spinner /> : "LOGIN"}
-        </PrimaryButton>
+        <Button
+          disabled={isLoading}
+          content={isLoading ? <Spinner /> : "LOGIN"}
+        />
       </Form>
-
     </>
   );
 }

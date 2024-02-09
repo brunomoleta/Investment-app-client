@@ -8,12 +8,11 @@ import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Input from "@/components/Input";
-import { PrimaryButton } from "@/styled-components/Button.style";
 import { Upper } from "@/services/service";
+import Button from "@/components/Button";
 
 function UserName() {
-  const { setStep, setFormInfo } =
-    useUtilsContext() as IUtilsContext;
+  const { setStep, setFormInfo } = useUtilsContext() as IUtilsContext;
 
   const id = React.useId();
   const firstNameId = `${id}-firstName`;
@@ -53,7 +52,7 @@ function UserName() {
           id={lastNameId}
         />
 
-        <PrimaryButton type="submit">Avançar</PrimaryButton>
+        <Button type="submit" content="Avançar" />
       </Form>
     </>
   );

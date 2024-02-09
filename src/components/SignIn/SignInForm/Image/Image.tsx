@@ -7,9 +7,9 @@ import Input from "@/components/Input";
 import {
   Optional,
 } from "@/components/SignIn/SignInForm/Image/Image.style";
-import { PrimaryButton } from "@/styled-components/Button.style";
 import { useForm } from "react-hook-form";
 import { IImageOnly } from "@/types/login";
+import Button from "@/components/Button";
 
 function Image() {
   const { setStep, formInfo, setFormInfo } =
@@ -35,7 +35,7 @@ function Image() {
       />
       <Optional>(opcional)</Optional>
 
-      <PrimaryButton type="submit">Avançar</PrimaryButton>
+      <Button type="submit" content='Avançar'/>
     </Form>
   );
 }

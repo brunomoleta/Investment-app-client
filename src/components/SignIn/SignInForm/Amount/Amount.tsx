@@ -5,7 +5,7 @@ import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import { useForm } from "react-hook-form";
 import Input from "@/components/Input";
-import { PrimaryButton } from "@/styled-components/Button.style";
+import Button from "@/components/Button";
 
 export enum InvestmentAmount {
   Starter = "starter",
@@ -32,6 +32,7 @@ function Amount() {
   });
 
   function submit(formData: IAmount) {
+    console.log({ ...formInfo, ...formData })
     setFormInfo({ ...formInfo, ...formData });
     setStep((prevStep) => prevStep + 1);
   }
@@ -77,7 +78,7 @@ function Amount() {
           label="Entre 250 e 1 milhão de reais"
         />
 
-        <PrimaryButton type="submit">Avançar</PrimaryButton>
+        <Button type="submit" content='Avançar'/>
       </Form>
     </>
   );

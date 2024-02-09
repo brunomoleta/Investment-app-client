@@ -8,12 +8,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import phoneNumberSchema from "@/schemas/phoneNumberSchema";
 import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Input from "@/components/Input";
-import { PrimaryButton } from "@/styled-components/Button.style";
-import {handleDigits} from "@/services/service";
+import { handleDigits } from "@/services/service";
+import Button from "@/components/Button";
 
 function PhoneNumber() {
-  const [phoneNumber, setPhoneNumber] = React.useState("");
-
   const { setStep, formInfo, setFormInfo } = useUtilsContext() as IUtilsContext;
 
   const id = React.useId();
@@ -30,18 +28,15 @@ function PhoneNumber() {
 
   function submit(formData: IPhoneNumber) {
     console.log(`ATÉ número`, formData);
-    console.log(`PÓS número`, formInfo);
 
     formData = {
       ...formData,
       phone_number: formData.phone_number.replace(/\D/g, ""),
     };
-    console.log({ ...formInfo, ...formData })
+    console.log(`PÓS número`, { ...formInfo, ...formData });
     setFormInfo({ ...formInfo, ...formData });
     setStep((prevStep) => prevStep + 1);
   }
-
-
 
   return (
     <>
@@ -53,6 +48,7 @@ function PhoneNumber() {
           rules={{ required: true }}
           render={({ field }) => (
             <Input
+              {...register("phone_number")}
               label="número de telefone"
               type="text"
               error={errors.phone_number}
@@ -64,7 +60,7 @@ function PhoneNumber() {
             />
           )}
         />
-        <PrimaryButton type="submit">Avançar</PrimaryButton>
+        <Button type="submit" content="avançar" />
       </Form>
     </>
   );
