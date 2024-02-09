@@ -26,10 +26,10 @@ function AdvisorProvider(props: { children: React.ReactNode }) {
       setIsLoading(true);
       const { data } = await api.get("/advisor", {
         params: {
-          page,
+          page: 1,
         },
       });
-      console.log(data.advisors)
+      console.log(data.advisors);
       setAdvisors(data.advisors);
       setPage((prevPage) => prevPage + 1);
     } catch (error: any) {
@@ -46,14 +46,13 @@ function AdvisorProvider(props: { children: React.ReactNode }) {
     route.push("/meet");
   }
 
-
   const values: IAdvisorContext = {
     getAdvisorsNoAuth,
 
     advisors,
     setAdvisors,
 
-    handleMeetClick
+    handleMeetClick,
   };
   return (
     <AdvisorContext.Provider value={values}>

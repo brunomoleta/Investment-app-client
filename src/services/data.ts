@@ -14,6 +14,7 @@ import ForeignCash from "../assets/images/image-currency.jpg";
 import Restaurant from "../assets/images/image-restaurant.jpg";
 import Airplane from "../assets/images/image-plane.jpg";
 import Confetti from "../assets/images/image-confetti.jpg";
+import {Experience} from "@/components/RenderManyAdvisors/RenderAdvisor";
 
 export const headeritems: string[] = [
   "home",
@@ -157,3 +158,14 @@ export const blogArticles = [
       "Portanto, é com profunda gratidão que expressamos nosso reconhecimento a todos os nossos clientes. Vocês são a razão de nossa existência e o combustível que impulsiona nosso crescimento. Continuaremos empenhados em servi-los da melhor maneira possível, honrando sua confiança e contribuição para o nosso sucesso. Muito obrigado por fazerem parte desta jornada conosco.",
   },
 ];
+
+export function renderExperience(experience: Experience) {
+  if (experience === Experience.Beginner) {
+    return "de até R$ 20 mil";
+  } else if (experience === Experience.Intermediate) {
+    return "entre R$20-50 mil";
+  } else if (experience === Experience.Advanced) {
+    return "entre R$50-250 mil";
+  }
+  return "maiores que R$250 mil";
+}
