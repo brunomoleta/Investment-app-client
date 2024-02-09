@@ -7,6 +7,7 @@ import React from "react";
 import "react-toastify/dist/ReactToastify.css";
 import StyledComponentsRegistry from "../../lib/registry";
 import { UtilsProvider } from "@/providers/UtilsProvider";
+import { AdvisorProvider } from "@/providers/AdvisorProvider";
 
 const Providers = (props: React.PropsWithChildren) => {
   return (
@@ -14,10 +15,12 @@ const Providers = (props: React.PropsWithChildren) => {
       <StyledComponentsRegistry>
         <UtilsProvider>
           <UserProvider>
-            {props.children}
+            <AdvisorProvider>
+              {props.children}
 
-            <GlobalStyle />
-            <ToastContainer position="bottom-right" autoClose={4 * 1000} />
+              <GlobalStyle />
+              <ToastContainer position="bottom-right" autoClose={4 * 1000} />
+            </AdvisorProvider>
           </UserProvider>
         </UtilsProvider>
       </StyledComponentsRegistry>
