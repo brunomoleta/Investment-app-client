@@ -23,7 +23,7 @@ function SignInAlternative({
             onClick={cleanForm}
             href={href}
             isPrimary={false}
-            content={isSignin ? "cadastre-se" : "entrar"}
+            content={isSignin ? "Cadastre-se" : "Entrar"}
           />
         </>
       ) : (

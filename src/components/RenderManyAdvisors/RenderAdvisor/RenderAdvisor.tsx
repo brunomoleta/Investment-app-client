@@ -1,16 +1,13 @@
-import DefaultImage from "../../../assets/illustrations/profile.svg";
 import React from "react";
-import { IAdvisor } from "@/types/users";
+
 import {
-  AdvisorImage,
   Bio,
   Card,
   Highlight,
-  ImageWrapper,
   Li,
-  Line,
 } from "@/components/RenderManyAdvisors/RenderAdvisor/RenderAdvisor.style";
-import AdvisorInfo from "@/components/RenderManyAdvisors/RenderAdvisor/AdvisorInfo";
+import AdvisorCard from "@/components/RenderManyAdvisors/RenderAdvisor/AdvisorCard";
+import { IAdvisor } from "@/types/users";
 
 export enum Experience {
   Beginner = "beginner",
@@ -20,14 +17,12 @@ export enum Experience {
 }
 
 function RenderAdvisor({ advisor }: { advisor: IAdvisor }) {
-  const { bio } = advisor;
-
   return (
     <Li>
       <Card>
-        <AdvisorInfo advisor={advisor} />
+        <AdvisorCard advisor={advisor} />
         <Bio>
-          O que me motiva: <Highlight>{bio}</Highlight>
+          O que me motiva: <Highlight>{advisor.bio}</Highlight>
         </Bio>
       </Card>
     </Li>
@@ -35,3 +30,4 @@ function RenderAdvisor({ advisor }: { advisor: IAdvisor }) {
 }
 
 export default RenderAdvisor;
+
