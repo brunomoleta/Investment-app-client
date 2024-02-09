@@ -13,7 +13,7 @@ function Footer() {
       <SocialMediaIcons />
 
       <FooterAnchors />
-      <Button content="entrar" />
+      <Button href={"/investor"} content="entrar" />
       <p>© Easybank 2024. Todos os direitos reservados.</p>
     </StyledFooter>
   );
