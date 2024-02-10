@@ -9,17 +9,6 @@ import Button from "@/components/Button";
 import {useAdvisorContext} from "@/providers/AdvisorProvider";
 import {IAdvisorContext} from "@/types/advisorContext";
 
-export enum InvestmentAmount {
-  Starter = "starter",
-  WellRounded = "well-rounded",
-  Multimillionaire = "multimillionaire",
-  Wealthy = "wealthy",
-}
-
-interface IAmount {
-  amount: InvestmentAmount;
-}
-
 function Amount() {
   const { setStep, formInfo, setFormInfo } = useUtilsContext() as IUtilsContext;
   const { getAdvisorsNoAuth } = useAdvisorContext() as IAdvisorContext;
@@ -88,3 +77,14 @@ function Amount() {
 }
 
 export default Amount;
+
+export enum InvestmentAmount {
+  Starter = "starter",
+  WellRounded = "well-rounded",
+  Multimillionaire = "multimillionaire",
+  Wealthy = "wealthy",
+}
+
+interface IAmount {
+  amount: InvestmentAmount;
+}

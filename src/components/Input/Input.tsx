@@ -3,19 +3,21 @@ import { ErrorSpan, Label, StyledInput } from "@/components/Input/Input.styles";
 import { IInput } from "@/types/input";
 import PasswordButton from "@/components/Input/PasswordButton";
 import Field from "@/components/Input/Field";
-import { isStringFunction, Upper } from "@/services/service";
+import { isStringFunction } from "@/services/service";
 
 const Input = React.forwardRef(
   (
     { error, id, type = "text", label, ...delegated }: IInput,
     ref: React.ForwardedRef<HTMLInputElement>
   ) => {
-    const lowerCaseLabel = (label: string | React.ReactNode): string | React.ReactNode => {
+    const lowerCaseLabel = (
+      label: string | React.ReactNode
+    ): string | React.ReactNode => {
       if (typeof label === "string" && label.toLowerCase().includes("senha")) {
-        return <PasswordButton type={type}/>
+        return <PasswordButton type={type} />;
       }
-      return null
-    }
+      return null;
+    };
     return (
       <>
         <Field type={type}>

@@ -5,7 +5,7 @@ function Field({
   type,
   children,
 }: {
-  type: string;
+  type?: string;
   children: React.ReactNode;
 }) {
   return (

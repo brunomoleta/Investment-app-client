@@ -1,11 +1,13 @@
-import {ILogin, UserSignIn} from "@/types/login";
+import { ILogin } from "@/types/login";
 import React from "react";
 
 export type UserType = "admin" | "advisor" | "investor";
 
-export type UserName = string | null
+export type UserName = string | null;
 
 export interface IUserContext {
+  renderUserType: (UserType) => string;
+
   signUpRequest: (UserSignIn) => Promise<void>;
 
   userName: UserName;
@@ -20,10 +22,9 @@ export interface IUserContext {
   loginRequest: (formData: ILogin, userType: UserType) => Promise<void>;
 
   quitAccount: () => void;
-  retrieveUserFromId:()=> void;
+  retrieveUserFromId: () => void;
 
   changePasswordVisibility: () => void;
   isPasswordVisible: boolean;
   setIsPasswordVisible: React.Dispatch<React.SetStateAction<boolean>>;
-
 }

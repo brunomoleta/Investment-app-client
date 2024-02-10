@@ -32,7 +32,6 @@ function PhoneNumber() {
       ...formData,
       phone_number: formData.phone_number.replace(/\D/g, ""),
     };
-    console.log(`PÓS número`, { ...formInfo, ...formData });
     setFormInfo({ ...formInfo, ...formData });
     setStep((prevStep) => prevStep + 1);
   }
