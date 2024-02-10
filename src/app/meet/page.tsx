@@ -8,6 +8,7 @@ import { IUtilsContext } from "@/types/utils";
 import Spinner from "@/components/Spinner";
 import {Heading} from "@/components/HomePage/WhyUs/WhyUsText/WhyUsText.style";
 import RenderManyAdvisors from "@/components/RenderManyAdvisors";
+import {MainWrapper} from "@/components/RenderManyAdvisors/ManyAdvisors.style";
 
 function MeetAdvisors() {
   const { getAdvisorsNoAuth } = useAdvisorContext() as IAdvisorContext;
@@ -24,8 +25,10 @@ function MeetAdvisors() {
   }, []);
   return (
     <Template>
+      <MainWrapper>
         <Heading>Nossos Especialistas</Heading>
         {isLoading ? <Spinner /> : <RenderManyAdvisors />}
+      </MainWrapper>
 
     </Template>
   );

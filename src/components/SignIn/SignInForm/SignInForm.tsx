@@ -7,7 +7,6 @@ import Email from "@/components/Login/LoginForm/Email";
 import PhoneNumber from "@/components/SignIn/SignInForm/PhoneNumber";
 import Image from "@/components/SignIn/SignInForm/Image";
 import Amount from "@/components/SignIn/SignInForm/Amount";
-import Confirmation from "@/components/SignIn/SignInForm/Confirmation";
 import DoublePassword from "@/components/SignIn/SignInForm/DoublePassword";
 import { UserType } from "@/types/userContext";
 import ChooseAdvisor from "@/components/SignIn/SignInForm/ChooseAdvisor";
@@ -23,8 +22,7 @@ function SignInForm({ userType }: { userType: UserType }) {
       {step === 3 && <Image />}
       {step === 4 && <Amount />}
       {step === 5 && <ChooseAdvisor />}
-      {step === 6 && <Confirmation />}
-      {step === 7 && <DoublePassword userType={userType} />}
+      {step === 6 && <DoublePassword />}
     </>
   );
 }

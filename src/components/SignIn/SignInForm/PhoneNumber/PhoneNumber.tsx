@@ -27,7 +27,6 @@ function PhoneNumber() {
   });
 
   function submit(formData: IPhoneNumber) {
-    console.log(`ATÉ número`, formData);
 
     formData = {
       ...formData,
@@ -60,7 +59,7 @@ function PhoneNumber() {
             />
           )}
         />
-        <Button type="submit" content="avançar" />
+        <Button type="submit" content="Avançar" />
       </Form>
     </>
   );

@@ -1,7 +1,6 @@
 'use client'
 import styled from 'styled-components';
-import Link from 'next/link';
-export const LogoStyle = styled(Link)`
+export const LogoStyle = styled.button`
     min-width: fit-content;
     margin-inline-end: auto;
 `

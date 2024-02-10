@@ -39,7 +39,7 @@ function Email() {
           {...register("email")}
           id={emailId}
         />
-        <Button type="submit" content='avançar'/>
+        <Button type="submit" content='Avançar'/>
       </Form>
     </>
   );
