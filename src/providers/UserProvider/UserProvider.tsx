@@ -7,6 +7,7 @@ import { IUserContext, UserName, UserType } from "@/types/userContext";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import { useRouter } from "next/navigation";
+import { Upper } from "@/services/service";
 
 const UserContext = React.createContext({});
 
@@ -109,13 +110,16 @@ function UserProvider(props: { children: React.ReactNode }) {
       setUserName(data.name);
     } catch (error: any) {
       if (error?.response) {
-        switch (error.response.status) {
+        switch (error.response.statusCode) {
           case 401:
             toast.error("Senha ou e-mail incorreto :)");
             break;
           case 404:
             toast.error("Por favor verifique sua conexão com a internet :)");
             break;
+          case 400:
+            console.log(error.message)
+            toast.error("Erro no envio de dados")
         }
       } else {
         console.error("Error:", error);
@@ -135,7 +139,19 @@ function UserProvider(props: { children: React.ReactNode }) {
     router.push("/");
   }
 
+  function renderUserType(user: UserType | null) {
+    if (user === "advisor") {
+      return Upper("assessor");
+    }
+    if (user === "investor") {
+      return Upper("investidor");
+    } else {
+      return Upper("admin");
+    }
+  }
+
   const values: IUserContext = {
+    renderUserType,
     signUpRequest,
 
     isLoggedIn,
