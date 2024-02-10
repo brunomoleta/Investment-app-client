@@ -12,7 +12,7 @@ function Header() {
       <StyledHeader>
         <Logo src={EasyBank} />
         <HeaderItems />
-        <Button href={"/investor"} content="Entrar" />
+        <Button href={"/choose-user"} content="Entrar" />
       </StyledHeader>
     </>
   );
