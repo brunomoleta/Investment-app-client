@@ -4,7 +4,12 @@ const nextConfig = {
         styledComponents: true
     },
     images: {
-        domains: ['images.squarespace-cdn.com']
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'images.squarespace-cdn.com'
+            }
+        ]
     }
 };
 
