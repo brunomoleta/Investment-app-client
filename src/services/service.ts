@@ -1,3 +1,5 @@
+import React from "react";
+
 export const Upper = (word: string) => word.charAt(0).toUpperCase()
   + word.slice(1).toLowerCase();
 
@@ -26,3 +28,12 @@ export function handleDigits(value: string) {
 
     return value;
 }
+
+export const isStringFunction = (input: string | React.ReactNode): string | React.ReactNode => {
+    if (typeof input === "string") {
+        return Upper(input);
+    }
+    return input;
+}
+
+
