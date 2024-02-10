@@ -6,6 +6,8 @@ import { IUtilsContext } from "@/types/utils";
 import { useForm } from "react-hook-form";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
+import {useAdvisorContext} from "@/providers/AdvisorProvider";
+import {IAdvisorContext} from "@/types/advisorContext";
 
 export enum InvestmentAmount {
   Starter = "starter",
@@ -20,6 +22,7 @@ interface IAmount {
 
 function Amount() {
   const { setStep, formInfo, setFormInfo } = useUtilsContext() as IUtilsContext;
+  const { getAdvisorsNoAuth } = useAdvisorContext() as IAdvisorContext;
 
   const id = React.useId();
   const starterId = `${id}-${InvestmentAmount.Starter}}`;
@@ -31,10 +34,10 @@ function Amount() {
     defaultValues: { amount: InvestmentAmount.Starter },
   });
 
-  function submit(formData: IAmount) {
-    console.log({ ...formInfo, ...formData })
+  async function submit(formData: IAmount) {
     setFormInfo({ ...formInfo, ...formData });
     setStep((prevStep) => prevStep + 1);
+    await getAdvisorsNoAuth()
   }
 
   return (

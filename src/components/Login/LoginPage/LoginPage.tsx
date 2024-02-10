@@ -5,7 +5,7 @@ import { Heading, Main } from "@/components/Login/LoginPage/LoginPage.style";
 
 function LoginPage({
   loginForm,
-  isLogin=true,
+  isLogin = true,
   signInAlternative,
 }: Props): React.ReactElement {
   return (
