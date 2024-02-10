@@ -43,7 +43,7 @@ function PhoneNumber() {
       <Form onSubmit={handleSubmit(submit)}>
         <Controller
           name="phone_number"
-          control={control} // use it here
+          control={control}
           defaultValue=""
           rules={{ required: true }}
           render={({ field }) => (

@@ -1,7 +1,9 @@
+import {MainWrapper} from "@/components/RenderManyAdvisors/ManyAdvisors.style";
+
 export default function InvestorLogin() {
     return (
-        <main>
+        <MainWrapper>
             DASHBOARD DE INVESTIDOR
-        </main>
+        </MainWrapper>
     );
 }

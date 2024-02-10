@@ -6,7 +6,6 @@ import { useAdvisorContext } from "@/providers/AdvisorProvider";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import Spinner from "@/components/Spinner";
-import { MainWrapper } from "@/components/RenderManyAdvisors/ManyAdvisors.style";
 import {Heading} from "@/components/HomePage/WhyUs/WhyUsText/WhyUsText.style";
 import RenderManyAdvisors from "@/components/RenderManyAdvisors";
 
@@ -25,10 +24,9 @@ function MeetAdvisors() {
   }, []);
   return (
     <Template>
-      <MainWrapper>
         <Heading>Nossos Especialistas</Heading>
         {isLoading ? <Spinner /> : <RenderManyAdvisors />}
-      </MainWrapper>
+
     </Template>
   );
 }
