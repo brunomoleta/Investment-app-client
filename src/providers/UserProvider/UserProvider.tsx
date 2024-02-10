@@ -2,7 +2,7 @@
 import React from "react";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
-import { ILogin } from "@/types/login";
+import { ILogin, UserSignIn } from "@/types/login";
 import { IUserContext, UserName, UserType } from "@/types/userContext";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
@@ -38,6 +38,37 @@ function UserProvider(props: { children: React.ReactNode }) {
       setIsLoggedIn(true);
 
       router.push(`/${userType}/dashboard`);
+    } catch (error: any) {
+      if (error?.response) {
+        switch (error.response.status) {
+          case 401:
+            toast.error("Senha ou e-mail incorreto :)");
+            break;
+          case 404:
+            toast.error("Por favor verifique sua conexão com a internet :)");
+            break;
+        }
+      } else {
+        console.error("Error:", error);
+        toast.error("Verifique sua conexão :)");
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const signUpRequest = async (formData: UserSignIn): Promise<void> => {
+    try {
+      setIsLoading(true);
+
+      const { data } = await api.post(`/${userType}`, formData);
+
+      toast.success(`Cadastro realizado com sucesso :)`);
+
+      setIsLoggedIn(true);
+
+      setStep(0);
+      router.push(`/${userType}`);
     } catch (error: any) {
       if (error?.response) {
         switch (error.response.status) {
@@ -105,6 +136,8 @@ function UserProvider(props: { children: React.ReactNode }) {
   }
 
   const values: IUserContext = {
+    signUpRequest,
+
     isLoggedIn,
     setIsLoggedIn,
 

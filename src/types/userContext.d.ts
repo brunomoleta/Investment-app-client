@@ -1,4 +1,4 @@
-import { ILogin } from "@/types/login";
+import {ILogin, UserSignIn} from "@/types/login";
 import React from "react";
 
 export type UserType = "admin" | "advisor" | "investor";
@@ -6,6 +6,7 @@ export type UserType = "admin" | "advisor" | "investor";
 export type UserName = string | null
 
 export interface IUserContext {
+  signUpRequest: (UserSignIn) => Promise<void>;
 
   userName: UserName;
   setUserName: React.Dispatch<React.SetStateAction<UserName>>;
