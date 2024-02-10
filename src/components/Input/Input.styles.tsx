@@ -1,3 +1,4 @@
+'use client'
 import styled from "styled-components";
 
 export const StyledField = styled.fieldset`
@@ -8,7 +9,7 @@ export const StyledField = styled.fieldset`
 `;
 export const Label = styled.label`
     display: inline-flex;
-    cursor: text;
+    cursor: pointer;
     width: 100%;
     
     margin-block-end: var(--s-4);
