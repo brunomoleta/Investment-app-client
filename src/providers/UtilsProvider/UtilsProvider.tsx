@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { IUtilsContext } from "@/types/utils";
+import {useRouter} from "next/navigation";
 
 const UtilsContext = React.createContext({});
 
@@ -9,9 +10,12 @@ function useUtilsContext() {
 }
 
 function UtilsProvider(props: { children: React.ReactNode }) {
+  const router = useRouter()
+
   const [isLoading, setIsLoading] = React.useState(false);
 
   const [step, setStep] = React.useState(0);
+  const [page, setPage] = React.useState(1);
 
   const [formInfo, setFormInfo] = React.useState({});
 
@@ -20,9 +24,19 @@ function UtilsProvider(props: { children: React.ReactNode }) {
     setFormInfo({});
   }
 
+  function logoClick() {
+    cleanForm()
+    router.push('/')
+  }
+
   const values: IUtilsContext = {
+    logoClick,
+
     step,
     setStep,
+
+    page,
+    setPage,
 
     formInfo,
     setFormInfo,

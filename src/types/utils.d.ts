@@ -7,9 +7,14 @@ export interface IUtilsContext {
 
   cleanForm: () => void;
 
+  logoClick: () => void;
+
   isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 
+
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
 }
