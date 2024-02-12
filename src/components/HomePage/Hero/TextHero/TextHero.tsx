@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import { HomeHero } from "@/services/data";
 import Button from "@/components/Button";
