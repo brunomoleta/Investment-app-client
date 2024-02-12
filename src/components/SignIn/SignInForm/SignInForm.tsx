@@ -12,7 +12,7 @@ import { UserType } from "@/types/userContext";
 import ChooseAdvisor from "@/components/SignIn/SignInForm/ChooseAdvisor";
 import Experience from "@/components/SignIn/SignInForm/Experience";
 import AdvisorBio from "@/components/SignIn/SignInForm/AdvisorBio";
-import AdvisorSpeciality from "@/components/AdvisorSpeciality";
+import ChooseSpeciality from "@/components/SignIn/ChooseSpeciality";
 
 function SignInForm({ userType }: { userType: UserType }) {
   const { step } = useUtilsContext() as IUtilsContext;
@@ -31,8 +31,7 @@ function SignInForm({ userType }: { userType: UserType }) {
       {step === 5 && userType === "advisor" && <AdvisorBio />}
 
       {step === 6 && userType === "investor" && <DoublePassword />}
-      {step === 6 && userType === "advisor" && <AdvisorSpeciality />}
-
+      {step === 6 && userType === "advisor" && <ChooseSpeciality />}
 
       {step === 7 && userType === "advisor" && <DoublePassword />}
     </>

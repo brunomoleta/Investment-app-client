@@ -18,6 +18,7 @@ export interface IAdvisor extends IUser {
   experience: Experience;
   bio: string;
   speciality: { type_name: string };
+  speciality_id: string;
 }
 
 export interface IInvestor extends IUser {
