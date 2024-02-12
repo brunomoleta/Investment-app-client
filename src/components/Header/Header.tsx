@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import HeaderItems from "@/components/Header/HeaderItems";
 import { StyledHeader } from "@/components/Header/Header.styles";
