@@ -103,7 +103,7 @@ function UserProvider(props: { children: React.ReactNode }) {
     try {
       setIsLoading(true)
       if (!token || !savedUserType) {
-        return;
+        router.push('/')
       }
 
       const { data } = await api.get(`/${savedUserType}/id`, {
