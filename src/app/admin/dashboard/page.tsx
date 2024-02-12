@@ -1,7 +1,8 @@
-import useAuth from "@/hooks/useAuth";
+"use client";
+import useRetrieveUser from "@/hooks/useRetrieveUser";
 
 export default function AdminDashboard() {
-  useAuth();
+  useRetrieveUser();
 
   return <div>ADMIN</div>;
 }
