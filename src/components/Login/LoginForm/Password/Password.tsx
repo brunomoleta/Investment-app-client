@@ -28,10 +28,7 @@ function Password({ userType }: { userType: UserType }) {
     resolver: zodResolver(singlePasswordSchema),
   });
 
-  console.log(userType);
-
   async function submit(formData: { password: string }) {
-    console.log({ ...formInfo, ...formData });
     await loginRequest({ ...formInfo, ...formData }, userType);
     cleanForm();
   }
