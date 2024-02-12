@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-    padding-block-start: var(--s3);
+    padding-block-start: var(--s2);
     display: flex;
     flex-flow: column;
     align-items: center;
