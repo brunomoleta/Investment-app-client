@@ -44,3 +44,21 @@ export const PrimaryButton = styled(ButtonStyle)`
         outline-offset: 2px;
     }
 `;
+
+export const QuitButton = styled.button`
+  color: var(--red-60);
+  font-weight: 500;
+
+  &:hover {
+    color: var(--red-60);
+    outline: 2px solid var(--red-60);
+  }
+  &:active {
+    color: var(--red-60);
+    outline: 2px solid var(--red-60);
+  }
+  &:focus {
+    color: var(--red-60);
+    outline: 2px solid var(--red-60);
+  }
+`;

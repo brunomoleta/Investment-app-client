@@ -14,9 +14,10 @@ export const AdvisorList = styled.ol`
 `;
 
 export const MainWrapper = styled.main`
+  background-color:var(--grey-100);
   display: grid;
   place-content: center;
-  margin-block: var(--s2);
+  padding-block: var(--s2);
 
   padding-inline: clamp(var(--s-3), 8%, var(--s2));
 `;
