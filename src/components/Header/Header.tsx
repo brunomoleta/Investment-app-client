@@ -2,9 +2,9 @@
 import React from "react";
 import HeaderItems from "@/components/Header/HeaderItems";
 import { StyledHeader } from "@/components/Header/Header.styles";
-import Button from "@/components/Button";
 import Logo from "@/components/Logo";
 import EasyBank from "../../assets/images/logo.svg";
+import AccessButton from "@/components/Button/AccessButton";
 
 function Header() {
   return (
@@ -12,7 +12,7 @@ function Header() {
       <StyledHeader>
         <Logo src={EasyBank} />
         <HeaderItems />
-        <Button href={"/choose-user"} content="Entrar" />
+        <AccessButton/>
       </StyledHeader>
     </>
   );
