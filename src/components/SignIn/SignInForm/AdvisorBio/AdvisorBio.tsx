@@ -8,9 +8,13 @@ import advisorBioSchema from "@/schemas/advisorBioSchema";
 import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Button from "@/components/Button";
 import Textarea from "@/components/Input/Textarea";
+import { useInvestmentTypeContext } from "@/providers/InvestmentTypeProvider";
+import { IInvestmentTypesContext } from "@/types/investmentType";
 
 function AdvisorBio() {
   const { setStep, formInfo, setFormInfo } = useUtilsContext() as IUtilsContext;
+  const { getInvestmentTypesNoAuth } =
+    useInvestmentTypeContext() as IInvestmentTypesContext;
 
   const id = React.useId();
   const bioId = `${id}-bio`;
@@ -23,9 +27,10 @@ function AdvisorBio() {
     resolver: zodResolver(advisorBioSchema),
   });
 
-  function onSubmit(formData: IBio) {
+  async function onSubmit(formData: IBio) {
     setFormInfo({ ...formInfo, ...formData });
     setStep((prevStep) => prevStep + 1);
+    await getInvestmentTypesNoAuth();
   }
 
   return (
