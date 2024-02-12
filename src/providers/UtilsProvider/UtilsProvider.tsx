@@ -12,6 +12,7 @@ function useUtilsContext() {
 function UtilsProvider(props: { children: React.ReactNode }) {
   const router = useRouter()
 
+  const [isModalOpen, setIsModalOpen] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(false);
 
   const [step, setStep] = React.useState(0);
@@ -31,6 +32,9 @@ function UtilsProvider(props: { children: React.ReactNode }) {
 
   const values: IUtilsContext = {
     logoClick,
+
+    isModalOpen,
+    setIsModalOpen,
 
     step,
     setStep,
