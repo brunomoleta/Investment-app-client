@@ -1,5 +1,5 @@
 import React from "react";
-import { IUserContext } from "@/types/userContext";
+import { IUserContext, UserType } from "@/types/userContext";
 import { useUserContext } from "@/providers/UserProvider";
 import { IUtilsContext } from "@/types/utils";
 import { useUtilsContext } from "@/providers/UtilsProvider";
@@ -9,16 +9,17 @@ import { useForm } from "react-hook-form";
 import Button from "@/components/Button";
 import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Input from "@/components/Input";
+import { useRouter } from "next/navigation";
 
 function DoublePassword() {
-  const { setIsPasswordVisible, isPasswordVisible, signUpRequest } =
+  const { setIsPasswordVisible, userType, isPasswordVisible, signUpRequest } =
     useUserContext() as IUserContext;
   const { formInfo } = useUtilsContext() as IUtilsContext;
 
   const id = React.useId();
   const passwordId = `${id}-password`;
   const confirmPasswordId = `${id}-confirm-password`;
-
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -31,6 +32,8 @@ function DoublePassword() {
     await signUpRequest({ ...formInfo, password: formData.password });
 
     setIsPasswordVisible(false);
+
+    router.push(`/${userType}`);
   }
 
   return (
