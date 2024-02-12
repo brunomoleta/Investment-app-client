@@ -17,7 +17,7 @@ function useUserContext() {
 
 function UserProvider(props: { children: React.ReactNode }) {
   const router = useRouter();
-  const { setIsLoading, setStep } = useUtilsContext() as IUtilsContext;
+  const { cleanForm, setIsLoading } = useUtilsContext() as IUtilsContext;
 
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
@@ -26,9 +26,21 @@ function UserProvider(props: { children: React.ReactNode }) {
 
   const [userName, setUserName] = React.useState<UserName>(null);
 
+  function renderUserType(user: UserType | null) {
+    if (user === "advisor") {
+      return Upper("assessor");
+    }
+    if (user === "investor") {
+      return Upper("investidor");
+    } else {
+      return Upper("admin");
+    }
+  }
+
   const loginRequest = async (formData: ILogin, userType: UserType) => {
     try {
       setIsLoading(true);
+
       const { data } = await api.post(`/session/${userType}`, formData);
       window.localStorage.setItem("@TYPE", JSON.stringify(userType));
       window.localStorage.setItem("@TOKEN", JSON.stringify(data.token));
@@ -36,7 +48,6 @@ function UserProvider(props: { children: React.ReactNode }) {
       toast.success("Tu estás logado :)");
 
       setUserType(userType);
-      setIsLoggedIn(true);
 
       router.push(`/${userType}/dashboard`);
     } catch (error: any) {
@@ -55,6 +66,7 @@ function UserProvider(props: { children: React.ReactNode }) {
       }
     } finally {
       setIsLoading(false);
+      cleanForm();
     }
   };
 
@@ -62,13 +74,10 @@ function UserProvider(props: { children: React.ReactNode }) {
     try {
       setIsLoading(true);
 
-      const { data } = await api.post(`/${userType}`, formData);
+      await api.post(`/${userType}`, formData);
 
       toast.success(`Cadastro realizado com sucesso :)`);
 
-      setIsLoggedIn(true);
-
-      setStep(0);
       router.push(`/${userType}`);
     } catch (error: any) {
       if (error?.response) {
@@ -85,29 +94,29 @@ function UserProvider(props: { children: React.ReactNode }) {
         toast.error("Verifique sua conexão :)");
       }
     } finally {
+      cleanForm();
       setIsLoading(false);
     }
   };
 
-  async function retrieveUserFromId() {
+  async function retrieveUserFromId(token: string, savedUserType: string) {
     try {
-      const savedToken = window.localStorage.getItem("@TOKEN");
-      const savedType = window.localStorage.getItem("@TYPE");
-
-      if (!savedToken || !savedType) {
+      setIsLoading(true)
+      if (!token || !savedUserType) {
         return;
       }
 
-      const userToken = JSON.parse(savedToken);
-      const userType = JSON.parse(savedType);
-
-      const { data } = await api.get(`/${userType}/id`, {
+      const { data } = await api.get(`/${savedUserType}/id`, {
         headers: {
-          Authorization: `Bearer ${userToken}`,
+          Authorization: `Bearer ${token}`,
         },
       });
+
       toast.success(`Bem vindo ${data.name} :)`);
-      setUserName(data.name);
+      setUserName(data.name)
+
+      window.localStorage.setItem("@NAME", JSON.stringify(data.name))
+
     } catch (error: any) {
       if (error?.response) {
         switch (error.response.statusCode) {
@@ -118,8 +127,8 @@ function UserProvider(props: { children: React.ReactNode }) {
             toast.error("Por favor verifique sua conexão com a internet :)");
             break;
           case 400:
-            console.log(error.message)
-            toast.error("Erro no envio de dados")
+            console.log(error.message);
+            toast.error("Erro no envio de dados");
         }
       } else {
         console.error("Error:", error);
@@ -135,22 +144,33 @@ function UserProvider(props: { children: React.ReactNode }) {
   }
 
   function quitAccount(): void {
-    localStorage.removeItem("@TOKEN");
+    window.localStorage.removeItem("@TOKEN");
+    window.localStorage.removeItem("@TYPE");
+    window.localStorage.removeItem("@NAME");
+
     router.push("/");
   }
 
-  function renderUserType(user: UserType | null) {
-    if (user === "advisor") {
-      return Upper("assessor");
+
+  function getIsLoggedIn() {
+    const savedToken = window.localStorage.getItem("@TOKEN");
+    const savedUserType = window.localStorage.getItem("@TYPE");
+
+    if (!savedToken || !savedUserType) {
+      router.push("/choose-user");
+      return;
     }
-    if (user === "investor") {
-      return Upper("investidor");
-    } else {
-      return Upper("admin");
-    }
+
+    const userType = JSON.parse(savedUserType);
+    router.push(`/${userType}/dashboard`)
+
   }
 
   const values: IUserContext = {
+    retrieveUserFromId,
+
+    getIsLoggedIn,
+
     renderUserType,
     signUpRequest,
 
@@ -166,8 +186,6 @@ function UserProvider(props: { children: React.ReactNode }) {
     setUserName,
 
     loginRequest,
-
-    retrieveUserFromId,
 
     setUserType,
     userType,

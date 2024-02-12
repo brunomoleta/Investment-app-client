@@ -6,6 +6,8 @@ export type UserType = "admin" | "advisor" | "investor";
 export type UserName = string | null;
 
 export interface IUserContext {
+  retrieveUserFromId: (string, string) => Promise<void>;
+
   renderUserType: (UserType) => string;
 
   signUpRequest: (UserSignIn) => Promise<void>;
@@ -22,9 +24,11 @@ export interface IUserContext {
   loginRequest: (formData: ILogin, userType: UserType) => Promise<void>;
 
   quitAccount: () => void;
-  retrieveUserFromId: () => void;
+  // retrieveUserFromId: () => void;
 
   changePasswordVisibility: () => void;
   isPasswordVisible: boolean;
   setIsPasswordVisible: React.Dispatch<React.SetStateAction<boolean>>;
+
+  getIsLoggedIn: () => void;
 }
