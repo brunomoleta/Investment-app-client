@@ -3,7 +3,7 @@ import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import { useUserContext } from "@/providers/UserProvider";
 import { IUserContext } from "@/types/userContext";
-import {QuitButton} from "@/styled-components/Button.style";
+import { QuitButton } from "@/styled-components/Button.style";
 
 function FinishSession() {
   const { setIsModalOpen } = useUtilsContext() as IUtilsContext;
@@ -11,7 +11,14 @@ function FinishSession() {
   return (
     <>
       <button onClick={() => setIsModalOpen(false)}>cancelar</button>
-      <QuitButton onClick={quitAccount}>sim</QuitButton>
+      <QuitButton
+        onClick={() => {
+          quitAccount();
+          setIsModalOpen(false);
+        }}
+      >
+        sim
+      </QuitButton>
     </>
   );
 }
