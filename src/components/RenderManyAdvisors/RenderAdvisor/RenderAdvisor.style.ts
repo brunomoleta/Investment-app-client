@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
 import styled from "styled-components";
 import Image from "next/image";
-import {StyledArticle} from "@/components/BlogFeed/BlogPosts/Article/Article.style";
+import { StyledArticle } from "@/components/BlogFeed/BlogPosts/Article/Article.style";
 
 export const Li = styled.li`
     width: fit-content;
@@ -28,7 +28,7 @@ export const Line = styled.hr`
     
 `
 
-export const AdvisorImage = styled(Image)`
+export const CardImage = styled(Image)`
     border-radius: 100%;
     object-fit: cover;
     object-position: top;

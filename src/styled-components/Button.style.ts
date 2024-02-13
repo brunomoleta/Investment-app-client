@@ -43,6 +43,10 @@ export const PrimaryButton = styled(ButtonStyle)`
         outline: 4px solid var(--primary-blue-hover);
         outline-offset: 2px;
     }
+    &:active {
+        outline: 4px solid var(--primary-green);
+        outline-offset: 4px;
+    }
 `;
 
 export const QuitButton = styled.button`

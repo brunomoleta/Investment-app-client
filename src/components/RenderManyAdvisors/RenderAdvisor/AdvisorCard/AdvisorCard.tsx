@@ -1,9 +1,6 @@
 import React from "react";
 import {
-  AdvisorImage,
-  Bio,
-  Card,
-  Highlight,
+  CardImage,
   ImageWrapper,
 } from "@/components/RenderManyAdvisors/RenderAdvisor/RenderAdvisor.style";
 import AdvisorInfo from "@/components/RenderManyAdvisors/RenderAdvisor/AdvisorCard/AdvisorInfo";
@@ -18,7 +15,7 @@ function AdvisorCard({ advisor }: { advisor: IAdvisor }) {
   return (
     <MainInfoWrapper>
       <ImageWrapper>
-        <AdvisorImage
+        <CardImage
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           fill={true}
           src={advisorImage}
