@@ -5,6 +5,7 @@ import { IUserContext } from "@/types/userContext";
 import { IFullAdvisor, IInvestor } from "@/types/users";
 import InvestorItem from "@/components/Dashboard/InvestorsList/InvestorItem";
 import Spinner from "@/components/Spinner";
+import { PostsUl } from "@/components/BlogFeed/BlogPosts/BlogPosts.style";
 
 function InvestorsList() {
   const { activeUser } = useUserContext() as IUserContext;
@@ -17,11 +18,11 @@ function InvestorsList() {
 
   if (activeUser) {
     return (
-      <ul>
+      <PostsUl as="ol">
         {investors.map((investor: IInvestor) => (
-          <InvestorItem key={investor.id} investor={investor} />
+            <InvestorItem key={investor.id} investor={investor} />
         ))}
-      </ul>
+      </PostsUl>
     );
   }
 }
