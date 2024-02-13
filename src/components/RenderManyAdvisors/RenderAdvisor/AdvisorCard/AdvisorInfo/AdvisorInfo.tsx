@@ -2,14 +2,14 @@ import React from "react";
 import {
   Highlight,
 } from "@/components/RenderManyAdvisors/RenderAdvisor/RenderAdvisor.style";
-import { Upper } from "@/services/service";
+import {renderExperience, Upper} from "@/services/service";
 import { IAdvisor } from "@/types/users";
 import {
   Exp,
   Name,
   Speciality,
 } from "@/components/RenderManyAdvisors/RenderAdvisor/AdvisorCard/AdvisorInfo/AdvisorInfo.style";
-import { renderExperience } from "@/services/data";
+
 
 
 function AdvisorInfo({ advisor }: { advisor: IAdvisor }) {
