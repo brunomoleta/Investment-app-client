@@ -20,31 +20,26 @@ export const DDescription = styled(Dialog.Description)`
 export const DContent = styled(Dialog.Content)`
     display: grid;
     place-items: center;
-    gap: clamp(1svh, 2svh, 32px);
+    gap: var(--s2);
 
     background-color: white;
-    border-radius: 0px;
+
     box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px hsl(206 22% 7% / 20%) 0 10px 20px -15px;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-    width: 100%;
-    height: 100%;
-
-    padding-block: clamp(2%, 5%, 64px);
-    padding-inline: clamp(2%, 5%, 40px);
+    padding-block: var(--s2);
+    padding-inline: clamp(var(--s-1),10svw,var(--s2));
 
     & > * {
         width: 100%;
     }
 
-    @media (min-width: 700px) {
-        border-radius: 8px;
-        height: auto;
-        width: auto;
-    }
+    border-radius: 8px;
+    height: auto;
+    width: auto;
 `;
 
 
@@ -53,9 +48,25 @@ export const DTitle = styled(Dialog.Title)`
   
   line-height: 130%;
   font-weight: 500;
-  font-size: var(--s-2);
+  font-size: var(--font-medium);
 `
 export const DClose = styled(Dialog.Close)`
-  width: auto;
-  
+    top: -25%;
+    right: 0;
+    background-color: var(--pure-white);
+    padding: 10px;
+
+    position: absolute;
+    width: auto;
+    
+    &:hover {
+        outline: 2px solid var(--primary-blue-hover);
+        outline-offset: 2px;
+        background-color: var(--grey-200);
+    }
+    &:focus {
+        outline: 3px solid var(--primary-blue-hover);
+        outline-offset: 4px;
+    }
+
 `
