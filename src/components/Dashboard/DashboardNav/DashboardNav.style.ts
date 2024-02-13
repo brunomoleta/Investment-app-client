@@ -4,11 +4,16 @@ import styled from "styled-components";
 
 export const Wrapper = styled.header`
     background-color: var(--pure-white);
-    width: 100svw;
+    width: 100%;
+    max-height: 100px;
+    
     display: inline-flex;
+    
     padding-block: var(--s0);
     padding-inline: var(--s1);
-    max-height: 100px;
+    box-shadow: 3px 3px 16px 12px var(--grey-200);
+    
+    align-items: center;
 `
 
 export const HeaderRight = styled.div`

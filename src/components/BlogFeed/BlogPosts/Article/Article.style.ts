@@ -16,6 +16,12 @@ export const StyledArticle = styled.article`
     box-shadow: 3px 3px 16px 12px var(--grey-200);
 `;
 
+export const DashboardArticle = styled(StyledArticle)`
+    padding-inline: var(--s1);
+    padding-block: var(--s1);
+    font-size: var(--font-small);
+`
+
 export const ArticleImage = styled(Image)`
   width: 100%;
   max-height: 200px;

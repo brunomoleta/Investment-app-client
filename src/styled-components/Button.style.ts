@@ -49,20 +49,44 @@ export const PrimaryButton = styled(ButtonStyle)`
     }
 `;
 
-export const QuitButton = styled.button`
-  color: var(--red-60);
-  font-weight: 500;
+export const NormalButton = styled.button`
 
+    font-weight: 500;
+    border-radius: var(--s-5);
+    outline-offset: 3px;
+    padding-inline: 10px;
+    outline: 2px solid var(--grey-300);
   &:hover {
-    color: var(--red-60);
-    outline: 2px solid var(--red-60);
+      background-color: var(--grey-200);
+    outline: 2px solid var(--primary-blue);
   }
   &:active {
-    color: var(--red-60);
-    outline: 2px solid var(--red-60);
+    color: var(--primary-blue);
+    outline: 2px solid var(--primary-blue);
   }
   &:focus {
+    color: var(--rich-black);
+    outline: 3px solid var(--primary-blue);
+  }
+`
+
+export const QuitButton = styled(NormalButton)`
     color: var(--red-60);
     outline: 2px solid var(--red-60);
-  }
+
+    &:hover {
+        background-color: revert;
+        color: var(--red-80);
+        outline: 2px solid var(--red-60);
+    }
+
+    &:active {
+        color: var(--red-60);
+        outline: 2px solid var(--red-60);
+    }
+
+    &:focus {
+        color: var(--red-60);
+        outline: 3px solid var(--red-60);
+    }
 `;

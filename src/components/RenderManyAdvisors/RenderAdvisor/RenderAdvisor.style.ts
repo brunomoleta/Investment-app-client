@@ -47,7 +47,7 @@ export const Bio = styled.p`
         display: inline-block;
     }
 `
-export const Highlight = styled.span`
+export const Highlight = styled.em`
     color: var(--rich-black);
     font-weight: 400;
 `
