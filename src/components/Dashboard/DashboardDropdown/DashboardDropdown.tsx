@@ -8,7 +8,7 @@ import {
   DMContent,
   DMItem, DMSeparator,
   DMTrigger,
-} from "@/components/DashboardNav/DashboardNav.style";
+} from "@/components/Dashboard/DashboardNav/DashboardNav.style";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 

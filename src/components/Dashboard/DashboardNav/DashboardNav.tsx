@@ -1,11 +1,11 @@
 import React from "react";
 import Logo from "@/components/Logo";
-import LogoI from "../../assets/illustrations/LogoIll.png";
+import LogoI from "../../../assets/illustrations/LogoIll.png";
 import {
   HeaderRight,
   Wrapper,
-} from "@/components/DashboardNav/DashboardNav.style";
-import DashboardDropdown, { AccessType } from "@/components/DashboardDropdown";
+} from "@/components/Dashboard/DashboardNav/DashboardNav.style";
+import DashboardDropdown, { AccessType } from "@/components/Dashboard/DashboardDropdown";
 
 function DashboardNav() {
 
