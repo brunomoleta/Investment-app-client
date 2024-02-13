@@ -3,7 +3,7 @@ import React from "react";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
 import { ILogin, UserSignIn } from "@/types/login";
-import { IUserContext, UserName, UserType } from "@/types/userContext";
+import { ActiveUser, IUserContext, UserType } from "@/types/userContext";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import { useRouter } from "next/navigation";
@@ -24,7 +24,27 @@ function UserProvider(props: { children: React.ReactNode }) {
   const [userType, setUserType] = React.useState<UserType>("investor");
   const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
 
-  const [userName, setUserName] = React.useState<UserName>(null);
+  const [activeUser, setActiveUser] = React.useState<ActiveUser>(null);
+
+  React.useEffect(() => {
+    setIsLoading(true);
+    const savedToken = window.localStorage.getItem("@TOKEN");
+    const savedUserType = window.localStorage.getItem("@TYPE");
+
+    if (!savedToken || !savedUserType) {
+      setIsLoading(false);
+      return;
+    }
+
+    const token = JSON.parse(savedToken);
+    const userType = JSON.parse(savedUserType);
+    const fetchData = async (): Promise<void> => {
+      await retrieveUserFromId(token, userType);
+      setIsLoading(false);
+    };
+
+    fetchData();
+  }, []);
 
   function renderUserType(user: UserType | null) {
     if (user === "advisor") {
@@ -45,9 +65,9 @@ function UserProvider(props: { children: React.ReactNode }) {
       window.localStorage.setItem("@TYPE", JSON.stringify(userType));
       window.localStorage.setItem("@TOKEN", JSON.stringify(data.token));
 
-      toast.success("Tu estás logado :)");
-
       setUserType(userType);
+
+      await retrieveUserFromId(data.token, userType);
 
       router.push(`/${userType}/dashboard`);
     } catch (error: any) {
@@ -99,11 +119,11 @@ function UserProvider(props: { children: React.ReactNode }) {
     }
   };
 
-  async function retrieveUserFromId(token: string, savedUserType: string) {
+  async function retrieveUserFromId(token: string, savedUserType: UserType) {
     try {
-      setIsLoading(true)
+      setIsLoading(true);
       if (!token || !savedUserType) {
-        router.push('/')
+        router.push("/");
       }
 
       const { data } = await api.get(`/${savedUserType}/id`, {
@@ -112,11 +132,7 @@ function UserProvider(props: { children: React.ReactNode }) {
         },
       });
 
-      toast.success(`Bem vindo ${data.name} :)`);
-      setUserName(data.name)
-
-      window.localStorage.setItem("@NAME", JSON.stringify(data.name))
-
+      setActiveUser(data);
     } catch (error: any) {
       if (error?.response) {
         switch (error.response.statusCode) {
@@ -151,7 +167,6 @@ function UserProvider(props: { children: React.ReactNode }) {
     router.push("/");
   }
 
-
   function getIsLoggedIn() {
     const savedToken = window.localStorage.getItem("@TOKEN");
     const savedUserType = window.localStorage.getItem("@TYPE");
@@ -162,11 +177,13 @@ function UserProvider(props: { children: React.ReactNode }) {
     }
 
     const userType = JSON.parse(savedUserType);
-    router.push(`/${userType}/dashboard`)
-
+    router.push(`/${userType}/dashboard`);
   }
 
   const values: IUserContext = {
+    activeUser,
+    setActiveUser,
+
     retrieveUserFromId,
 
     getIsLoggedIn,
@@ -181,9 +198,6 @@ function UserProvider(props: { children: React.ReactNode }) {
 
     isPasswordVisible,
     setIsPasswordVisible,
-
-    userName,
-    setUserName,
 
     loginRequest,
 

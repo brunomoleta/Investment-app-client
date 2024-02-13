@@ -1,19 +1,20 @@
 import { ILogin } from "@/types/login";
 import React from "react";
+import { IFullAdvisor, IFullInvestor } from "@/types/users";
 
 export type UserType = "admin" | "advisor" | "investor";
 
-export type UserName = string | null;
+export type ActiveUser = IFullAdvisor | IFullInvestor | null;
 
 export interface IUserContext {
+  activeUser: ActiveUser;
+  setActiveUser: React.Dispatch<React.SetStateAction<ActiveUser>>;
+
   retrieveUserFromId: (string, string) => Promise<void>;
 
   renderUserType: (UserType) => string;
 
   signUpRequest: (UserSignIn) => Promise<void>;
-
-  userName: UserName;
-  setUserName: React.Dispatch<React.SetStateAction<UserName>>;
 
   userType: UserType | null;
   setUserType: React.Dispatch<React.SetStateAction<UserType>>;
