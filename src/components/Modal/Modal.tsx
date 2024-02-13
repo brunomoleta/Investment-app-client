@@ -1,7 +1,9 @@
+'use client'
 import * as Dialog from '@radix-ui/react-dialog';
 import React from 'react';
 import {DContent, DOverLay} from "@/components/Modal/Modal.style";
 import ModalHeader from "@/components/Modal/ModalHeader";
+import ModalClose from "@/components/Modal/ModalClose";
 
 function Modal({
                  open,
@@ -18,6 +20,8 @@ function Modal({
           <DContent>
             <ModalHeader button={button} title={title} />
             {element}
+              <ModalClose />
+
           </DContent>
         </Dialog.Portal>
       </Dialog.Root>

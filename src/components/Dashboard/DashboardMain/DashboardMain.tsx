@@ -3,14 +3,18 @@ import React from "react";
 import Spinner from "@/components/Spinner";
 import { useUserContext } from "@/providers/UserProvider";
 import { IUserContext } from "@/types/userContext";
-import { useUtilsContext } from "@/providers/UtilsProvider";
-import { IUtilsContext } from "@/types/utils";
+import { Highlight } from "@/components/RenderManyAdvisors/RenderAdvisor/RenderAdvisor.style";
+import {checkLastLetter} from "@/services/service";
 
 function DashboardMain() {
   const { activeUser } = useUserContext() as IUserContext;
-  const { isLoading } = useUtilsContext() as IUtilsContext;
 
-  return <div>DASHBOARD de {!activeUser ? <Spinner /> : activeUser.name}</div>;
+  return (
+    <div>
+      Bem vind{checkLastLetter(activeUser?.name)} {" "}
+      {!activeUser ? <Spinner /> : <Highlight>{activeUser.name}</Highlight>}
+    </div>
+  );
 }
 
 export default DashboardMain;

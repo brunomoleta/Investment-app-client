@@ -9,10 +9,8 @@ const ModalHeader: React.FC<ModalHeaderProps> = ({ title, button }) => {
       <Wrapper>
         <TitleWrapper>
           <DTitle>{title}</DTitle>
-
           {button}
         </TitleWrapper>
-        <ModalClose />
       </Wrapper>
     </>
   );
@@ -28,11 +26,14 @@ interface ModalHeaderProps {
 const TitleWrapper = styled.div`
   display: flex;
   position: relative;
+  font-size: var(--font-normal);
 `;
 
 const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
+    position: relative;
+  
+    display: flex;
+    justify-content: space-between;
 `;
 export const ModalButton = styled.button`
   min-height: 40px;
