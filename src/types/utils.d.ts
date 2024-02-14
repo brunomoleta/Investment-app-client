@@ -2,6 +2,12 @@ import React from "react";
 import { UserSignIn } from "@/types/login";
 
 export interface IUtilsContext {
+  quitAccount: () => void;
+
+  changePasswordVisibility: () => void;
+  isPasswordVisible: boolean;
+  setIsPasswordVisible: React.Dispatch<React.SetStateAction<boolean>>;
+
   formInfo: UserSignIn;
   setFormInfo: React.Dispatch<React.SetStateAction<UserSignIn>>;
 

@@ -4,16 +4,18 @@ import Input from "@/components/Input";
 import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useUserContext } from "@/providers/UserProvider";
-import { IUserContext, UserType } from "@/types/userContext";
+import { UserType } from "@/types/userContext";
 import singlePasswordSchema from "@/schemas/singlePasswordSchema";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import Spinner from "@/components/Spinner";
 import Button from "@/components/Button";
+import {useSessionContext} from "@/providers/SessionProvider";
+import {ISessionContext} from "@/types/sessionContext";
 
 function Password({ userType }: { userType: UserType }) {
-  const { loginRequest, isPasswordVisible } = useUserContext() as IUserContext;
+  const { loginRequest } = useSessionContext() as ISessionContext;
+  const { isPasswordVisible } = useUtilsContext() as IUtilsContext;
 
   const { cleanForm, formInfo, isLoading } = useUtilsContext() as IUtilsContext;
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { IUserContext, UserType } from "@/types/userContext";
+import { IUserContext } from "@/types/userContext";
 import { useUserContext } from "@/providers/UserProvider";
 import { IUtilsContext } from "@/types/utils";
 import { useUtilsContext } from "@/providers/UtilsProvider";
@@ -10,10 +10,14 @@ import Button from "@/components/Button";
 import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Input from "@/components/Input";
 import { useRouter } from "next/navigation";
+import { useSessionContext } from "@/providers/SessionProvider";
+import { ISessionContext } from "@/types/sessionContext";
 
 function DoublePassword() {
-  const { setIsPasswordVisible, userType, isPasswordVisible, signUpRequest } =
-    useUserContext() as IUserContext;
+  const { userType } = useUserContext() as IUserContext;
+  const { setIsPasswordVisible, isPasswordVisible } =
+    useUtilsContext() as IUtilsContext;
+  const { signUpRequest } = useSessionContext() as ISessionContext;
   const { formInfo } = useUtilsContext() as IUtilsContext;
 
   const id = React.useId();

@@ -8,6 +8,7 @@ import emailSchema from "@/schemas/emailSchema";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import Button from "@/components/Button";
+import {IEmail} from "@/types/signUp";
 
 function Email() {
   const { setStep, formInfo, setFormInfo } =
@@ -20,11 +21,11 @@ function Email() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<{ email: string }>({
+  } = useForm<IEmail>({
     resolver: zodResolver(emailSchema),
   });
 
-  function submit(formData: { email: string }) {
+  function submit(formData: IEmail) {
     setFormInfo({ ...formInfo, ...formData });
     setStep((prevStep) => prevStep + 1);
   }
