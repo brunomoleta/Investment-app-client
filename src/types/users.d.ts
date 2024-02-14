@@ -14,6 +14,11 @@ export interface IUser extends IAdmin {
   image?: string;
 }
 
+export type UpdateUser = Pick<
+  IUser,
+  "phone_number" | "image" | "name" | "email"
+>;
+
 export interface IAdvisor extends IUser {
   experience: Experience;
   bio: string;
