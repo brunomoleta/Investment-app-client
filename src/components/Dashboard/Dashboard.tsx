@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { MainWrapper } from "@/components/RenderManyAdvisors/ManyAdvisors.style";
 import InvestorsList from "@/components/Dashboard/InvestorsList";
 import Spinner from "@/components/Spinner";
 import FinishSession from "@/components/FinishSession";
@@ -23,11 +22,9 @@ function Dashboard() {
 
   return (
     <>
-      <MainWrapper>
-        <MainHeading />
+      <MainHeading />
 
-        {RenderElement()}
-      </MainWrapper>
+      {RenderElement()}
       <Modal title="Encerrar sessão?" element={<FinishSession />} />
     </>
   );
