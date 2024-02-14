@@ -19,7 +19,7 @@ function InvestorInfo({ investor }: { investor: IInvestor }) {
         Capital: <Highlight>{renderAmount(amount)}</Highlight>
       </Speciality>
       <Exp>
-        Contato:
+        Contato:{" "}
         <Highlight>{formatPhoneNumber(phone_number)}</Highlight>
       </Exp>
       <Exp as="h6">
