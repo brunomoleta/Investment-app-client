@@ -17,7 +17,7 @@ function useUserContext() {
 
 function UserProvider(props: { children: React.ReactNode }) {
   const router = useRouter();
-  const { setIsLoading } = useUtilsContext() as IUtilsContext;
+  const { setIsLoading, setIsEditing } = useUtilsContext() as IUtilsContext;
 
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
@@ -27,19 +27,10 @@ function UserProvider(props: { children: React.ReactNode }) {
 
   React.useEffect(() => {
     setIsLoading(true);
-    const savedToken = window.localStorage.getItem("@TOKEN");
-    const savedUserType = window.localStorage.getItem("@TYPE");
 
-    if (!savedToken || !savedUserType) {
-      setIsLoading(false);
-      return;
-    }
-
-    const token = JSON.parse(savedToken);
-    const userType = JSON.parse(savedUserType);
     setUserType(userType);
     const fetchData = async (): Promise<void> => {
-      await retrieveUserFromId(token, userType);
+      await retrieveUserFromId();
       setIsLoading(false);
     };
 
@@ -57,19 +48,31 @@ function UserProvider(props: { children: React.ReactNode }) {
     }
   }
 
-  async function retrieveUserFromId(token: string, savedUserType: UserType) {
+  async function retrieveUserFromId() {
+    const savedToken = window.localStorage.getItem("@TOKEN");
+    const savedUserType = window.localStorage.getItem("@TYPE");
+
+    if (!savedToken || !savedUserType) {
+      setIsLoading(false);
+      return;
+    }
+
+    const token = JSON.parse(savedToken);
+    const userType = JSON.parse(savedUserType);
     try {
       setIsLoading(true);
       if (!token || !savedUserType) {
         router.push("/");
       }
+      console.log(userType)
 
-      const { data } = await api.get(`/${savedUserType}/id`, {
+      const { data } = await api.get(`/${userType}/id`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
 
+      setUserType(userType)
       setActiveUser(data);
     } catch (error: any) {
       if (error?.response) {
@@ -106,23 +109,32 @@ function UserProvider(props: { children: React.ReactNode }) {
     router.push(`/${userType}/dashboard`);
   }
 
-  async function updateUser(
-    token: string,
-    formData: UpdateUser,
-    savedUserType: UserType
-  ) {
+  async function updateUser(formData: UpdateUser) {
+    setIsLoading(true);
+
+    const savedToken = window.localStorage.getItem("@TOKEN");
+    const savedUserType = window.localStorage.getItem("@TYPE");
+
+    if (!savedToken || !savedUserType) {
+      router.push("/choose-user");
+      return;
+    }
+    const userType = JSON.parse(savedUserType);
+    const token = JSON.parse(savedToken);
     try {
-      setIsLoading(true);
       if (!token || !savedUserType) {
         router.push("/");
       }
 
       console.log(formData);
-      await api.patch(`/${savedUserType}`, formData, {
+      await api.patch(`/${userType}`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
+
+      setIsEditing(false);
+      toast.success(`Edição feita com sucesso`);
     } catch (error: any) {
       if (error?.response) {
         switch (error.response.statusCode) {

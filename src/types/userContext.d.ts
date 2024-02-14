@@ -19,6 +19,6 @@ export interface IUserContext {
   setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
   getIsLoggedIn: () => void;
 
-  updateUser: (string, UpdateUser, UserType) => Promise<void>;
-  retrieveUserFromId: (string, string) => Promise<void>;
+  updateUser: (UpdateUser) => Promise<void>;
+  retrieveUserFromId: () => Promise<void>;
 }
