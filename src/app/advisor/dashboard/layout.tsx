@@ -2,7 +2,8 @@ import DashboardNav from "@/components/Dashboard/DashboardNav";
 import React from "react";
 import { DashboardMain } from "@/components/RenderManyAdvisors/ManyAdvisors.style";
 import Footer from "@/components/Footer";
-import {Wrapper} from "@/app/advisor/dashboard/Layout.style";
+import { Wrapper } from "@/app/advisor/dashboard/Layout.style";
+import DashboardUsername from "@/components/Dashboard/DashboardUsername";
 
 export default function DashboardLayout({
   children,
@@ -13,7 +14,10 @@ export default function DashboardLayout({
     <Wrapper>
       <DashboardNav />
 
-      <DashboardMain>{children}</DashboardMain>
+      <DashboardMain>
+        <DashboardUsername />
+        {children}
+      </DashboardMain>
 
       <Footer isDashboard={true} />
     </Wrapper>
