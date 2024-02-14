@@ -12,6 +12,8 @@ function useUtilsContext() {
 function UtilsProvider(props: { children: React.ReactNode }) {
   const router = useRouter()
 
+  const [isEditing, setIsEditing] = React.useState(false);
+
   const [isModalOpen, setIsModalOpen] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(false);
 
@@ -55,6 +57,9 @@ function UtilsProvider(props: { children: React.ReactNode }) {
 
     isModalOpen,
     setIsModalOpen,
+
+    isEditing,
+    setIsEditing,
 
     step,
     setStep,
