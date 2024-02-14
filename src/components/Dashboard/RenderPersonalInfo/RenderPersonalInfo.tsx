@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Exp,
@@ -15,19 +16,21 @@ import { IUserContext } from "@/types/userContext";
 import DefaultImage from "@/assets/illustrations/profile.svg";
 import { IUser } from "@/types/users";
 import { formatPhoneNumber } from "@/services/service";
+import { Wrapper } from "@/components/Dashboard/RenderPersonalInfo/RenderPersonalInfo.style";
+import { useUtilsContext } from "@/providers/UtilsProvider";
+import { IUtilsContext } from "@/types/utils";
+import RenderAdvisorInfo from "@/components/Dashboard/RenderPersonalInfo/RenderAdvisorInfo";
 
-function RenderPersonalInfo({ setIsEditing }: IState) {
+function RenderPersonalInfo() {
   const { activeUser } = useUserContext() as IUserContext;
-  const { name, email, phone_number, image } = activeUser as IUser;
+  const { setIsEditing } = useUtilsContext() as IUtilsContext;
+  const { name, image } = activeUser as IUser;
 
-  if (!activeUser) {
-    return null;
-  }
   const userImage = image ? image : DefaultImage;
 
   return (
     <>
-      <div>
+      <Wrapper>
         <ImageWrapper>
           <CardImage
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -36,23 +39,11 @@ function RenderPersonalInfo({ setIsEditing }: IState) {
             alt={name}
           />
         </ImageWrapper>
-        <Name>
-          Nome: <Highlight>{name}</Highlight>
-        </Name>
-        <Speciality>
-          email: <Highlight>{email}</Highlight>
-        </Speciality>
-        <Exp>
-          Telefone: <Highlight>{formatPhoneNumber(phone_number)}</Highlight>
-        </Exp>
+        <RenderAdvisorInfo/>
         <Button content="Editar" onClick={() => setIsEditing(true)} />
-      </div>
+      </Wrapper>
     </>
   );
 }
 
 export default RenderPersonalInfo;
-
-interface IState {
-  setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
-}
