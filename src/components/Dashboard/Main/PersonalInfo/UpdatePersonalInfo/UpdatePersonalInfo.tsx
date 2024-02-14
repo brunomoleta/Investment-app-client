@@ -8,14 +8,14 @@ import updateUserSchema from "@/schemas/updateUserSchema";
 import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Input from "@/components/Input";
 import { IUpdateUser } from "@/types/signUp";
-import Button from "@/components/Button";
+
 import { formatPhoneNumber, handleDigits, Upper } from "@/services/service";
-import { useUtilsContext } from "@/providers/UtilsProvider";
-import { IUtilsContext } from "@/types/utils";
+import UpdateButtons from "@/components/Dashboard/Main/UpdateButtons";
+
 
 function UpdatePersonalInfo() {
   const { activeUser, updateUser, retrieveUserFromId } = useUserContext() as IUserContext;
-  const { setIsEditing } = useUtilsContext() as IUtilsContext;
+
 
   const id = React.useId();
   const firstNameId = `${id}-firstName}`;
@@ -96,13 +96,7 @@ function UpdatePersonalInfo() {
 
       <Input id={imageId} label="imagem" {...register("image")} />
 
-      <Button
-        onClick={() => setIsEditing(false)}
-        isPrimary={false}
-        type="button"
-        content="cancelar"
-      />
-      <Button type="submit" content="Enviar" />
+      <UpdateButtons/>
     </Form>
   );
 }
