@@ -31,8 +31,10 @@ function SessionProvider(props: { children: React.ReactNode }) {
 
       setUserType(userType);
 
-      await retrieveUserFromId(data.token, userType);
+      await retrieveUserFromId();
 
+
+      toast.success("Seja bem vinda(o)")
       router.push(`/${userType}/dashboard`);
     } catch (error: any) {
       if (error?.response) {
