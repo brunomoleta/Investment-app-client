@@ -21,6 +21,7 @@ export const DContent = styled(Dialog.Content)`
     display: grid;
     place-items: center;
     gap: var(--s2);
+    
 
     background-color: white;
 

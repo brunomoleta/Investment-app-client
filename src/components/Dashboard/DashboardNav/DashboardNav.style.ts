@@ -70,6 +70,8 @@ export const DMTrigger = styled(DropdownMenu.Trigger)`
 export const DMContent = styled(DropdownMenu.Content)`
     border: 1.5px solid var(--primary-blue);
 
+    margin-inline-end: var(--s2);
+    
     box-shadow: 3px 3px 10px 3px var(--grey-200);
     &:active {
         outline: 1px solid var(--primary-blue-hover);
