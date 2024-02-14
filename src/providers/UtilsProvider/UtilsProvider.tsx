@@ -2,6 +2,7 @@
 import React from "react";
 import { IUtilsContext } from "@/types/utils";
 import {useRouter} from "next/navigation";
+import {toast} from "react-toastify";
 
 const UtilsContext = React.createContext({});
 
@@ -42,7 +43,9 @@ function UtilsProvider(props: { children: React.ReactNode }) {
     window.localStorage.removeItem("@TOKEN");
     window.localStorage.removeItem("@TYPE");
 
+
     router.push("/");
+    toast.success('Volte sempre :)')
   }
 
 

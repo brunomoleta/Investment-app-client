@@ -19,8 +19,7 @@ export const LogoStyle = styled.button`
     }
 
     &:active {
-        border: 2px solid var(--pure-white);
-        outline: 3px solid var(--primary-blue-hover);
+        outline: 3px solid var(--primary-blue);
     }
 `
 

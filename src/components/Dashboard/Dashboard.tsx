@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
-import InvestorsList from "@/components/Dashboard/InvestorsList";
+
 import Spinner from "@/components/Spinner";
 import FinishSession from "@/components/FinishSession";
 import Modal from "@/components/Modal";
-import MainHeading from "@/components/Dashboard/MainHeading";
 import { useUserContext } from "@/providers/UserProvider";
 import { IUserContext } from "@/types/userContext";
+import MainHeading from "@/components/Dashboard/Main/MainHeading";
+import InvestorsList from "@/components/Dashboard/Main/InvestorsList";
 
 function Dashboard() {
   const { userType } = useUserContext() as IUserContext;

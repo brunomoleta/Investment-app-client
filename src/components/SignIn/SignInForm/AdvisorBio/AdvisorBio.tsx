@@ -49,6 +49,6 @@ function AdvisorBio() {
 
 export default AdvisorBio;
 
-interface IBio {
+export interface IBio {
   bio: string;
 }

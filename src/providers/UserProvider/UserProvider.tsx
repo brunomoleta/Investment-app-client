@@ -64,7 +64,6 @@ function UserProvider(props: { children: React.ReactNode }) {
       if (!token || !savedUserType) {
         router.push("/");
       }
-      console.log(userType)
 
       const { data } = await api.get(`/${userType}/id`, {
         headers: {
