@@ -19,6 +19,8 @@ function UtilsProvider(props: { children: React.ReactNode }) {
   const [page, setPage] = React.useState(1);
 
   const [formInfo, setFormInfo] = React.useState({});
+  const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
+
 
   function cleanForm() {
     setStep(0);
@@ -30,7 +32,25 @@ function UtilsProvider(props: { children: React.ReactNode }) {
     router.push('/')
   }
 
+  function changePasswordVisibility() {
+    setIsPasswordVisible(!isPasswordVisible);
+  }
+
+  function quitAccount(): void {
+    window.localStorage.removeItem("@TOKEN");
+    window.localStorage.removeItem("@TYPE");
+
+    router.push("/");
+  }
+
+
   const values: IUtilsContext = {
+    changePasswordVisibility,
+    quitAccount,
+
+    setIsPasswordVisible,
+    isPasswordVisible,
+
     logoClick,
 
     isModalOpen,

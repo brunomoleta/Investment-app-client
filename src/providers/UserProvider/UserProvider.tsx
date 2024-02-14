@@ -2,12 +2,12 @@
 import React from "react";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
-import { ILogin, UserSignIn } from "@/types/login";
 import { ActiveUser, IUserContext, UserType } from "@/types/userContext";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import { useRouter } from "next/navigation";
 import { Upper } from "@/services/service";
+import { UpdateUser } from "@/types/users";
 
 const UserContext = React.createContext({});
 
@@ -17,12 +17,11 @@ function useUserContext() {
 
 function UserProvider(props: { children: React.ReactNode }) {
   const router = useRouter();
-  const { cleanForm, setIsLoading } = useUtilsContext() as IUtilsContext;
+  const { setIsLoading } = useUtilsContext() as IUtilsContext;
 
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
-  const [userType, setUserType] = React.useState<UserType>("investor");
-  const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
+  const [userType, setUserType] = React.useState<UserType>(null);
 
   const [activeUser, setActiveUser] = React.useState<ActiveUser>(null);
 
@@ -38,6 +37,7 @@ function UserProvider(props: { children: React.ReactNode }) {
 
     const token = JSON.parse(savedToken);
     const userType = JSON.parse(savedUserType);
+    setUserType(userType);
     const fetchData = async (): Promise<void> => {
       await retrieveUserFromId(token, userType);
       setIsLoading(false);
@@ -56,68 +56,6 @@ function UserProvider(props: { children: React.ReactNode }) {
       return Upper("admin");
     }
   }
-
-  const loginRequest = async (formData: ILogin, userType: UserType) => {
-    try {
-      setIsLoading(true);
-
-      const { data } = await api.post(`/session/${userType}`, formData);
-      window.localStorage.setItem("@TYPE", JSON.stringify(userType));
-      window.localStorage.setItem("@TOKEN", JSON.stringify(data.token));
-
-      setUserType(userType);
-
-      await retrieveUserFromId(data.token, userType);
-
-      router.push(`/${userType}/dashboard`);
-    } catch (error: any) {
-      if (error?.response) {
-        switch (error.response.status) {
-          case 401:
-            toast.error("Senha ou e-mail incorreto :)");
-            break;
-          case 404:
-            toast.error("Por favor verifique sua conexão com a internet :)");
-            break;
-        }
-      } else {
-        console.error("Error:", error);
-        toast.error("Verifique sua conexão :)");
-      }
-    } finally {
-      setIsLoading(false);
-      cleanForm();
-    }
-  };
-
-  const signUpRequest = async (formData: UserSignIn): Promise<void> => {
-    try {
-      setIsLoading(true);
-
-      await api.post(`/${userType}`, formData);
-
-      toast.success(`Cadastro realizado com sucesso :)`);
-
-      router.push(`/${userType}`);
-    } catch (error: any) {
-      if (error?.response) {
-        switch (error.response.status) {
-          case 401:
-            toast.error("Senha ou e-mail incorreto :)");
-            break;
-          case 404:
-            toast.error("Por favor verifique sua conexão com a internet :)");
-            break;
-        }
-      } else {
-        console.error("Error:", error);
-        toast.error("Verifique sua conexão :)");
-      }
-    } finally {
-      cleanForm();
-      setIsLoading(false);
-    }
-  };
 
   async function retrieveUserFromId(token: string, savedUserType: UserType) {
     try {
@@ -155,18 +93,6 @@ function UserProvider(props: { children: React.ReactNode }) {
     }
   }
 
-  function changePasswordVisibility() {
-    setIsPasswordVisible(!isPasswordVisible);
-  }
-
-  function quitAccount(): void {
-    window.localStorage.removeItem("@TOKEN");
-    window.localStorage.removeItem("@TYPE");
-    window.localStorage.removeItem("@NAME");
-
-    router.push("/");
-  }
-
   function getIsLoggedIn() {
     const savedToken = window.localStorage.getItem("@TOKEN");
     const savedUserType = window.localStorage.getItem("@TYPE");
@@ -180,6 +106,45 @@ function UserProvider(props: { children: React.ReactNode }) {
     router.push(`/${userType}/dashboard`);
   }
 
+  async function updateUser(
+    token: string,
+    formData: UpdateUser,
+    savedUserType: UserType
+  ) {
+    try {
+      setIsLoading(true);
+      if (!token || !savedUserType) {
+        router.push("/");
+      }
+
+      console.log(formData);
+      await api.patch(`/${savedUserType}`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    } catch (error: any) {
+      if (error?.response) {
+        switch (error.response.statusCode) {
+          case 401:
+            toast.error("Senha ou e-mail incorreto :)");
+            break;
+          case 404:
+            toast.error("Por favor verifique sua conexão com a internet :)");
+            break;
+          case 400:
+            console.log(error.message);
+            toast.error("Erro no envio de dados");
+        }
+      } else {
+        console.error("Error:", error);
+        toast.error("An unexpected error occurred :)");
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   const values: IUserContext = {
     activeUser,
     setActiveUser,
@@ -189,22 +154,14 @@ function UserProvider(props: { children: React.ReactNode }) {
     getIsLoggedIn,
 
     renderUserType,
-    signUpRequest,
 
     isLoggedIn,
     setIsLoggedIn,
 
-    changePasswordVisibility,
-
-    isPasswordVisible,
-    setIsPasswordVisible,
-
-    loginRequest,
-
     setUserType,
     userType,
 
-    quitAccount,
+    updateUser,
   };
   return (
     <UserContext.Provider value={values}>{props.children}</UserContext.Provider>
