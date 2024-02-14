@@ -1,42 +1,34 @@
-'use client'
-import * as Dialog from '@radix-ui/react-dialog';
-import React from 'react';
-import {DContent, DOverLay} from "@/components/Modal/Modal.style";
+"use client";
+import * as Dialog from "@radix-ui/react-dialog";
+import React from "react";
+import { DContent, DOverLay } from "@/components/Modal/Modal.style";
 import ModalHeader from "@/components/Modal/ModalHeader";
 import ModalClose from "@/components/Modal/ModalClose";
+import { useUtilsContext } from "@/providers/UtilsProvider";
+import { IUtilsContext } from "@/types/utils";
 
-function Modal({
-                 open,
-                 onOpenChange,
+function Modal({ element, title = "", button }: IModal) {
+  const { isModalOpen, setIsModalOpen } = useUtilsContext() as IUtilsContext;
 
-                 element,
-                 title = "",
-                 button,
-               }: IModal) {
   return (
-      <Dialog.Root modal={true} open={open} onOpenChange={onOpenChange}>
-        <Dialog.Portal>
-          <DOverLay />
-          <DContent>
-            <ModalHeader button={button} title={title} />
-            {element}
-              <ModalClose />
-
-          </DContent>
-        </Dialog.Portal>
-      </Dialog.Root>
+    <Dialog.Root modal={true} open={isModalOpen} onOpenChange={setIsModalOpen}>
+      <Dialog.Portal>
+        <DOverLay />
+        <DContent>
+          <ModalHeader button={button} title={title} />
+          {element}
+          <ModalClose />
+        </DContent>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 }
 
 export default Modal;
 
 export interface IModal {
-    open: boolean;
-    onOpenChange: React.Dispatch<React.SetStateAction<boolean>>;
+  element: React.ReactNode;
 
-    element: React.ReactNode;
-
-
-    title: string;
-    button?: React.ReactNode
+  title: string;
+  button?: React.ReactNode;
 }
