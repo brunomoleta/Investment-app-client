@@ -28,7 +28,6 @@ export const footeritems: string[] = [
   "blog",
   "contato",
   "carreiras",
-  "acesso assessor",
   "acesso administrador",
   "política de privacidade",
 ];
