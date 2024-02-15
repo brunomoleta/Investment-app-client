@@ -5,8 +5,6 @@ import { toast } from "react-toastify";
 import { ActiveUser, IUserContext, UserType } from "@/types/userContext";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
-import { useRouter } from "next/navigation";
-import { Upper } from "@/services/service";
 import { UpdateUser } from "@/types/users";
 
 const UserContext = React.createContext({});
@@ -28,7 +26,6 @@ function UserProvider(props: { children: React.ReactNode }) {
   const [tokenState, setTokenState] = React.useState<string | null>(null);
 
   React.useEffect(() => {
-    setIsLoading(true);
     const savedToken = window.localStorage.getItem("@TOKEN");
     const savedUserType = window.localStorage.getItem("@TYPE");
 
@@ -42,12 +39,9 @@ function UserProvider(props: { children: React.ReactNode }) {
 
       const fetchData = async (): Promise<void> => {
         await retrieveUserFromId(token, userType);
-        setIsLoading(false);
       };
-
       fetchData();
     }
-    setIsLoading(false);
   }, []);
 
   async function updatePassword(formData: {

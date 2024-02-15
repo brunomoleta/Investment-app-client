@@ -9,6 +9,8 @@ export const Form = styled.form`
     flex-flow: column;
     border-radius: var(--s0);
     box-shadow: 3px 3px 10px 3px var(--grey-400-t);
+    
+    margin-block-end: var(--s-1);
 
     > fieldset:first-child {
         margin-block-start: var(--s-1);

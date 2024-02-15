@@ -22,7 +22,7 @@ function ChooseUserForm() {
 
   React.useEffect(() => {
     setFocus("radioOutput");
-  }, []);
+  }, [setFocus]);
 
   function onSubmit(formData: RadioOutput): void {
     changeUrl(`/${formData.radioOutput}`);

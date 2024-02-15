@@ -1,5 +1,5 @@
 import React from "react";
-import { IFullAdvisor, IFullInvestor, UpdateUser } from "@/types/users";
+import { IFullAdvisor, IFullInvestor } from "@/types/users";
 
 export type UserType = "admin" | "advisor" | "investor" | null;
 

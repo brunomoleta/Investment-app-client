@@ -84,16 +84,6 @@ export function renderAmount(amount: InvestmentAmount) {
   return Upper("maior que 250 mil reais");
 }
 
-export function checkLastLetter(word: string | undefined) {
-  if (!word) return null;
-
-  const firstName = word.split(" ")[0];
-
-  const suffix = firstName.slice(-1).toLowerCase() === "a" ? "a" : "o";
-
-  return suffix;
-}
-
 export function renderUserType(user: UserType | null) {
   if (user === "advisor") {
     return Upper("assessor");
