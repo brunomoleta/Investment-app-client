@@ -8,24 +8,22 @@ import { useForm } from "react-hook-form";
 import Button from "@/components/Button";
 import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Input from "@/components/Input";
-import { useRouter } from "next/navigation";
 import { useSessionContext } from "@/providers/SessionProvider";
 import { ISessionContext } from "@/types/sessionContext";
 import PasswordTips from "@/components/PasswordTips";
-import {doublePasswordSchema} from "@/schemas/doublePasswordSchema";
-import {IPassword} from "@/types/signUp";
+import { doublePasswordSchema } from "@/schemas/doublePasswordSchema";
+import { IPassword } from "@/types/signUp";
 
 function DoublePassword() {
   const { userType } = useUserContext() as IUserContext;
   const { setIsPasswordVisible, isPasswordVisible } =
     useUtilsContext() as IUtilsContext;
   const { signUpRequest } = useSessionContext() as ISessionContext;
-  const { formInfo } = useUtilsContext() as IUtilsContext;
+  const { formInfo, changeUrl } = useUtilsContext() as IUtilsContext;
 
   const id = React.useId();
   const passwordId = `${id}-password`;
   const confirmPasswordId = `${id}-confirm-password`;
-  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -39,7 +37,7 @@ function DoublePassword() {
 
     setIsPasswordVisible(false);
 
-    router.push(`/${userType}`);
+    changeUrl(`/${userType}`);
   }
 
   return (
@@ -69,4 +67,3 @@ function DoublePassword() {
 }
 
 export default DoublePassword;
-
