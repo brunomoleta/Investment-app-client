@@ -10,7 +10,7 @@ import Input from "@/components/Input";
 import Button from "@/components/Button";
 
 function UpdatePassword() {
-  const { activeUser, updatePassword } = useUserContext() as IUserContext;
+  const { updatePassword } = useUserContext() as IUserContext;
   const { setIsPasswordVisible, isPasswordVisible } =
     useUtilsContext() as IUtilsContext;
 
@@ -41,7 +41,7 @@ function UpdatePassword() {
         type={isPasswordVisible ? "text" : "password"}
         error={errors.password}
         {...register("currentPassword")}
-        id={newPassId}
+        id={currentPassId}
       />
       <Input
         label="nova senha"
