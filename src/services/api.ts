@@ -5,4 +5,5 @@ export const api = axios.create({
     timeout: 8000,
 });
 
-// baseURL: "https://besart-ecommerce-api.onrender.com/",
+// production: https://easy-contacts-svuu.onrender.com/
+// local: http://localhost:3001
