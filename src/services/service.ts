@@ -1,4 +1,5 @@
 import React from "react";
+import { UserType } from "@/types/userContext";
 
 export enum Experience {
   Beginner = "beginner",
@@ -91,4 +92,15 @@ export function checkLastLetter(word: string | undefined) {
   const suffix = firstName.slice(-1).toLowerCase() === "a" ? "a" : "o";
 
   return suffix;
+}
+
+export function renderUserType(user: UserType | null) {
+  if (user === "advisor") {
+    return Upper("assessor");
+  }
+  if (user === "investor") {
+    return Upper("investidor");
+  } else {
+    return Upper("admin");
+  }
 }
