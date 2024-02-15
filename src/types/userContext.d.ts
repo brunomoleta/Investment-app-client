@@ -1,11 +1,13 @@
 import React from "react";
-import { IFullAdvisor, IFullInvestor } from "@/types/users";
+import { IFullAdvisor, IFullInvestor, UpdateUser } from "@/types/users";
 
 export type UserType = "admin" | "advisor" | "investor" | null;
 
 export type ActiveUser = IFullAdvisor | IFullInvestor | null;
 
 export interface IUserContext {
+    updatePassword: (UpdateUser) => void;
+
   activeUser: ActiveUser;
   setActiveUser: React.Dispatch<React.SetStateAction<ActiveUser>>;
 

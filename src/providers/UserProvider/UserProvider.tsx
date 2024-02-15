@@ -37,6 +37,49 @@ function UserProvider(props: { children: React.ReactNode }) {
     fetchData();
   }, []);
 
+  async function updatePassword(formData: {
+    currentPassword: string;
+    newPassword: string;
+  }) {
+    const savedToken = window.localStorage.getItem("@TOKEN");
+    const savedUserType = window.localStorage.getItem("@TYPE");
+
+    if (!savedToken || !savedUserType) {
+      setIsLoading(false);
+      return;
+    }
+
+    const token = JSON.parse(savedToken);
+    const userType = JSON.parse(savedUserType);
+    try {
+      await api.patch(`/${userType}/password`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      toast.success(`Senha atualizada com sucesso`);
+    } catch (error: any) {
+      if (error?.response) {
+        switch (error.response.status) {
+          case 401:
+            toast.error("Senha atual incorreta.");
+            break;
+          case 404:
+            toast.error("Por favor verifique sua conexão com a internet :)");
+            break;
+          case 400:
+            console.log(error.message);
+            toast.error("Erro no envio de dados");
+        }
+      } else {
+        console.error("Error:", error);
+        toast.error("An unexpected error occurred :)");
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  }
   function renderUserType(user: UserType | null) {
     if (user === "advisor") {
       return Upper("assessor");
@@ -157,6 +200,8 @@ function UserProvider(props: { children: React.ReactNode }) {
   }
 
   const values: IUserContext = {
+    updatePassword,
+
     activeUser,
     setActiveUser,
 
