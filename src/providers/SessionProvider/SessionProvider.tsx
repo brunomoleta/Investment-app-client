@@ -17,8 +17,8 @@ function useSessionContext(): {} {
 }
 
 function SessionProvider(props: { children: React.ReactNode }) {
-  const router = useRouter();
-  const { cleanForm, setIsLoading } = useUtilsContext() as IUtilsContext;
+  const { cleanForm, changeUrl, setIsLoading } =
+    useUtilsContext() as IUtilsContext;
   const { setUserType, userType, retrieveUserFromId } =
     useUserContext() as IUserContext;
   const loginRequest = async (formData: ILogin, userType: UserType) => {
@@ -31,11 +31,10 @@ function SessionProvider(props: { children: React.ReactNode }) {
 
       setUserType(userType);
 
-      await retrieveUserFromId();
+      await retrieveUserFromId(data.token, userType);
 
-
-      toast.success("Seja bem vinda(o)")
-      router.push(`/${userType}/dashboard`);
+      toast.success("Seja bem vinda(o)");
+      changeUrl(`/${userType}/dashboard`);
     } catch (error: any) {
       if (error?.response) {
         switch (error.response.status) {
@@ -64,7 +63,7 @@ function SessionProvider(props: { children: React.ReactNode }) {
 
       toast.success(`Cadastro realizado com sucesso :)`);
 
-      router.push(`/${userType}`);
+      changeUrl(`/${userType}`);
     } catch (error: any) {
       if (error?.response) {
         switch (error.response.status) {
