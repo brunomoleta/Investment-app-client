@@ -10,11 +10,10 @@ import Input from "@/components/Input";
 import { IUpdateUser } from "@/types/signUp";
 
 import { formatPhoneNumber, handleDigits, Upper } from "@/services/service";
-import UpdateButtons from "@/components/Dashboard/Main/UpdateButtons";
-
+import UpdateButton from "../../UpdateButton";
 
 function UpdatePersonalInfo() {
-  const { activeUser, updateUser, retrieveUserFromId } = useUserContext() as IUserContext;
+  const { activeUser, tokenState, userType, updateUser, retrieveUserFromId } = useUserContext() as IUserContext;
 
 
   const id = React.useId();
@@ -53,7 +52,7 @@ function UpdatePersonalInfo() {
       ...newFormData,
     };
     await updateUser(editedUser);
-    await retrieveUserFromId()
+    await retrieveUserFromId(tokenState, userType)
   }
 
   return (
@@ -96,7 +95,7 @@ function UpdatePersonalInfo() {
 
       <Input id={imageId} label="imagem" {...register("image")} />
 
-      <UpdateButtons/>
+      <UpdateButton/>
     </Form>
   );
 }

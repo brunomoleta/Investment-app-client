@@ -16,8 +16,8 @@ function useUserContext() {
 }
 
 function UserProvider(props: { children: React.ReactNode }) {
-  const router = useRouter();
-  const { setIsLoading, setIsEditing } = useUtilsContext() as IUtilsContext;
+  const { setIsLoading, changeUrl, setIsEditing } =
+    useUtilsContext() as IUtilsContext;
 
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
@@ -25,40 +25,45 @@ function UserProvider(props: { children: React.ReactNode }) {
 
   const [activeUser, setActiveUser] = React.useState<ActiveUser>(null);
 
+  const [tokenState, setTokenState] = React.useState<string | null>(null);
+
   React.useEffect(() => {
     setIsLoading(true);
+    const savedToken = window.localStorage.getItem("@TOKEN");
+    const savedUserType = window.localStorage.getItem("@TYPE");
 
-    setUserType(userType);
-    const fetchData = async (): Promise<void> => {
-      await retrieveUserFromId();
-      setIsLoading(false);
-    };
+    if (!savedUserType || !savedToken) {
+    } else {
+      const token = JSON.parse(savedToken);
+      const userType = JSON.parse(savedUserType);
 
-    fetchData();
+      setUserType(userType);
+      setTokenState(token);
+
+      const fetchData = async (): Promise<void> => {
+        await retrieveUserFromId(token, userType);
+        setIsLoading(false);
+      };
+
+      fetchData();
+    }
+    setIsLoading(false);
   }, []);
 
   async function updatePassword(formData: {
     currentPassword: string;
     newPassword: string;
   }) {
-    const savedToken = window.localStorage.getItem("@TOKEN");
-    const savedUserType = window.localStorage.getItem("@TYPE");
-
-    if (!savedToken || !savedUserType) {
-      setIsLoading(false);
-      return;
-    }
-
-    const token = JSON.parse(savedToken);
-    const userType = JSON.parse(savedUserType);
+    setIsLoading(true);
     try {
       await api.patch(`/${userType}/password`, formData, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${tokenState}`,
         },
       });
 
       toast.success(`Senha atualizada com sucesso`);
+      changeUrl(`/${userType}/dashboard`);
     } catch (error: any) {
       if (error?.response) {
         switch (error.response.status) {
@@ -71,6 +76,11 @@ function UserProvider(props: { children: React.ReactNode }) {
           case 400:
             console.log(error.message);
             toast.error("Erro no envio de dados");
+            break;
+          case 409:
+            console.log(error.message);
+            toast.error("Senha atual incorreta.");
+            break;
         }
       } else {
         console.error("Error:", error);
@@ -80,41 +90,18 @@ function UserProvider(props: { children: React.ReactNode }) {
       setIsLoading(false);
     }
   }
-  function renderUserType(user: UserType | null) {
-    if (user === "advisor") {
-      return Upper("assessor");
-    }
-    if (user === "investor") {
-      return Upper("investidor");
-    } else {
-      return Upper("admin");
-    }
-  }
 
-  async function retrieveUserFromId() {
-    const savedToken = window.localStorage.getItem("@TOKEN");
-    const savedUserType = window.localStorage.getItem("@TYPE");
-
-    if (!savedToken || !savedUserType) {
-      setIsLoading(false);
-      return;
+  async function retrieveUserFromId(token: string, userRole: UserType) {
+    if (!token) {
+      changeUrl("/");
     }
 
-    const token = JSON.parse(savedToken);
-    const userType = JSON.parse(savedUserType);
     try {
-      setIsLoading(true);
-      if (!token || !savedUserType) {
-        router.push("/");
-      }
-
-      const { data } = await api.get(`/${userType}/id`, {
+      const { data } = await api.get(`/${userRole}/id`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-
-      setUserType(userType)
       setActiveUser(data);
     } catch (error: any) {
       if (error?.response) {
@@ -139,39 +126,20 @@ function UserProvider(props: { children: React.ReactNode }) {
   }
 
   function getIsLoggedIn() {
-    const savedToken = window.localStorage.getItem("@TOKEN");
-    const savedUserType = window.localStorage.getItem("@TYPE");
-
-    if (!savedToken || !savedUserType) {
-      router.push("/choose-user");
-      return;
+    if (!tokenState) {
+      changeUrl("/choose-user");
+    } else {
+      changeUrl(`/${userType}/dashboard`);
     }
-
-    const userType = JSON.parse(savedUserType);
-    router.push(`/${userType}/dashboard`);
   }
 
   async function updateUser(formData: UpdateUser) {
     setIsLoading(true);
-
-    const savedToken = window.localStorage.getItem("@TOKEN");
-    const savedUserType = window.localStorage.getItem("@TYPE");
-
-    if (!savedToken || !savedUserType) {
-      router.push("/choose-user");
-      return;
-    }
-    const userType = JSON.parse(savedUserType);
-    const token = JSON.parse(savedToken);
     try {
-      if (!token || !savedUserType) {
-        router.push("/");
-      }
-
       console.log(formData);
       await api.patch(`/${userType}`, formData, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${tokenState}`,
         },
       });
 
@@ -199,17 +167,30 @@ function UserProvider(props: { children: React.ReactNode }) {
     }
   }
 
+  function quitAccount(): void {
+    changeUrl("/");
+
+    window.localStorage.removeItem("@TOKEN");
+    window.localStorage.removeItem("@TYPE");
+    setTokenState(null);
+    setUserType(null);
+
+    toast.success("Volte sempre :)");
+  }
+
   const values: IUserContext = {
     updatePassword,
+
+    quitAccount,
 
     activeUser,
     setActiveUser,
 
+    tokenState,
+
     retrieveUserFromId,
 
     getIsLoggedIn,
-
-    renderUserType,
 
     isLoggedIn,
     setIsLoggedIn,
