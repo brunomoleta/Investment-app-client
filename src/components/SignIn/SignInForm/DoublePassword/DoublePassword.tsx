@@ -3,7 +3,6 @@ import { IUserContext } from "@/types/userContext";
 import { useUserContext } from "@/providers/UserProvider";
 import { IUtilsContext } from "@/types/utils";
 import { useUtilsContext } from "@/providers/UtilsProvider";
-import doublePasswordSchema from "@/schemas/doublePasswordSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Button from "@/components/Button";
@@ -12,6 +11,9 @@ import Input from "@/components/Input";
 import { useRouter } from "next/navigation";
 import { useSessionContext } from "@/providers/SessionProvider";
 import { ISessionContext } from "@/types/sessionContext";
+import PasswordTips from "@/components/PasswordTips";
+import {doublePasswordSchema} from "@/schemas/doublePasswordSchema";
+import {IPassword} from "@/types/signUp";
 
 function DoublePassword() {
   const { userType } = useUserContext() as IUserContext;
@@ -61,13 +63,10 @@ function DoublePassword() {
 
         <Button content="Enviar" />
       </Form>
+      <PasswordTips />
     </>
   );
 }
 
 export default DoublePassword;
 
-export interface IPassword {
-  password: string;
-  confirmPassword: string;
-}
