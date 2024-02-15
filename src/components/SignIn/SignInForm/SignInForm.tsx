@@ -5,7 +5,7 @@ import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import Email from "@/components/Login/LoginForm/Email";
 import PhoneNumber from "@/components/SignIn/SignInForm/PhoneNumber";
-import Image from "@/components/SignIn/SignInForm/Image";
+
 import Amount from "@/components/SignIn/SignInForm/Amount";
 import DoublePassword from "@/components/SignIn/SignInForm/DoublePassword";
 import { UserType } from "@/types/userContext";
@@ -13,6 +13,7 @@ import ChooseAdvisor from "@/components/SignIn/SignInForm/ChooseAdvisor";
 import Experience from "@/components/SignIn/SignInForm/Experience";
 import AdvisorBio from "@/components/SignIn/SignInForm/AdvisorBio";
 import ChooseSpeciality from "@/components/SignIn/ChooseSpeciality";
+import ImageForm from "@/components/SignIn/SignInForm/ImageForm";
 
 function SignInForm({ userType }: { userType: UserType }) {
   const { step } = useUtilsContext() as IUtilsContext;
@@ -22,7 +23,7 @@ function SignInForm({ userType }: { userType: UserType }) {
       {step === 0 && <UserName />}
       {step === 1 && <Email />}
       {step === 2 && <PhoneNumber />}
-      {step === 3 && <Image />}
+      {step === 3 && <ImageForm />}
 
       {step === 4 && userType === "investor" && <Amount />}
       {step === 4 && userType === "advisor" && <Experience />}
