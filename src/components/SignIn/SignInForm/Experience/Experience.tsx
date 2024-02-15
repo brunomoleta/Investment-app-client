@@ -21,7 +21,7 @@ function Experience() {
   });
   React.useEffect(() => {
     setFocus("experience");
-  }, []);
+  }, [setFocus]);
 
   function onSubmit(formData: IExperience): void {
     setFormInfo({ ...formInfo, ...formData });

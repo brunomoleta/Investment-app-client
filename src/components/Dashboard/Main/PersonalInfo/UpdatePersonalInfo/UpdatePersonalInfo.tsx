@@ -11,10 +11,13 @@ import { IUpdateUser } from "@/types/signUp";
 
 import { formatPhoneNumber, handleDigits, Upper } from "@/services/service";
 import UpdateButton from "../../UpdateButton";
+import { useUtilsContext } from "@/providers/UtilsProvider";
+import { IUtilsContext } from "@/types/utils";
 
 function UpdatePersonalInfo() {
-  const { activeUser, tokenState, userType, updateUser, retrieveUserFromId } = useUserContext() as IUserContext;
-
+  const { activeUser, tokenState, userType, updateUser, retrieveUserFromId } =
+    useUserContext() as IUserContext;
+  const { setIsLoading } = useUtilsContext() as IUtilsContext;
 
   const id = React.useId();
   const firstNameId = `${id}-firstName}`;
@@ -40,6 +43,7 @@ function UpdatePersonalInfo() {
   });
 
   async function onSubmit(formData: IUpdateUser) {
+    setIsLoading(true);
     const { firstName, lastName, phone_number, ...newFormData } = formData;
     const fullName = Upper(firstName) + " " + Upper(lastName);
 
@@ -52,7 +56,8 @@ function UpdatePersonalInfo() {
       ...newFormData,
     };
     await updateUser(editedUser);
-    await retrieveUserFromId(tokenState, userType)
+    await retrieveUserFromId(tokenState, userType);
+    setIsLoading(false);
   }
 
   return (
@@ -95,7 +100,7 @@ function UpdatePersonalInfo() {
 
       <Input id={imageId} label="imagem" {...register("image")} />
 
-      <UpdateButton/>
+      <UpdateButton />
     </Form>
   );
 }

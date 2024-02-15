@@ -12,17 +12,15 @@ import {MainWrapper} from "@/components/RenderManyAdvisors/ManyAdvisors.style";
 
 function MeetAdvisors() {
   const { getAdvisorsNoAuth } = useAdvisorContext() as IAdvisorContext;
-  const { isLoading, setIsLoading } = useUtilsContext() as IUtilsContext;
+  const { isLoading } = useUtilsContext() as IUtilsContext;
 
   React.useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true);
       await getAdvisorsNoAuth();
-      setIsLoading(false);
     };
 
     fetchData();
-  }, []);
+  }, [getAdvisorsNoAuth]);
   return (
     <Template>
       <MainWrapper>

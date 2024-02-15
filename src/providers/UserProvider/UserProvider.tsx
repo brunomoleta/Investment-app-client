@@ -18,12 +18,45 @@ function UserProvider(props: { children: React.ReactNode }) {
     useUtilsContext() as IUtilsContext;
 
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-
   const [userType, setUserType] = React.useState<UserType>(null);
-
   const [activeUser, setActiveUser] = React.useState<ActiveUser>(null);
-
   const [tokenState, setTokenState] = React.useState<string | null>(null);
+
+  const retrieveUserFromId = React.useCallback(async function (
+    token: string,
+    userRole: UserType
+  ) {
+    if (!token) {
+      changeUrl("/");
+    }
+
+    try {
+      const { data } = await api.get(`/${userRole}/id`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setActiveUser(data);
+    } catch (error: any) {
+      if (error?.response) {
+        switch (error.response.statusCode) {
+          case 401:
+            toast.error("Senha ou e-mail incorreto :)");
+            break;
+          case 404:
+            toast.error("Por favor verifique sua conexão com a internet :)");
+            break;
+          case 400:
+            console.log(error.message);
+            toast.error("Erro no envio de dados");
+        }
+      } else {
+        console.error("Error:", error);
+        toast.error("An unexpected error occurred :)");
+      }
+    }
+  },
+  [changeUrl]);
 
   React.useEffect(() => {
     const savedToken = window.localStorage.getItem("@TOKEN");
@@ -42,7 +75,15 @@ function UserProvider(props: { children: React.ReactNode }) {
       };
       fetchData();
     }
-  }, []);
+  }, [retrieveUserFromId]);
+
+  function getIsLoggedIn() {
+    if (!tokenState) {
+      changeUrl("/choose-user");
+    } else {
+      changeUrl(`/${userType}/dashboard`);
+    }
+  }
 
   async function updatePassword(formData: {
     currentPassword: string;
@@ -85,50 +126,7 @@ function UserProvider(props: { children: React.ReactNode }) {
     }
   }
 
-  async function retrieveUserFromId(token: string, userRole: UserType) {
-    if (!token) {
-      changeUrl("/");
-    }
-
-    try {
-      const { data } = await api.get(`/${userRole}/id`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      setActiveUser(data);
-    } catch (error: any) {
-      if (error?.response) {
-        switch (error.response.statusCode) {
-          case 401:
-            toast.error("Senha ou e-mail incorreto :)");
-            break;
-          case 404:
-            toast.error("Por favor verifique sua conexão com a internet :)");
-            break;
-          case 400:
-            console.log(error.message);
-            toast.error("Erro no envio de dados");
-        }
-      } else {
-        console.error("Error:", error);
-        toast.error("An unexpected error occurred :)");
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
-  function getIsLoggedIn() {
-    if (!tokenState) {
-      changeUrl("/choose-user");
-    } else {
-      changeUrl(`/${userType}/dashboard`);
-    }
-  }
-
   async function updateUser(formData: UpdateUser) {
-    setIsLoading(true);
     try {
       console.log(formData);
       await api.patch(`/${userType}`, formData, {
@@ -156,8 +154,6 @@ function UserProvider(props: { children: React.ReactNode }) {
         console.error("Error:", error);
         toast.error("An unexpected error occurred :)");
       }
-    } finally {
-      setIsLoading(false);
     }
   }
 

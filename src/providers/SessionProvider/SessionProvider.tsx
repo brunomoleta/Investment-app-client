@@ -22,9 +22,8 @@ function SessionProvider(props: { children: React.ReactNode }) {
   const { setUserType, userType, retrieveUserFromId } =
     useUserContext() as IUserContext;
   const loginRequest = async (formData: ILogin, userType: UserType) => {
+    setIsLoading(true);
     try {
-      setIsLoading(true);
-
       const { data } = await api.post(`/session/${userType}`, formData);
       window.localStorage.setItem("@TYPE", JSON.stringify(userType));
       window.localStorage.setItem("@TOKEN", JSON.stringify(data.token));

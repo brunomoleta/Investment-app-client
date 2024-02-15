@@ -10,10 +10,13 @@ import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Textarea from "@/components/Input/Textarea";
 import Button from "@/components/Button";
 import UpdateButton from "@/components/Dashboard/Main/UpdateButton/UpdateButton";
+import { useUtilsContext } from "@/providers/UtilsProvider";
+import { IUtilsContext } from "@/types/utils";
 
 function UpdateBio() {
   const { activeUser, userType, updateUser, retrieveUserFromId, tokenState } =
     useUserContext() as IUserContext;
+  const { setIsLoading } = useUtilsContext() as IUtilsContext;
 
   const { bio, ...prevUser } = activeUser as IFullAdvisor;
   const id = React.useId();
@@ -31,12 +34,15 @@ function UpdateBio() {
   });
 
   async function onSubmit(formData: IBio) {
+    setIsLoading(true);
+
     const editedUser = {
       prevUser,
       bio: formData.bio,
     };
     await updateUser(editedUser);
     await retrieveUserFromId(tokenState, userType);
+    setIsLoading(false);
   }
 
   return (

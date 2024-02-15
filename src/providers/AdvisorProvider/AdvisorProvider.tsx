@@ -22,8 +22,8 @@ function AdvisorProvider(props: { children: React.ReactNode }) {
   const [advisors, setAdvisors] = React.useState<IAdvisor[] | null>(null);
 
   async function getAdvisorsNoAuth() {
-    try {
       setIsLoading(true);
+    try {
       const { data } = await api.get("/advisor", {
         params: {
           page: 1,
