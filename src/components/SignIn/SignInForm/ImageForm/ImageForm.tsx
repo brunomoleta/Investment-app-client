@@ -6,12 +6,12 @@ import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Input from "@/components/Input";
 import {
   Optional,
-} from "@/components/SignIn/SignInForm/Image/Image.style";
+} from "@/components/SignIn/SignInForm/ImageForm/Image.style";
 import { useForm } from "react-hook-form";
 import { IImageOnly } from "@/types/login";
 import Button from "@/components/Button";
 
-function Image() {
+function ImageForm() {
   const { setStep, formInfo, setFormInfo } =
     useUtilsContext() as IUtilsContext;
 
@@ -40,4 +40,4 @@ function Image() {
   );
 }
 
-export default Image;
+export default ImageForm;

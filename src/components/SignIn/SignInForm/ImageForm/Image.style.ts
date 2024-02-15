@@ -1,9 +1,6 @@
 'use client'
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-    position: relative;
-`
 export const Optional = styled.span`
     position: absolute;
     right: var(--s0);
