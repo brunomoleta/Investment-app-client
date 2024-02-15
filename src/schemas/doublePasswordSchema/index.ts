@@ -1,2 +1,5 @@
-export * from './doublePasswordSchema';
-export { default } from './doublePasswordSchema';
+export * from "./doublePasswordSchema";
+export {
+  doublePasswordSchema,
+  baseDoublePasswordSchema,
+} from "./doublePasswordSchema";
