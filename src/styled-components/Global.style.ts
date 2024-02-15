@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+"use client";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 
@@ -242,6 +243,15 @@ const GlobalStyles = createGlobalStyle`
         color: var(--grey-300);
         font-size: var(--font-small);
         text-align: initial;
+    }
+
+    li {
+
+        color: var(--grey-400);
+    }
+
+    a:disabled, button:disabled {
+        opacity: .6;
     }
 `;
 

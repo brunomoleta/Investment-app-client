@@ -1,14 +1,12 @@
-'use client'
-import Template from '@/components/Template';
-import GlobalStyle from '@/styled-components/Global.style';
+import LoginForm from "../../components/Login/LoginForm";
+import LoginPage from "../../components/Login/LoginPage";
+import SignInAlternative from "@/components/SignInAlternative";
 
 export default function InvestorLogin() {
   return (
-    <>
-      <Template>
-        <div>Login Investidor</div>
-      </Template>
-      <GlobalStyle />
-    </>
+    <LoginPage
+      loginForm={<LoginForm userType="investor" />}
+      signInAlternative={<SignInAlternative href={'/investor/signup'} />}
+    />
   );
 }

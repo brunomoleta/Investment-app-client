@@ -3,25 +3,41 @@
 
     /*colors*/
     --primary-green: hsl(136, 64%, 51%);
-    --secondary-green: hsl(158, 61%, 49%);
+    --primary-green-hover: hsl(136, 64%, 40%);
+
     --primary-blue: hsl(192, 69%, 51%);
+    --primary-blue-hover: hsl(192, 69%, 40%);
+
+    --secondary-green: hsl(158, 61%, 49%);
 
     --primary-gradient: linear-gradient(to right,
     var(--primary-green),
     var(--primary-blue));
+    --primary-gradient-hover: linear-gradient(to right,
+    var(--primary-green-hover),
+    var(--primary-blue-hover));
+
 
     --pure-white: hsl(223, 100%, 100%);
+    --rich-black: hsl(250, 100%, 12.5%);
     --grey-100: hsl(0, 0%, 98%);
     --grey-200: hsl(223, 18%, 96%);
     --grey-300: hsl(232.5, 8.16%, 61.57%);
     --grey-400: hsl(232.5, 0%, 59%);
     --grey-400-t: hsl(232.5, 0%, 0%, 30%);
 
+    --red-80: hsla(4, 86%, 36%, 1);
+    --red-70: hsla(4, 86%, 47%, 1);
+    --red-60: hsla(4, 86%, 58%, 1);
+    --red-50: hsla(4, 86%, 66%, 1);
+    --red-40: hsla(4, 86%, 74%, 1);
+
     --blue-100: hsl(231, 26%, 24%);
 
     /*font-size*/
     --font-hero: 3.5rem;
     --font-large: 2.5rem;
+    --font-medium-2: 1.625rem;
     --font-medium: 1.125rem;
     --font-normal: 1rem;
     --font-small: 0.875rem;
@@ -47,4 +63,30 @@
     --s4: calc(var(--s3) * var(--ratio));
     --s5: calc(var(--s4) * var(--ratio));
 
+}
+input[type='radio'] {
+    width: 40px;
+    height: 40px;
+    accent-color: var(--primary-green);
+    outline: revert;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    outline-offset: 0;
+    padding-inline-end: var(--s2);
+
+    transform: translateY(-0.25em) translateX(1.125em);
+
+}
+
+input[type='radio']:focus{
+    outline: revert;
+    border: 0;
+    outline: var(--border-thickness) solid var(--primary-green);
+    outline-offset: 4px;
+
+}
+
+input[type='radio']:hover{
+    outline:3px solid var(--primary-green);
 }

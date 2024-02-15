@@ -1,20 +1,16 @@
-import React from 'react';
-import { SMList } from '../SocialMediaIcons/SMIcons.style';
-import { SMIcons } from '../../../services/data';
-import Link from 'next/link';
-import Image from 'next/image';
+import React from "react";
+import { footeritems } from "@/services/data";
+import FooterItem from "@/components/Footer/FooterAnchors/FooterItem";
+import {AnchorsList} from "@/components/Footer/FooterAnchors/FooterAnchors.style";
 
 function FooterAnchors() {
-  return     <SMList>
-    {SMIcons.map((icon) => (
-      <li key={icon.id}>
-        <Link href={"/"}>
-          <Image alt={icon.name} src={icon.image} />
-        </Link>
-      </li>
-    ))}
-  </SMList>
-    ;
+  return (
+    <AnchorsList>
+      {footeritems.map((anchor, index) => (
+        <FooterItem key={index} anchor={anchor}/>
+      ))}
+    </AnchorsList>
+  );
 }
 
 export default FooterAnchors;

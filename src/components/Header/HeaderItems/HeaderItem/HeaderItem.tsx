@@ -10,7 +10,7 @@ interface Props {
 const HeaderItem: React.FC<Props> = ({ item }) => {
   return (
     <ItemLi>
-      <Link href="#">{Upper(item)}</Link>
+      <Link href="/">{Upper(item)}</Link>
     </ItemLi>
   );
 };

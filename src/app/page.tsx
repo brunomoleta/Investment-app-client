@@ -1,14 +1,10 @@
-'use client';
-import GlobalStyle from '@/styled-components/Global.style';
-import HomePage from '@/components/HomePage';
-
-
+import HomePage from "@/components/HomePage";
+import React from "react";
 
 export default function Home() {
   return (
     <>
-        <HomePage />
-        <GlobalStyle />
+      <HomePage />
     </>
   );
 }

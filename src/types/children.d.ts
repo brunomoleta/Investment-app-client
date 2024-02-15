@@ -1,10 +1,12 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
 export interface ChildrenProps {
   children: ReactNode;
 }
 
-export interface ButtonProps{
-  content: string;
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  content: string | React.ReactNode;
   href?: string;
+  isPrimary?: boolean;
 }
