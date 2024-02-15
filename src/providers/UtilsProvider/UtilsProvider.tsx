@@ -2,7 +2,6 @@
 import React from "react";
 import { IUtilsContext } from "@/types/utils";
 import {useRouter} from "next/navigation";
-import {toast} from "react-toastify";
 
 const UtilsContext = React.createContext({});
 
@@ -24,7 +23,6 @@ function UtilsProvider(props: { children: React.ReactNode }) {
   const [formInfo, setFormInfo] = React.useState({});
   const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
 
-
   function cleanForm() {
     setStep(0);
     setFormInfo({});
@@ -32,26 +30,21 @@ function UtilsProvider(props: { children: React.ReactNode }) {
 
   function logoClick() {
     cleanForm()
-    router.push('/')
+    changeUrl('/')
+  }
+
+  function changeUrl(url:string) {
+    router.push(url);
   }
 
   function changePasswordVisibility() {
     setIsPasswordVisible(!isPasswordVisible);
   }
 
-  function quitAccount(): void {
-    window.localStorage.removeItem("@TOKEN");
-    window.localStorage.removeItem("@TYPE");
-
-
-    router.push("/");
-    toast.success('Volte sempre :)')
-  }
-
-
   const values: IUtilsContext = {
+    changeUrl,
+
     changePasswordVisibility,
-    quitAccount,
 
     setIsPasswordVisible,
     isPasswordVisible,

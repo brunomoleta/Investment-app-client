@@ -2,7 +2,7 @@ import React from "react";
 import { UserSignIn } from "@/types/login";
 
 export interface IUtilsContext {
-  quitAccount: () => void;
+  changeUrl: (string) => void;
 
   changePasswordVisibility: () => void;
   isPasswordVisible: boolean;
