@@ -15,10 +15,10 @@ Bruno Moleta Santos
 ## Tech Stack
 
 <div style="display: flex; align-items: center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/1920px-Nextjs-logo.svg.png" height="40" alt="Next.js" style="margin-right: 10px;">
-  <img src="https://cdn-icons-png.flaticon.com/512/919/919832.png" height="50" alt="Typescript" style="margin-right: 10px;">
-  <img src="https://seeklogo.com/images/Z/zod-logo-B57E684330-seeklogo.com.png" height="50" alt="Zod" style="margin-right: 10px;">
-  <img src="https://user-images.githubusercontent.com/43313420/105893220-1bae8780-6013-11eb-87be-eeac845ecc6f.png" height="50" alt="Axios" style="margin-right: 10px;">
+  <img alt='next.js' src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/1920px-Nextjs-logo.svg.png" height="40" alt="Next.js" style="margin-right: 10px;">
+  <img alt='typescript' src="https://cdn-icons-png.flaticon.com/512/919/919832.png" height="50" alt="Typescript" style="margin-right: 10px;">
+  <img 'Zod' src="https://seeklogo.com/images/Z/zod-logo-B57E684330-seeklogo.com.png" height="50" alt="Zod" style="margin-right: 10px;">
+  <img alt='axios' src="https://user-images.githubusercontent.com/43313420/105893220-1bae8780-6013-11eb-87be-eeac845ecc6f.png" height="50" alt="Axios" style="margin-right: 10px;">
 </div>
 
 ## Getting Started
