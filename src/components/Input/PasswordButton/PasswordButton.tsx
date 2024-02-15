@@ -2,11 +2,11 @@
 import React from "react";
 import { Eye, EyeOff } from "react-feather";
 import { StyledPasswordButton } from "@/components/Input/Input.styles";
-import { useUserContext } from "@/providers/UserProvider";
-import { IUserContext } from "@/types/userContext";
+import {useUtilsContext} from "@/providers/UtilsProvider";
+import {IUtilsContext} from "@/types/utils";
 
 function PasswordButton({ type }: { type?: string }) {
-  const { changePasswordVisibility } = useUserContext() as IUserContext;
+  const { changePasswordVisibility } = useUtilsContext() as IUtilsContext;
 
   return (
     <StyledPasswordButton

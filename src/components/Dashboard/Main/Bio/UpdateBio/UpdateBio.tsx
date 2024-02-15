@@ -1,8 +1,6 @@
 import React from "react";
 import { useUserContext } from "@/providers/UserProvider";
 import { IUserContext } from "@/types/userContext";
-import { useUtilsContext } from "@/providers/UtilsProvider";
-import { IUtilsContext } from "@/types/utils";
 import { useForm } from "react-hook-form";
 import { IBio } from "@/components/SignIn/SignInForm/AdvisorBio";
 import advisorBioSchema from "@/schemas/advisorBioSchema";
@@ -14,9 +12,8 @@ import UpdateButtons from "@/components/Dashboard/Main/UpdateButtons";
 
 
 function UpdateBio() {
-  const { activeUser, updateUser, retrieveUserFromId } =
+  const { activeUser, updateUser,retrieveUserFromId } =
     useUserContext() as IUserContext;
-  const { setIsEditing } = useUtilsContext() as IUtilsContext;
 
   const { bio, ...prevUser } = activeUser as IFullAdvisor;
   const id = React.useId();
