@@ -12,16 +12,14 @@ import {
 } from "@/components/Dashboard/DashboardNav/DashboardNav.style";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
-import { useRouter } from "next/navigation";
 import { useUserContext } from "@/providers/UserProvider";
 import { IUserContext } from "@/types/userContext";
 
 function DashboardDropdown() {
   const { userType } = useUserContext() as IUserContext;
-  const { setIsModalOpen } = useUtilsContext() as IUtilsContext;
+  const { setIsModalOpen, changeUrl } = useUtilsContext() as IUtilsContext;
 
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
-  const router = useRouter();
 
   function DashboardItemType() {
     if (userType === AccessType.Investor) {
@@ -41,20 +39,18 @@ function DashboardDropdown() {
       <DropdownMenu.Portal>
         <DMContent sideOffset={5}>
           <DMItem
-            onClick={() => router.push(`/${userType}/dashboard/personal-info`)}
+            onClick={() => changeUrl(`/${userType}/dashboard/personal-info`)}
           >
             Dados pessoais
           </DMItem>
-          {userType === AccessType.Advisor && (
-            <DMItem onClick={() => router.push(`/advisor/dashboard/bio`)}>
-              Biografia
-            </DMItem>
-          )}
+          <DMItem onClick={() => changeUrl(`/${userType}/dashboard/password`)}>
+            Trocar de senha
+          </DMItem>
           <DMSeparator />
           {
             <DMItem
               onClick={() =>
-                router.push(`/${userType}/dashboard/${DashboardItemType()}`)
+                changeUrl(`/${userType}/dashboard/${DashboardItemType()}`)
               }
             >
               {userType === AccessType.Investor
@@ -62,11 +58,19 @@ function DashboardDropdown() {
                 : "Sua especialidade"}
             </DMItem>
           }
-          <DMItem
-            onClick={() => router.push(`/${userType}/dashboard/password`)}
-          >
-            Trocar de senha
-          </DMItem>
+          {userType === AccessType.Advisor && (
+            <DMItem
+              onClick={() => changeUrl(`/advisor/dashboard/specialities`)}
+            >
+              Especialidades
+            </DMItem>
+          )}
+
+          {userType === AccessType.Advisor && (
+            <DMItem onClick={() => changeUrl(`/advisor/dashboard/bio`)}>
+              Biografia
+            </DMItem>
+          )}
           <DMSeparator />
           <DMItem onClick={() => setIsModalOpen(true)}>Sair da sessão</DMItem>
 
