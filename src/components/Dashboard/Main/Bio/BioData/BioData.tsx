@@ -9,7 +9,7 @@ import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import Button from "@/components/Button";
 
-function RenderBio() {
+function BioData() {
   const { activeUser } = useUserContext() as IUserContext;
   const { setIsEditing } = useUtilsContext() as IUtilsContext;
   const { bio } = activeUser as IAdvisor;
@@ -23,4 +23,4 @@ function RenderBio() {
   );
 }
 
-export default RenderBio;
+export default BioData;

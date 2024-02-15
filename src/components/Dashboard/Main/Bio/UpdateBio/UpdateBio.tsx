@@ -8,11 +8,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { IFullAdvisor } from "@/types/users";
 import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Textarea from "@/components/Input/Textarea";
-import UpdateButtons from "@/components/Dashboard/Main/UpdateButtons";
-
+import Button from "@/components/Button";
+import UpdateButton from "@/components/Dashboard/Main/UpdateButton/UpdateButton";
 
 function UpdateBio() {
-  const { activeUser, updateUser,retrieveUserFromId } =
+  const { activeUser, userType, updateUser, retrieveUserFromId, tokenState } =
     useUserContext() as IUserContext;
 
   const { bio, ...prevUser } = activeUser as IFullAdvisor;
@@ -36,19 +36,22 @@ function UpdateBio() {
       bio: formData.bio,
     };
     await updateUser(editedUser);
-    await retrieveUserFromId();
+    await retrieveUserFromId(tokenState, userType);
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
-      <Textarea
-        label="Bio"
-        {...register("bio")}
-        error={errors.bio}
-        id={bioId}
-      />
-      <UpdateButtons />
-    </Form>
+    <>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <Textarea
+          label="Bio"
+          {...register("bio")}
+          error={errors.bio}
+          id={bioId}
+        />
+        <Button type="submit" content="Enviar" />
+      </Form>
+      <UpdateButton />
+    </>
   );
 }
 
