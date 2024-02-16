@@ -8,7 +8,8 @@ import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import { useForm } from "react-hook-form";
 import Button from "@/components/Button";
-import {FormWrapper} from "@/components/SignIn/SignInForm/ChooseAdvisor/ChooseAdvisor.style";
+import { FormWrapper } from "@/components/SignIn/SignInForm/ChooseAdvisor/ChooseAdvisor.style";
+import AdvisorInfo from "@/components/RenderManyAdvisors/RenderAdvisor/AdvisorCard/AdvisorInfo";
 
 function ChooseAdvisor() {
   const { advisors } = useAdvisorContext() as IAdvisorContext;
@@ -37,7 +38,11 @@ function ChooseAdvisor() {
               {...register("advisor_id")}
               id={`${id}-${advisor.id}`}
               value={advisor.id}
-              label={<AdvisorCard advisor={advisor} />}
+              label={
+                <AdvisorCard advisor={advisor}>
+                  <AdvisorInfo advisor={advisor} />
+                </AdvisorCard>
+              }
             />
           ))}
         </FormWrapper>

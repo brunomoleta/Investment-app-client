@@ -6,6 +6,7 @@ import { useUserContext } from "@/providers/UserProvider";
 import { IUserContext } from "@/types/userContext";
 import MainHeading from "@/components/Dashboard/Main/MainHeading";
 import InvestorsList from "@/components/Dashboard/Main/InvestorsList";
+import CurrentAdvisor from "@/components/Dashboard/Main/InvestorsAdvisor/CurrentAdvisor";
 
 function Dashboard() {
   const { userType } = useUserContext() as IUserContext;
@@ -16,7 +17,7 @@ function Dashboard() {
     } else if (userType === "advisor") {
       return <InvestorsList />;
     }
-    return "teste";
+    return <CurrentAdvisor/>;
   }
 
   return (

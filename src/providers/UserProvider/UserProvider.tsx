@@ -137,7 +137,6 @@ function UserProvider(props: { children: React.ReactNode }) {
 
   async function updateUser(formData: UpdateUser) {
     try {
-      console.log(formData);
       await api.patch(`/${userType}`, formData, {
         headers: {
           Authorization: `Bearer ${tokenState}`,
@@ -158,6 +157,9 @@ function UserProvider(props: { children: React.ReactNode }) {
           case 400:
             console.log(error.message);
             toast.error("Erro no envio de dados");
+          case 500:
+            console.error("Error:", error);
+            toast.error("Houve um erro invesperado :)");
         }
       } else {
         console.error("Error:", error);
