@@ -15,14 +15,14 @@ function useAdvisorContext() {
 }
 
 function AdvisorProvider(props: { children: React.ReactNode }) {
-  const { setIsLoading, setPage, page } = useUtilsContext() as IUtilsContext;
+  const { setIsLoading } = useUtilsContext() as IUtilsContext;
 
   const route = useRouter();
 
   const [advisors, setAdvisors] = React.useState<IAdvisor[] | null>(null);
 
   async function getAdvisorsNoAuth() {
-      setIsLoading(true);
+    setIsLoading(true);
     try {
       const { data } = await api.get("/advisor", {
         params: {
@@ -31,7 +31,6 @@ function AdvisorProvider(props: { children: React.ReactNode }) {
       });
       console.log(data.advisors);
       setAdvisors(data.advisors);
-      setPage((prevPage) => prevPage + 1);
     } catch (error: any) {
       toast.error("Verifique sua conexão com a internet");
       console.error(error);
