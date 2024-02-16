@@ -41,7 +41,7 @@ function SessionProvider(props: { children: React.ReactNode }) {
             toast.error("Senha ou e-mail incorreto :)");
             break;
           case 404:
-            toast.error("Por favor verifique sua conexão com a internet :)");
+            toast.error("Senha ou e-mail incorreto :)");
             break;
         }
       } else {

@@ -21,7 +21,7 @@ function MainHeading() {
     }
   }
 
-  return <>{message}</>;
+  return <>{message()}</>;
 }
 
 export default MainHeading;

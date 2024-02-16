@@ -14,9 +14,12 @@ import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import { useUserContext } from "@/providers/UserProvider";
 import { IUserContext } from "@/types/userContext";
+import {useAdvisorContext} from "@/providers/AdvisorProvider";
+import {IAdvisorContext} from "@/types/advisorContext";
 
 function DashboardDropdown() {
   const { userType } = useUserContext() as IUserContext;
+  const { getAdvisorsNoAuth } = useAdvisorContext() as IAdvisorContext;
   const { setIsEditing, setIsLoading, setIsModalOpen, changeUrl } =
     useUtilsContext() as IUtilsContext;
 
@@ -30,12 +33,17 @@ function DashboardDropdown() {
   }
 
   const handleClick = (url: string) => {
-    setIsLoading(true)
+    setIsLoading(true);
     setIsEditing(false);
     changeUrl(`/${userType}/dashboard/${url}`);
+    setIsLoading(false);
+  };
+  const renderAdvisorsAndChangeUrl = async () => {
+    setIsLoading(true)
+    await getAdvisorsNoAuth()
+    handleClick(DashboardItemType());
     setIsLoading(false)
   };
-
   return (
     <DropdownMenu.Root open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
       <DMTrigger asChild>
@@ -53,13 +61,17 @@ function DashboardDropdown() {
             Trocar de senha
           </DMItem>
           <DMSeparator />
-          {
-            <DMItem onClick={() => handleClick(DashboardItemType())}>
-              {userType === AccessType.Investor
-                ? "Trocar de Assessor"
-                : "Sua especialidade"}
+          {userType === AccessType.Investor ? (
+            <DMItem
+              onClick={renderAdvisorsAndChangeUrl}
+            >
+              Trocar de Assessor
             </DMItem>
-          }
+          ) : (
+            <DMItem onClick={() => handleClick(DashboardItemType())}>
+              Sua especialidade
+            </DMItem>
+          )}
           {userType === AccessType.Admin && (
             <DMItem onClick={() => handleClick("specialities")}>
               Especialidades

@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import { useInvestmentTypeContext } from "@/providers/InvestmentTypeProvider";
 import {
@@ -28,7 +29,7 @@ function UpdateSpeciality() {
 
   const { speciality_id } = activeUser as IAdvisor;
 
-  const id = React.useId();
+  const ReactId = React.useId();
 
   const { register, handleSubmit, setFocus } = useForm<ISpecialityId>({
     resolver: zodResolver(specialitySchema),
@@ -41,8 +42,6 @@ function UpdateSpeciality() {
 
   async function onSubmit(formData: { speciality_id: string }) {
     setIsLoading(true);
-    console.log(tokenState);
-    console.log(userType);
 
     await updateUser(formData);
     await retrieveUserFromId(tokenState, userType);
@@ -54,10 +53,10 @@ function UpdateSpeciality() {
       <Form onSubmit={handleSubmit(onSubmit)}>
         {investmentTypes.map(({ id, risk, type_name }: IInvestmentType) => (
           <Input
+            type="radio"
             key={id}
             {...register("speciality_id")}
-            id={`${id}-${id}`}
-            type="radio"
+            id={`${ReactId}-${id}`}
             value={id}
             label={<SpecialityInfo name={type_name} risk={risk} />}
           />
