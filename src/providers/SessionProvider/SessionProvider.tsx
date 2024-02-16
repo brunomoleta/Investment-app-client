@@ -4,7 +4,6 @@ import { ILogin, UserSignIn } from "@/types/login";
 import { IUserContext, UserType } from "@/types/userContext";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import { useUserContext } from "@/providers/UserProvider";
@@ -19,7 +18,7 @@ function useSessionContext(): {} {
 function SessionProvider(props: { children: React.ReactNode }) {
   const { cleanForm, changeUrl, setIsLoading } =
     useUtilsContext() as IUtilsContext;
-  const { setUserType, userType, retrieveUserFromId } =
+  const { setUserType, setTokenState, userType, retrieveUserFromId } =
     useUserContext() as IUserContext;
   const loginRequest = async (formData: ILogin, userType: UserType) => {
     setIsLoading(true);
@@ -29,6 +28,7 @@ function SessionProvider(props: { children: React.ReactNode }) {
       window.localStorage.setItem("@TOKEN", JSON.stringify(data.token));
 
       setUserType(userType);
+      setTokenState(data.token)
 
       await retrieveUserFromId(data.token, userType);
 

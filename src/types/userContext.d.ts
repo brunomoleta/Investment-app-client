@@ -11,6 +11,7 @@ export interface IUserContext {
   quitAccount: () => void;
 
   tokenState: TokenType;
+  setTokenState: React.Dispatch<React.SetStateAction<TokenType>>;
 
   updatePassword: (UpdateUser) => void;
 
@@ -26,5 +27,5 @@ export interface IUserContext {
   getIsLoggedIn: () => void;
 
   updateUser: (UpdateUser) => Promise<void>;
-  retrieveUserFromId: (string, UserType) => Promise<void>;
+  retrieveUserFromId: (id: TokenType, userType: UserType) => Promise<void>;
 }

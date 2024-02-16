@@ -8,7 +8,7 @@ import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Input from "@/components/Input";
-import { Upper } from "@/services/service";
+import { upper } from "@/services/service";
 import Button from "@/components/Button";
 
 function UserName() {
@@ -28,7 +28,7 @@ function UserName() {
 
   function submit(formData: IName) {
     const { firstName, lastName, ...newFormData } = formData;
-    const fullName = Upper(firstName) + " " + Upper(lastName);
+    const fullName = upper(firstName) + " " + upper(lastName);
 
     setFormInfo({ ...newFormData, name: fullName });
     setStep((prevStep) => prevStep + 1);

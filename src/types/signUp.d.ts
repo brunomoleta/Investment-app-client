@@ -24,4 +24,8 @@ export interface IImage {
   image?: string;
 }
 
+interface ISpecialityId {
+  speciality_id: string;
+}
+
 export interface IUpdateUser extends IName, IPhoneNumber, IEmail, IImage {}

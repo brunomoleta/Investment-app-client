@@ -2,7 +2,7 @@ import React from "react";
 import {
   Highlight,
 } from "@/components/RenderManyAdvisors/RenderAdvisor/RenderAdvisor.style";
-import {renderExperience, Upper} from "@/services/service";
+import {renderExperience, upper} from "@/services/service";
 import { IAdvisor } from "@/types/users";
 import {
   Exp,
@@ -20,7 +20,7 @@ function AdvisorInfo({ advisor }: { advisor: IAdvisor }) {
           Nome: <Highlight>{name}</Highlight>
         </Name>
         <Speciality>
-          Especialidade: <Highlight>{Upper(speciality.type_name)}</Highlight>
+          Especialidade: <Highlight>{upper(speciality.type_name)}</Highlight>
         </Speciality>
         <Exp>
           Ótimo em portfólios{" "}

@@ -2,7 +2,12 @@
 import React from "react";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
-import { ActiveUser, IUserContext, UserType } from "@/types/userContext";
+import {
+  ActiveUser,
+  IUserContext,
+  TokenType,
+  UserType,
+} from "@/types/userContext";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import { UpdateUser } from "@/types/users";
@@ -23,11 +28,12 @@ function UserProvider(props: { children: React.ReactNode }) {
   const [tokenState, setTokenState] = React.useState<string | null>(null);
 
   const retrieveUserFromId = React.useCallback(async function (
-    token: string,
+    token: TokenType,
     userRole: UserType
   ) {
     if (!token) {
       changeUrl("/");
+      return;
     }
 
     try {
@@ -56,20 +62,23 @@ function UserProvider(props: { children: React.ReactNode }) {
       }
     }
   },
-  [changeUrl]);
+  []);
 
   React.useEffect(() => {
     const savedToken = window.localStorage.getItem("@TOKEN");
     const savedUserType = window.localStorage.getItem("@TYPE");
 
     if (!savedUserType || !savedToken) {
+      const fetchData = async (): Promise<void> => {
+        await retrieveUserFromId(null, null);
+      };
+      fetchData();
     } else {
       const token = JSON.parse(savedToken);
       const userType = JSON.parse(savedUserType);
 
       setUserType(userType);
       setTokenState(token);
-
       const fetchData = async (): Promise<void> => {
         await retrieveUserFromId(token, userType);
       };
@@ -177,6 +186,7 @@ function UserProvider(props: { children: React.ReactNode }) {
     setActiveUser,
 
     tokenState,
+    setTokenState,
 
     retrieveUserFromId,
 

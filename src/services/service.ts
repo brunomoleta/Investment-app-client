@@ -1,6 +1,13 @@
 import React from "react";
 import { UserType } from "@/types/userContext";
 
+export enum Risk {
+  Low = "low",
+  Moderate = "moderate",
+  High = "high",
+  VeryHigh = "very_high",
+}
+
 export enum Experience {
   Beginner = "beginner",
   Intermediate = "intermediate",
@@ -15,7 +22,7 @@ export enum InvestmentAmount {
   Wealthy = "wealthy",
 }
 
-export const Upper = (word: string) =>
+export const upper = (word: string) =>
   word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 
 export function handleDigits(value: string) {
@@ -48,7 +55,7 @@ export const isStringFunction = (
   input: string | React.ReactNode
 ): string | React.ReactNode => {
   if (typeof input === "string") {
-    return Upper(input);
+    return upper(input);
   }
   return input;
 };
@@ -64,33 +71,44 @@ export function formatPhoneNumber(phoneNumber: string): string {
 
 export function renderExperience(experience: Experience) {
   if (experience === Experience.Beginner) {
-    return "de até 20 mil reais";
+    return upper("de até 20 mil reais");
   } else if (experience === Experience.Intermediate) {
-    return "entre 20-50 mil reais";
+    return upper("entre 20-50 mil reais");
   } else if (experience === Experience.Advanced) {
-    return "entre 50-250 mil reais";
+    return upper("entre 50-250 mil reais");
   }
-  return "maiores que 250 mil reais";
+  return upper("maiores que 250 mil reais");
+}
+
+export function renderRisk(risk: Risk) {
+  if (risk === Risk.Low) {
+    return upper("conservador");
+  } else if (risk === Risk.Moderate) {
+    return upper("moderado");
+  } else if (risk === Risk.High) {
+    return upper("arrojado");
+  }
+  return upper("extremamente volátil");
 }
 
 export function renderAmount(amount: InvestmentAmount) {
   if (amount === InvestmentAmount.Starter) {
-    return Upper("de até 20 mil reais");
+    return upper("de até 20 mil reais");
   } else if (amount === InvestmentAmount.WellRounded) {
-    return Upper("entre 20-50 mil reais");
+    return upper("entre 20-50 mil reais");
   } else if (amount === InvestmentAmount.Wealthy) {
-    return Upper("entre 50-250 mil reais");
+    return upper("entre 50-250 mil reais");
   }
-  return Upper("maior que 250 mil reais");
+  return upper("maior que 250 mil reais");
 }
 
 export function renderUserType(user: UserType | null) {
   if (user === "advisor") {
-    return Upper("assessor");
+    return upper("assessor");
   }
   if (user === "investor") {
-    return Upper("investidor");
+    return upper("investidor");
   } else {
-    return Upper("admin");
+    return upper("admin");
   }
 }

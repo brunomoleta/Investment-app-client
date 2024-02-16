@@ -9,10 +9,11 @@ import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Input from "@/components/Input";
 import { IUpdateUser } from "@/types/signUp";
 
-import { formatPhoneNumber, handleDigits, Upper } from "@/services/service";
+import { formatPhoneNumber, handleDigits, upper } from "@/services/service";
 import UpdateButton from "../../UpdateButton";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
+import Button from "@/components/Button";
 
 function UpdatePersonalInfo() {
   const { activeUser, tokenState, userType, updateUser, retrieveUserFromId } =
@@ -45,7 +46,7 @@ function UpdatePersonalInfo() {
   async function onSubmit(formData: IUpdateUser) {
     setIsLoading(true);
     const { firstName, lastName, phone_number, ...newFormData } = formData;
-    const fullName = Upper(firstName) + " " + Upper(lastName);
+    const fullName = upper(firstName) + " " + upper(lastName);
 
     const { name, email, image, ...previousActiveUser } = activeUser!;
 
@@ -61,47 +62,49 @@ function UpdatePersonalInfo() {
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
-      <Input
-        id={firstNameId}
-        label="nome"
-        {...register("firstName")}
-        error={errors.firstName}
-      />
-      <Input
-        id={lastNameId}
-        label="sobrenome"
-        {...register("lastName")}
-        error={errors.lastName}
-      />
-      <Input
-        id={emailId}
-        label="email"
-        {...register("email")}
-        error={errors.email}
-      />
-      <Controller
-        name="phone_number"
-        control={control}
-        rules={{ required: true }}
-        render={({ field }) => (
-          <Input
-            {...register("phone_number")}
-            label="número de telefone"
-            error={errors.phone_number}
-            id={phoneNumberId}
-            value={field.value}
-            onChange={(e) => {
-              field.onChange(handleDigits(e.target.value));
-            }}
-          />
-        )}
-      />
+    <>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <Input
+          id={firstNameId}
+          label="nome"
+          {...register("firstName")}
+          error={errors.firstName}
+        />
+        <Input
+          id={lastNameId}
+          label="sobrenome"
+          {...register("lastName")}
+          error={errors.lastName}
+        />
+        <Input
+          id={emailId}
+          label="email"
+          {...register("email")}
+          error={errors.email}
+        />
+        <Controller
+          name="phone_number"
+          control={control}
+          rules={{ required: true }}
+          render={({ field }) => (
+            <Input
+              {...register("phone_number")}
+              label="número de telefone"
+              error={errors.phone_number}
+              id={phoneNumberId}
+              value={field.value}
+              onChange={(e) => {
+                field.onChange(handleDigits(e.target.value));
+              }}
+            />
+          )}
+        />
 
-      <Input id={imageId} label="imagem" {...register("image")} />
-
+        <Input id={imageId} label="imagem" {...register("image")} />
+        <Button type="submit" content="Editar" />
+      </Form>
       <UpdateButton />
-    </Form>
+    </>
   );
 }
 

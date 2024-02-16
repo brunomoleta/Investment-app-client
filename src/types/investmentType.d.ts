@@ -1,11 +1,6 @@
 import React from "react";
+import {Risk} from "@/types/enum";
 
-export declare enum Risk {
-  Low = "low",
-  Moderate = "moderate",
-  High = "high",
-  VeryHigh = "very_high",
-}
 
 export interface IInvestmentType {
   id: string;
