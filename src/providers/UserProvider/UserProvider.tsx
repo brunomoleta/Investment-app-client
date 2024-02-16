@@ -159,7 +159,7 @@ function UserProvider(props: { children: React.ReactNode }) {
             toast.error("Erro no envio de dados");
           case 500:
             console.error("Error:", error);
-            toast.error("Houve um erro invesperado :)");
+            toast.error("Houve um erro inesperado :)");
         }
       } else {
         console.error("Error:", error);
@@ -168,19 +168,54 @@ function UserProvider(props: { children: React.ReactNode }) {
     }
   }
 
-  function quitAccount(): void {
+  async function removeAccount(): Promise<void> {
+    try {
+      await api.delete(`/${userType}`, {
+        headers: {
+          Authorization: `Bearer ${tokenState}`,
+        },
+      });
+
+      setIsEditing(false);
+      toast.success(`Conta removida com sucesso`);
+    } catch (error: any) {
+      if (error?.response) {
+        switch (error.response.statusCode) {
+          case 404:
+            toast.error("Este usuário não existe :(");
+            break;
+          case 403:
+            console.log(error.message);
+            toast.error("Não tens permissão para remove esta conta");
+          case 500:
+            console.error("Error:", error);
+            toast.error("Houve um erro inesperado :)");
+        }
+      } else {
+        console.error("Error:", error);
+        toast.error("An unexpected error occurred :)");
+      }
+    }
+  }
+
+  function quitAccount(isDelete: boolean = false): void {
+    if (!isDelete) {
+      toast.success("Volte sempre :)");
+    }
+
     changeUrl("/");
 
     window.localStorage.removeItem("@TOKEN");
     window.localStorage.removeItem("@TYPE");
+
     setTokenState(null);
     setUserType(null);
-
-    toast.success("Volte sempre :)");
   }
 
   const values: IUserContext = {
     updatePassword,
+
+    removeAccount,
 
     quitAccount,
 
