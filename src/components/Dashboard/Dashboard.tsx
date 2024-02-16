@@ -26,7 +26,7 @@ function Dashboard() {
       return (
         <>
           <MainHeading />
-          <CurrentAdvisor />;
+          <CurrentAdvisor />
         </>
       );
     } else {
@@ -34,7 +34,7 @@ function Dashboard() {
     }
   }
 
-  return <>{renderElement}</>;
+  return <>{renderElement()}</>;
 }
 
 export default Dashboard;
