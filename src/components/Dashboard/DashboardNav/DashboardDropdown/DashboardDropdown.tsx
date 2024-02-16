@@ -7,6 +7,7 @@ import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import {
   DMContent,
   DMItem,
+  DMItemRed,
   DMSeparator,
   DMTrigger,
 } from "@/components/Dashboard/DashboardNav/DashboardNav.style";
@@ -14,8 +15,8 @@ import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import { useUserContext } from "@/providers/UserProvider";
 import { IUserContext } from "@/types/userContext";
-import {useAdvisorContext} from "@/providers/AdvisorProvider";
-import {IAdvisorContext} from "@/types/advisorContext";
+import { useAdvisorContext } from "@/providers/AdvisorProvider";
+import { IAdvisorContext } from "@/types/advisorContext";
 
 function DashboardDropdown() {
   const { userType } = useUserContext() as IUserContext;
@@ -39,10 +40,10 @@ function DashboardDropdown() {
     setIsLoading(false);
   };
   const renderAdvisorsAndChangeUrl = async () => {
-    setIsLoading(true)
-    await getAdvisorsNoAuth()
+    setIsLoading(true);
+    await getAdvisorsNoAuth();
     handleClick(DashboardItemType());
-    setIsLoading(false)
+    setIsLoading(false);
   };
   return (
     <DropdownMenu.Root open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>
@@ -62,9 +63,7 @@ function DashboardDropdown() {
           </DMItem>
           <DMSeparator />
           {userType === AccessType.Investor ? (
-            <DMItem
-              onClick={renderAdvisorsAndChangeUrl}
-            >
+            <DMItem onClick={renderAdvisorsAndChangeUrl}>
               Trocar de Assessor
             </DMItem>
           ) : (
@@ -80,6 +79,14 @@ function DashboardDropdown() {
 
           {userType === AccessType.Advisor && (
             <DMItem onClick={() => handleClick(`bio`)}>Biografia</DMItem>
+          )}
+          {userType === AccessType.Investor && (
+            <>
+              <DMSeparator />
+              <DMItemRed onClick={() => handleClick("delete-account")}>
+                Excluir conta
+              </DMItemRed>
+            </>
           )}
           <DMSeparator />
           <DMItem onClick={() => setIsModalOpen(true)}>Sair da sessão</DMItem>

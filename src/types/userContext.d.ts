@@ -8,7 +8,9 @@ export type ActiveUser = IFullAdvisor | IFullInvestor | null;
 export type TokenType = string | null;
 
 export interface IUserContext {
-  quitAccount: () => void;
+  removeAccount: () => void;
+
+  quitAccount: (isDelete?: boolean) => void;
 
   tokenState: TokenType;
   setTokenState: React.Dispatch<React.SetStateAction<TokenType>>;

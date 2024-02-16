@@ -157,3 +157,5 @@ export const blogArticles = [
   },
 ];
 
+export const confirmMessage =
+    "Sim, desejo remover minha conta e excluir todos os meus dados.";
