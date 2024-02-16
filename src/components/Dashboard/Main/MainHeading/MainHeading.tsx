@@ -16,7 +16,7 @@ function MainHeading() {
         ) : userType === "advisor" ? (
           "Seus Clientes"
         ) : (
-          "Seu assessor"
+          "Seu assessor pessoal"
         )}
       </Heading>
     </>
