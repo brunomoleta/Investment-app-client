@@ -8,19 +8,20 @@ import { Heading } from "@/components/Login/LoginPage/LoginPage.style";
 function MainHeading() {
   const { userType } = useUserContext() as IUserContext;
 
-  return (
-    <>
-      <Heading>
-        {!userType ? (
-          <Spinner />
-        ) : userType === "advisor" ? (
-          "Seus Clientes"
-        ) : (
-          "Seu assessor pessoal"
-        )}
-      </Heading>
-    </>
-  );
+  function message() {
+    if (!userType) {
+      return <Spinner />;
+    } else if (userType === "advisor") {
+      return <Heading>Seus Clientes</Heading>;
+    }
+    if (userType === "investor") {
+      return <Heading>Seu assessor pessoal</Heading>;
+    } else {
+      return <Heading>Tipos de investimento</Heading>;
+    }
+  }
+
+  return <>{message}</>;
 }
 
 export default MainHeading;
