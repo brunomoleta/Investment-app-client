@@ -1,14 +1,19 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import {
   CardImage,
   ImageWrapper,
 } from "@/components/RenderManyAdvisors/RenderAdvisor/RenderAdvisor.style";
-import AdvisorInfo from "@/components/RenderManyAdvisors/RenderAdvisor/AdvisorCard/AdvisorInfo";
 import { IAdvisor } from "@/types/users";
 import { MainInfoWrapper } from "@/components/RenderManyAdvisors/RenderAdvisor/AdvisorCard/AdvisorInfo/AdvisorInfo.style";
 import DefaultImage from "@/assets/illustrations/profile.svg";
 
-function AdvisorCard({ advisor }: { advisor: IAdvisor }) {
+function AdvisorCard({
+  children,
+  advisor,
+}: {
+  advisor: IAdvisor;
+  children: ReactNode;
+}) {
   const { image, name } = advisor;
   const advisorImage = image ? image : DefaultImage;
 
@@ -22,7 +27,7 @@ function AdvisorCard({ advisor }: { advisor: IAdvisor }) {
           alt={name}
         />
       </ImageWrapper>
-      <AdvisorInfo advisor={advisor} />
+      {children}
     </MainInfoWrapper>
   );
 }
