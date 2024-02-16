@@ -51,7 +51,6 @@ function UpdatePersonalInfo() {
     const { name, email, image, ...previousActiveUser } = activeUser!;
 
     const editedUser: Partial<IUser> = {
-      ...previousActiveUser,
       name: fullName,
       phone_number: phone_number.replace(/\D/g, ""),
       ...newFormData,
