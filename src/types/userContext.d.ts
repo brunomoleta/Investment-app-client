@@ -11,6 +11,7 @@ export interface IUserContext {
   quitAccount: () => void;
 
   tokenState: TokenType;
+  setTokenState: React.Dispatch<React.SetStateAction<TokenType>>;
 
   updatePassword: (UpdateUser) => void;
 
