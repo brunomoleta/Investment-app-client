@@ -19,6 +19,7 @@ function UpdateBio() {
   const { setIsLoading } = useUtilsContext() as IUtilsContext;
 
   const { bio, ...prevUser } = activeUser as IFullAdvisor;
+
   const id = React.useId();
   const bioId = `${id}-bio}`;
 
