@@ -160,6 +160,7 @@ function UserProvider(props: { children: React.ReactNode }) {
           case 500:
             console.error("Error:", error);
             toast.error("Houve um erro inesperado :)");
+            break
         }
       } else {
         console.error("Error:", error);
@@ -187,6 +188,7 @@ function UserProvider(props: { children: React.ReactNode }) {
           case 403:
             console.log(error.message);
             toast.error("Não tens permissão para remove esta conta");
+            break
           case 500:
             console.error("Error:", error);
             toast.error("Houve um erro inesperado :)");
