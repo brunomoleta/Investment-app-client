@@ -2,7 +2,12 @@
 import React from "react";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
-import { ActiveUser, IUserContext, UserType } from "@/types/userContext";
+import {
+  ActiveUser,
+  IUserContext,
+  TokenType,
+  UserType,
+} from "@/types/userContext";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import { UpdateUser } from "@/types/users";
@@ -22,54 +27,57 @@ function UserProvider(props: { children: React.ReactNode }) {
   const [activeUser, setActiveUser] = React.useState<ActiveUser>(null);
   const [tokenState, setTokenState] = React.useState<string | null>(null);
 
-  const retrieveUserFromId = React.useCallback(async function (
-    token: string,
-    userRole: UserType
-  ) {
-    if (!token) {
-      changeUrl("/");
-    }
-
-    try {
-      const { data } = await api.get(`/${userRole}/id`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      setActiveUser(data);
-    } catch (error: any) {
-      if (error?.response) {
-        switch (error.response.statusCode) {
-          case 401:
-            toast.error("Senha ou e-mail incorreto :)");
-            break;
-          case 404:
-            toast.error("Por favor verifique sua conexão com a internet :)");
-            break;
-          case 400:
-            console.log(error.message);
-            toast.error("Erro no envio de dados");
-        }
-      } else {
-        console.error("Error:", error);
-        toast.error("An unexpected error occurred :)");
+  const retrieveUserFromId = React.useCallback(
+    async function (token: TokenType, userRole: UserType) {
+      if (!token) {
+        changeUrl("/");
+        return;
       }
-    }
-  },
-  [changeUrl]);
+
+      try {
+        const { data } = await api.get(`/${userRole}/id`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setActiveUser(data);
+      } catch (error: any) {
+        if (error?.response) {
+          switch (error.response.statusCode) {
+            case 401:
+              toast.error("Senha ou e-mail incorreto :)");
+              break;
+            case 404:
+              toast.error("Por favor verifique sua conexão com a internet :)");
+              break;
+            case 400:
+              console.log(error.message);
+              toast.error("Erro no envio de dados");
+          }
+        } else {
+          console.error("Error:", error);
+          toast.error("An unexpected error occurred :)");
+        }
+      }
+    },
+    [changeUrl]
+  );
 
   React.useEffect(() => {
     const savedToken = window.localStorage.getItem("@TOKEN");
     const savedUserType = window.localStorage.getItem("@TYPE");
 
     if (!savedUserType || !savedToken) {
+      const fetchData = async (): Promise<void> => {
+        await retrieveUserFromId(null, null);
+      };
+      fetchData();
     } else {
       const token = JSON.parse(savedToken);
       const userType = JSON.parse(savedUserType);
 
       setUserType(userType);
       setTokenState(token);
-
       const fetchData = async (): Promise<void> => {
         await retrieveUserFromId(token, userType);
       };
