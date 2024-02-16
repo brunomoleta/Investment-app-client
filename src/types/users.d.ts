@@ -1,4 +1,5 @@
 import { Experience, InvestmentAmount } from "@/types/enum";
+import {Risk} from "@/types/investmentType";
 
 export interface IAdmin {
   id: string;
@@ -22,8 +23,8 @@ export type UpdateUser = Pick<
 export interface IAdvisor extends IUser {
   experience: Experience;
   bio: string;
-  speciality: { type_name: string };
   speciality_id: string;
+  speciality: { type_name: string, id: string, risk: Risk };
 }
 
 export interface IFullAdvisor extends IAdvisor {

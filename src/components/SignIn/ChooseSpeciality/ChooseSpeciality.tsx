@@ -7,6 +7,9 @@ import { useForm } from "react-hook-form";
 import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
+import { zodResolver } from "@hookform/resolvers/zod";
+import specialitySchema from "@/schemas/specialitySchema";
+import { ISpecialityId } from "@/types/signUp";
 
 function ChooseSpeciality() {
   const { investmentTypes } =
@@ -15,15 +18,16 @@ function ChooseSpeciality() {
 
   const id = React.useId();
 
-  const { register, handleSubmit } = useForm<{ id: string }>({});
+  const { register, handleSubmit } = useForm<ISpecialityId>({
+    resolver: zodResolver(specialitySchema),
+  });
 
   if (!investmentTypes) {
     return null;
   }
 
-  const onSubmit = (formData: { id: string }) => {
-    setFormInfo({ ...formInfo, speciality_id: formData.id });
-    console.log(formData);
+  const onSubmit = (formData: { speciality_id: string }) => {
+    setFormInfo({ ...formInfo, speciality_id: formData.speciality_id });
     setStep((prevStep) => prevStep + 1);
   };
 
@@ -34,7 +38,7 @@ function ChooseSpeciality() {
         {investmentTypes.map((investment) => (
           <Input
             key={investment.id}
-            {...register("id")}
+            {...register("speciality_id")}
             label={investment.type_name}
             id={`${id}-${investment.id}`}
             type="radio"
