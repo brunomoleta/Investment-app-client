@@ -21,7 +21,7 @@ function AdvisorProvider(props: { children: React.ReactNode }) {
 
   const [advisors, setAdvisors] = React.useState<IAdvisor[] | null>(null);
 
-  async function getAdvisorsNoAuth() {
+  const getAdvisorsNoAuth = React.useCallback(async () => {
     setIsLoading(true);
     try {
       const { data } = await api.get("/advisor", {
@@ -29,7 +29,6 @@ function AdvisorProvider(props: { children: React.ReactNode }) {
           page: 1,
         },
       });
-      console.log(data.advisors);
       setAdvisors(data.advisors);
     } catch (error: any) {
       toast.error("Verifique sua conexão com a internet");
@@ -37,8 +36,7 @@ function AdvisorProvider(props: { children: React.ReactNode }) {
     } finally {
       setIsLoading(false);
     }
-  }
-
+  }, []);
   async function handleMeetClick(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
     await getAdvisorsNoAuth();
