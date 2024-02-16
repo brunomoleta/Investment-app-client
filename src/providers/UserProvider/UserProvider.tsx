@@ -157,6 +157,7 @@ function UserProvider(props: { children: React.ReactNode }) {
           case 400:
             console.log(error.message);
             toast.error("Erro no envio de dados");
+            break
           case 500:
             console.error("Error:", error);
             toast.error("Houve um erro inesperado :)");
@@ -192,6 +193,7 @@ function UserProvider(props: { children: React.ReactNode }) {
           case 500:
             console.error("Error:", error);
             toast.error("Houve um erro inesperado :)");
+            break
         }
       } else {
         console.error("Error:", error);
