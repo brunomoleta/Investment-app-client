@@ -10,13 +10,17 @@ import { useForm } from "react-hook-form";
 import Button from "@/components/Button";
 import { FormWrapper } from "@/components/SignIn/SignInForm/ChooseAdvisor/ChooseAdvisor.style";
 import AdvisorInfo from "@/components/RenderManyAdvisors/RenderAdvisor/AdvisorCard/AdvisorInfo";
+import { zodResolver } from "@hookform/resolvers/zod";
+import advisorSchema from "@/schemas/advisorSchema";
 
 function ChooseAdvisor() {
   const { advisors } = useAdvisorContext() as IAdvisorContext;
   const { setStep, formInfo, setFormInfo } = useUtilsContext() as IUtilsContext;
 
   const id = React.useId();
-  const { register, handleSubmit } = useForm<{ advisor_id: string }>({});
+  const { register, handleSubmit } = useForm<{ advisor_id: string }>({
+    resolver: zodResolver(advisorSchema),
+  });
 
   if (!advisors) {
     return null;
