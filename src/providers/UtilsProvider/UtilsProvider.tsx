@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { IUtilsContext } from "@/types/utils";
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const UtilsContext = React.createContext({});
 
@@ -10,11 +10,11 @@ function useUtilsContext() {
 }
 
 function UtilsProvider(props: { children: React.ReactNode }) {
-  const router = useRouter()
+  const router = useRouter();
 
   const [isEditing, setIsEditing] = React.useState(false);
 
-  const [isModalOpen, setIsModalOpen] = React.useState(false)
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
 
   const [step, setStep] = React.useState(0);
@@ -25,15 +25,16 @@ function UtilsProvider(props: { children: React.ReactNode }) {
 
   function cleanForm() {
     setStep(0);
+    setIsPasswordVisible(false);
     setFormInfo({});
   }
 
   function logoClick() {
-    cleanForm()
-    changeUrl('/')
+    cleanForm();
+    changeUrl("/");
   }
 
-  function changeUrl(url:string) {
+  function changeUrl(url: string) {
     router.push(url);
   }
 
