@@ -17,3 +17,10 @@ export enum InvestmentAmount {
     Multimillionaire = "multimillionaire",
     Wealthy = "wealthy",
 }
+
+export declare enum Risk {
+    Low = "low",
+    Moderate = "moderate",
+    High = "high",
+    VeryHigh = "very_high",
+}
