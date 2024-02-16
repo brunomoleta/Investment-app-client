@@ -11,22 +11,30 @@ import CurrentAdvisor from "@/components/Dashboard/Main/InvestorsAdvisor/Current
 function Dashboard() {
   const { userType } = useUserContext() as IUserContext;
 
-  function RenderElement() {
+  function renderElement() {
     if (!userType) {
       return <Spinner />;
     } else if (userType === "advisor") {
-      return <InvestorsList />;
+      return (
+        <>
+          <MainHeading />
+          {<InvestorsList />};
+        </>
+      );
     }
-    return <CurrentAdvisor/>;
+    if (userType === "investor") {
+      return (
+        <>
+          <MainHeading />
+          <CurrentAdvisor />;
+        </>
+      );
+    } else {
+      return null;
+    }
   }
 
-  return (
-    <>
-      <MainHeading />
-
-      {RenderElement()}
-    </>
-  );
+  return <>{renderElement}</>;
 }
 
 export default Dashboard;
