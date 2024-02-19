@@ -1,4 +1,6 @@
 :root {
+    --page-max-width: 1150px;
+
     --border-thickness: 2px;
 
     /*colors*/
@@ -43,6 +45,13 @@
     --font-small: 0.875rem;
     --font-smaller: 0.625rem;
 
+    /*clamp*/
+    --font-heading-clamp: clamp(var(--font-medium-2), 12svw, var(--font-large));
+    --page-alignment: clamp(var(--s0), 10svw, var(--s2));
+
+    /*card width*/
+    --flex-wrap-card: 1 0 220px;
+
     /*media query*/
     --media-tablet: 550px;
     --media-desktop: 930px;
@@ -64,6 +73,7 @@
     --s5: calc(var(--s4) * var(--ratio));
 
 }
+
 input[type='radio'] {
     width: 40px;
     height: 40px;
@@ -79,7 +89,7 @@ input[type='radio'] {
 
 }
 
-input[type='radio']:focus{
+input[type='radio']:focus {
     outline: revert;
     border: 0;
     outline: var(--border-thickness) solid var(--primary-green);
@@ -87,6 +97,6 @@ input[type='radio']:focus{
 
 }
 
-input[type='radio']:hover{
-    outline:3px solid var(--primary-green);
+input[type='radio']:hover {
+    outline: 3px solid var(--primary-green);
 }
