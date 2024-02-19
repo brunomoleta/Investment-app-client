@@ -8,6 +8,8 @@ export const StyledArticle = styled.article`
     flex-wrap: wrap;
     gap: var(--s0);
     border-radius: 10px;
+    
+    flex: var(--flex-wrap-card);
 
     overflow: hidden;
 
