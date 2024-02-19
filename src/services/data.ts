@@ -49,7 +49,7 @@ export const WhyUsInfo = [
     name: "Invista com o cartão de crédito",
     paragraph:
       "Com aprovação da CVM " +
-      "disponbilizamos o investimento com" +
+      "disponibilizamos o investimento com" +
       " débito automático" +
       " pelo cartão de crédito." +
       " É fácil demais, não é mesmo?",

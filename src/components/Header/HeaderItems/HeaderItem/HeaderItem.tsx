@@ -1,7 +1,7 @@
 import React from "react";
 import { ItemLi } from "@/components/Header/HeaderItems/HeaderItems.style";
-import Link from "next/link";
 import { upper } from "@/services/service";
+import {HeaderLink} from "@/components/Footer/FooterAnchors/FooterItem/FooterItem.style";
 
 interface Props {
   item: string;
@@ -10,7 +10,7 @@ interface Props {
 const HeaderItem: React.FC<Props> = ({ item }) => {
   return (
     <ItemLi>
-      <Link href="/">{upper(item)}</Link>
+      <HeaderLink href="/">{upper(item)}</HeaderLink>
     </ItemLi>
   );
 };
