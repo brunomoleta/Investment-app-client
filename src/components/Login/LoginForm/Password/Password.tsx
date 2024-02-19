@@ -10,8 +10,8 @@ import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import Spinner from "@/components/Spinner";
 import Button from "@/components/Button";
-import {useSessionContext} from "@/providers/SessionProvider";
-import {ISessionContext} from "@/types/sessionContext";
+import { useSessionContext } from "@/providers/SessionProvider";
+import { ISessionContext } from "@/types/sessionContext";
 
 function Password({ userType }: { userType: UserType }) {
   const { loginRequest } = useSessionContext() as ISessionContext;
@@ -47,6 +47,7 @@ function Password({ userType }: { userType: UserType }) {
         />
 
         <Button
+          type="submit"
           disabled={isLoading}
           content={isLoading ? <Spinner /> : "LOGIN"}
         />
