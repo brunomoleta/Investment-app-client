@@ -1,9 +1,9 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: "http://localhost:3001",
+    baseURL: "https://investment-fullstack.onrender.com",
     timeout: 8000,
 });
 
-// production: https://easy-contacts-svuu.onrender.com/
-// local: http://localhost:3001
+// production: https://investment-fullstack.onrender.com
+// if local: http://localhost:3001
