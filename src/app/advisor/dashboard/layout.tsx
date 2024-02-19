@@ -6,12 +6,16 @@ import { Wrapper } from "@/app/advisor/dashboard/Layout.style";
 import DashboardUsername from "@/components/Dashboard/DashboardUsername";
 import Modal from "@/components/Modal";
 import FinishSession from "@/components/FinishSession";
+import {useVerifyToken} from "@/hooks/useVerifyToken";
+
 
 export default function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useVerifyToken();
+
   return (
     <Wrapper>
       <DashboardNav />

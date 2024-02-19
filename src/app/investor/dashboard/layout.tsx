@@ -6,23 +6,25 @@ import { Wrapper } from "@/app/advisor/dashboard/Layout.style";
 import DashboardUsername from "@/components/Dashboard/DashboardUsername";
 import Modal from "@/components/Modal";
 import FinishSession from "@/components/FinishSession";
+import { useVerifyToken } from "@/hooks/useVerifyToken";
 
 export default function DashboardLayout({
-                                            children,
-                                        }: Readonly<{
-    children: React.ReactNode;
+  children,
+}: Readonly<{
+  children: React.ReactNode;
 }>) {
-    return (
-        <Wrapper>
-            <DashboardNav />
+  useVerifyToken();
+  return (
+    <Wrapper>
+      <DashboardNav />
 
-            <DashboardMain>
-                <DashboardUsername />
-                {children}
-                <Modal title="Encerrar sessão?" element={<FinishSession />} />
-            </DashboardMain>
+      <DashboardMain>
+        <DashboardUsername />
+        {children}
+        <Modal title="Encerrar sessão?" element={<FinishSession />} />
+      </DashboardMain>
 
-            <Footer isDashboard={true} />
-        </Wrapper>
-    );
+      <Footer isDashboard={true} />
+    </Wrapper>
+  );
 }

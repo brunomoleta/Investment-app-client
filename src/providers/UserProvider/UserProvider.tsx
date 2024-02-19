@@ -206,8 +206,8 @@ function UserProvider(props: { children: React.ReactNode }) {
 
     changeUrl("/");
 
-    deleteCookie("@TOKEN");
-    deleteCookie("@TYPE");
+    deleteCookie("token");
+    deleteCookie("userRole");
 
     setTokenState(null);
     setUserType(null);
