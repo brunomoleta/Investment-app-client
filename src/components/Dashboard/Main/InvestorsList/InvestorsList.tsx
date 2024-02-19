@@ -19,9 +19,11 @@ function InvestorsList() {
   if (activeUser) {
     return (
       <PostsUl as="ol">
-        {investors.map((investor: IInvestor) => (
-          <InvestorItem key={investor.id} investor={investor} />
-        ))}
+        {investors.length < 1
+          ? `Por enquanto tu não tens clientes.`
+          : investors.map((investor: IInvestor) => (
+              <InvestorItem key={investor.id} investor={investor} />
+            ))}
       </PostsUl>
     );
   }

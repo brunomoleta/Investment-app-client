@@ -8,6 +8,7 @@ import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import { useUserContext } from "@/providers/UserProvider";
 import { ISessionContext } from "@/types/sessionContext";
+import { setCookie } from "cookies-next";
 
 const SessionContext = React.createContext({});
 
@@ -24,11 +25,11 @@ function SessionProvider(props: { children: React.ReactNode }) {
     setIsLoading(true);
     try {
       const { data } = await api.post(`/session/${userType}`, formData);
-      window.localStorage.setItem("@TYPE", JSON.stringify(userType));
-      window.localStorage.setItem("@TOKEN", JSON.stringify(data.token));
+      setCookie('token', data.token);
+      setCookie('userRole', userType);
 
       setUserType(userType);
-      setTokenState(data.token)
+      setTokenState(data.token);
 
       await retrieveUserFromId(data.token, userType);
 
