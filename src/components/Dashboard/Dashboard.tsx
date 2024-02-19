@@ -18,7 +18,7 @@ function Dashboard() {
       return (
         <>
           <MainHeading />
-          {<InvestorsList />};
+          {<InvestorsList />}
         </>
       );
     }
