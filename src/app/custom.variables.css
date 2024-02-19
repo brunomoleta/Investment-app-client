@@ -56,6 +56,11 @@
     --media-tablet: 550px;
     --media-desktop: 930px;
 
+    /*mockups image sizes*/
+
+    --mockup-image-width: 767px;
+    --mockup-image-height: 939px;
+
     --max-inline-size: 55ch;
     --ratio: 1.5;
     --s0: 1rem;
