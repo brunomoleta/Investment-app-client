@@ -4,8 +4,7 @@ import Image from "next/image";
 export const LogoStyle = styled.button`
     min-width: fit-content;
     max-width: 100px;
-
-    margin-inline-end: auto;
+    
     margin-block-start: 6px;
 
     padding-block: 20px;

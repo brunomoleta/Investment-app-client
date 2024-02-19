@@ -10,7 +10,7 @@ export const MockImage = styled(Image)`
 
 export const MockBackground = styled(Image)`
     position: absolute;
-    top: -30%;
+    top: -36%;
     right: 0;
     width: 100svw;
     height: auto;

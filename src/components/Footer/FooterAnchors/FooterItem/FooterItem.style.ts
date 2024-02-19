@@ -17,6 +17,14 @@ export const LiLink = styled(Link)`
   }
 `;
 
+export const HeaderLink = styled(LiLink)`
+    transition: border-bottom-color 300ms;
+    
+    &:hover {
+        font-weight: 600;
+    }
+`
+
 export const Li = styled.li`
   color: var(--grey-100);
 `;

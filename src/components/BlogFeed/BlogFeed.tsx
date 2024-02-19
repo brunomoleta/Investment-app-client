@@ -1,15 +1,19 @@
 import React from "react";
 import BlogPosts from "@/components/BlogFeed/BlogPosts";
-import {Heading, Section, Wrapper} from "@/components/BlogFeed/BlogFeed.style";
+import {
+  BlogSection,
+  Heading,
+  Wrapper,
+} from "@/components/BlogFeed/BlogFeed.style";
 
 function BlogFeed() {
   return (
-    <Section>
+    <BlogSection>
       <Wrapper>
         <Heading>Conteúdo</Heading>
         <BlogPosts />
       </Wrapper>
-    </Section>
+    </BlogSection>
   );
 }
 
