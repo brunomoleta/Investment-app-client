@@ -11,6 +11,7 @@ import {
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import { UpdateUser } from "@/types/users";
+import { getCookies, deleteCookie } from "cookies-next";
 
 const UserContext = React.createContext({});
 
@@ -64,23 +65,19 @@ function UserProvider(props: { children: React.ReactNode }) {
   },
   []);
 
+
   React.useEffect(() => {
-    const savedToken = window.localStorage.getItem("@TOKEN");
-    const savedUserType = window.localStorage.getItem("@TYPE");
+    const cookies = getCookies();
+    const savedUserType = cookies["userRole"] as UserType | undefined;
+    const savedToken = cookies["token"] as TokenType;
 
-    if (!savedUserType || !savedToken) {
-      const fetchData = async (): Promise<void> => {
-        await retrieveUserFromId(null, null);
-      };
-      fetchData();
+    if (!savedToken || !savedUserType) {
+      changeUrl("/");
     } else {
-      const token = JSON.parse(savedToken);
-      const userType = JSON.parse(savedUserType);
-
-      setUserType(userType);
-      setTokenState(token);
+      setUserType(savedUserType);
+      setTokenState(savedToken);
       const fetchData = async (): Promise<void> => {
-        await retrieveUserFromId(token, userType);
+        await retrieveUserFromId(savedToken, savedUserType);
       };
       fetchData();
     }
@@ -157,11 +154,11 @@ function UserProvider(props: { children: React.ReactNode }) {
           case 400:
             console.log(error.message);
             toast.error("Erro no envio de dados");
-            break
+            break;
           case 500:
             console.error("Error:", error);
             toast.error("Houve um erro inesperado :)");
-            break
+            break;
         }
       } else {
         console.error("Error:", error);
@@ -189,11 +186,11 @@ function UserProvider(props: { children: React.ReactNode }) {
           case 403:
             console.log(error.message);
             toast.error("Não tens permissão para remove esta conta");
-            break
+            break;
           case 500:
             console.error("Error:", error);
             toast.error("Houve um erro inesperado :)");
-            break
+            break;
         }
       } else {
         console.error("Error:", error);
@@ -209,8 +206,8 @@ function UserProvider(props: { children: React.ReactNode }) {
 
     changeUrl("/");
 
-    window.localStorage.removeItem("@TOKEN");
-    window.localStorage.removeItem("@TYPE");
+    deleteCookie("@TOKEN");
+    deleteCookie("@TYPE");
 
     setTokenState(null);
     setUserType(null);
