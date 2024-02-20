@@ -14,7 +14,7 @@ The goal of this aplication was to make my first fullstack app using Next at the
 - [Project Structure](#project-structure)
     - [Scripts](#scripts)
     - [Dependencies](#dependencies)
-    - [Dev dependencies](#devdependencies)
+    - [Dev dependencies](#dev dependencies)
     - [Installation](#installation)
     - [Architecture](#architecture)
 - [The process](#the-process)
@@ -161,6 +161,8 @@ investing-app-client/
 - Created the dashboards for the logged users;
 - Set an authenticator, so it's not possible that an unauthorized user accesses a dashboard;
 - Improved the UI for the desktop user;
+
+### What I learned
 
 A code highlight is the multistep form. It renders a component depending on the ````step```` it's at.
 At each time the user sends data, the state adds 1 to the ````step````.
