@@ -36,7 +36,9 @@ The goal of this aplication was to make my first fullstack app using Next at the
 - React context
 - Cookies
 
+
 ### Homepage Screenshot
+
 
 ![](./src/assets/documentation/mobile-homepage.png)
 
