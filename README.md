@@ -14,10 +14,10 @@ The goal of this aplication was to make my first fullstack app using Next at the
 - [Project Structure](#project-structure)
     - [Scripts](#scripts)
     - [Dependencies](#dependencies)
-    - [Dev dependencies](#devdependencies)
+    - [Dev dependencies](#dev-dependencies)
     - [Installation](#installation)
     - [Architecture](#architecture)
-- [My process](#my-process)
+- [The process](#the-process)
     - [What I learned](#what-i-learned)
     - [Continued development](#continued-development)
     - [Useful resources](#useful-resources)
@@ -155,6 +155,68 @@ investing-app-client/
 │   ├── types/            Component types;
 │   └── ...
 ```
+
+## The process
+
+- Started creating multistep forms both for the advisor and for the investor users;
+- Continued making the homepage and signed in and login pages for the mobile width;
+- Created the dashboards for the logged users;
+- Set an authenticator, so it's not possible that an unauthorized user accesses a dashboard;
+- Improved the UI for the desktop user;
+
+### What I learned
+
+A code highlight is the multistep form. It renders a component depending on the ````step```` it's at.
+At each time the user sends data, the state adds 1 to the ````step````.
+The final result is:
+
+```tsx
+  function SignInForm({userType}: { userType: UserType }) {
+    const {step} = useUtilsContext() as IUtilsContext;
+
+    return (
+        <>
+            {step === 0 && <UserName/>}
+            {step === 1 && <Email/>}
+            {step === 2 && <PhoneNumber/>}
+            {step === 3 && <ImageForm/>}
+
+            {step === 4 && userType === "investor" && <Amount/>}
+            {step === 4 && userType === "advisor" && <Experience/>}
+
+            {step === 5 && userType === "investor" && <ChooseAdvisor/>}
+            {step === 5 && userType === "advisor" && <AdvisorBio/>}
+
+            {step === 6 && userType === "investor" && <DoublePassword/>}
+            {step === 6 && userType === "advisor" && <ChooseSpeciality/>}
+
+            {step === 7 && userType === "advisor" && <DoublePassword/>}
+        </>
+    );
+}
+```
+
+This is a snippet of when the form is sent with React Hook Form validated with Zod.
+It adds the current data to the ````formInfo```` state:
+
+```tsx
+  async function onSubmit(formData: IBio) {
+    setFormInfo({...formInfo, ...formData});
+    await getInvestmentTypesNoAuth();
+
+    setStep((prevStep) => prevStep + 1);
+}
+```
+
+### Continued development
+
+Use Next.js further in the server as at this project the feature is used only with the cookies authorization.
+
+### Useful resources
+
+- [Josh Cameau's blog](https://www.joshwcomeau.com/) - The best frontend blog I know by far;
+- [Radix UI](https://www.radix-ui.com/) - It saved me time from developing components such as the Dropdown and the modal
+  dialog;
 
 ## Acknowledgments
 

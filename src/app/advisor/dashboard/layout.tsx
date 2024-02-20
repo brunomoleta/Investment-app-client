@@ -6,10 +6,15 @@ import { Wrapper } from "@/app/advisor/dashboard/Layout.style";
 import DashboardUsername from "@/components/Dashboard/DashboardUsername";
 import Modal from "@/components/Modal";
 import FinishSession from "@/components/FinishSession";
-import {useVerifyToken} from "@/hooks/useVerifyToken";
+import { useVerifyToken } from "@/hooks/useVerifyToken";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Dashboard | Easybank",
+  description: "Invest with a personalized advisor",
+};
 
-export default function DashboardLayout({
+export default function AdvisorDashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -21,8 +26,12 @@ export default function DashboardLayout({
       <DashboardNav />
 
       <DashboardMain>
-        <DashboardUsername />
-        {children}
+        <div style={{ maxWidth: "var(--page-max-width)", margin: "auto" }}>
+          <div style={{ width: "fit-content", margin: "auto" }}>
+            <DashboardUsername />
+            {children}
+          </div>
+        </div>
         <Modal title="Encerrar sessão?" element={<FinishSession />} />
       </DashboardMain>
 

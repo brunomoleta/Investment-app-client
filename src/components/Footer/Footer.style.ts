@@ -5,7 +5,7 @@ import {WidthWrapper} from "@/styled-components/MaxWidth.style";
 export const StyledFooter = styled.footer`
     background-color: var(--blue-100);
 
-    padding: var(--s3) var(--page-alignment);
+    padding: var(--s1) var(--page-alignment);
 
     display: flex;
     flex-flow: column;
@@ -16,9 +16,10 @@ export const StyledFooter = styled.footer`
 
 
 export const Wrapper = styled(WidthWrapper)`
-  display: flex;
-  flex-wrap: wrap;
-    gap: var(--s1)
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s1);
+    padding: 0;
 `;
 
 export const Info = styled.div`

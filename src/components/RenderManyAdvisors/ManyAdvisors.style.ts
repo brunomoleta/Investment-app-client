@@ -25,9 +25,6 @@ export const MainWrapper = styled(GenericMain)`
 `;
 
 export const DashboardMain = styled(MainWrapper)`
-    z-index: -1;
-    
-    display: grid;
-    place-content: center;
+    height: 100%;
     padding-block: var(--s2);
 `
