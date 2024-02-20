@@ -16,7 +16,7 @@ function useInvestmentTypeContext() {
 }
 
 function InvestmentTypeProvider(props: { children: React.ReactNode }) {
-  const { setPage, page } = useUtilsContext() as IUtilsContext;
+  const { setPage } = useUtilsContext() as IUtilsContext;
 
   const [investmentTypes, setInvestmentTypes] =
     React.useState<InvestmentState>(null);

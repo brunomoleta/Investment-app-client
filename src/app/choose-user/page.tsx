@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import EasyBank from "../../assets/images/logo.svg";
 import Logo from "@/components/Logo";
