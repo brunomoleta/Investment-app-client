@@ -1,4 +1,4 @@
-import LoginPage from "../../../components/Login/LoginPage";
+import LoginPage from "../../../../components/Login/LoginPage";
 import SignInAlternative from "@/components/SignInAlternative";
 import SignInForm from "@/components/SignIn/SignInForm";
 
@@ -8,7 +8,7 @@ export default function InvestorSignIn() {
       isLogin={false}
       loginForm={<SignInForm userType="investor" />}
       signInAlternative={
-        <SignInAlternative isSignin={false} href={"/investor"} />
+        <SignInAlternative isSignin={false} href={"/user/investor"} />
       }
     />
   );
