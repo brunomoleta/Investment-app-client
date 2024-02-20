@@ -6,11 +6,12 @@ import { IUtilsContext } from "@/types/utils";
 import { useForm } from "react-hook-form";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
-import {useAdvisorContext} from "@/providers/AdvisorProvider";
-import {IAdvisorContext} from "@/types/advisorContext";
+import { useAdvisorContext } from "@/providers/AdvisorProvider";
+import { IAdvisorContext } from "@/types/advisorContext";
 
 function Amount() {
-  const { setStep, formInfo, setFormInfo } = useUtilsContext() as IUtilsContext;
+  const { setStep, setIsLoading, formInfo, setFormInfo } =
+    useUtilsContext() as IUtilsContext;
   const { getAdvisorsNoAuth } = useAdvisorContext() as IAdvisorContext;
 
   const id = React.useId();
@@ -24,15 +25,20 @@ function Amount() {
   });
 
   async function submit(formData: IAmount) {
+    setIsLoading(true);
     setFormInfo({ ...formInfo, ...formData });
+    await getAdvisorsNoAuth();
+    setIsLoading(false);
     setStep((prevStep) => prevStep + 1);
-    await getAdvisorsNoAuth()
   }
 
   return (
     <>
       <h2>Tamanho do seu portfólio atual</h2>
-      <p>Este valor não conta imóveis, carros e afins, e sim dinheiro disponível para investir.</p>
+      <p>
+        Este valor não conta imóveis, carros e afins, e sim dinheiro disponível
+        para investir.
+      </p>
       <Form onSubmit={handleSubmit(submit)}>
         <Input
           {...register("amount")}
@@ -70,7 +76,7 @@ function Amount() {
           label="Entre 250 e 1 milhão de reais"
         />
 
-        <Button type="submit" content='Avançar'/>
+        <Button type="submit" content="Avançar" />
       </Form>
     </>
   );
