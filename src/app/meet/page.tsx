@@ -6,12 +6,14 @@ import { useAdvisorContext } from "@/providers/AdvisorProvider";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import Spinner from "@/components/Spinner";
-import {Heading} from "@/components/HomePage/WhyUs/WhyUsText/WhyUsText.style";
+import { Heading } from "@/components/HomePage/WhyUs/WhyUsText/WhyUsText.style";
 import RenderManyAdvisors from "@/components/RenderManyAdvisors";
-import {MainWrapper} from "@/components/RenderManyAdvisors/ManyAdvisors.style";
+import { MainWrapper } from "@/components/RenderManyAdvisors/ManyAdvisors.style";
+import ErrorMessage from "@/components/ErrorMessage";
 
 function MeetAdvisors() {
-  const { getAdvisorsNoAuth } = useAdvisorContext() as IAdvisorContext;
+  const { getAdvisorsNoAuth, advisors } =
+    useAdvisorContext() as IAdvisorContext;
   const { isLoading } = useUtilsContext() as IUtilsContext;
 
   React.useEffect(() => {
@@ -20,14 +22,30 @@ function MeetAdvisors() {
     };
 
     fetchData();
-  }, [getAdvisorsNoAuth]);
+  }, []);
+
+  function renderPage() {
+    if (!advisors) {
+      return (
+        <>
+          <ErrorMessage>
+            Não foi possível apresentar nossos especialistas no momento, por
+            favor volte mais tarde :)
+          </ErrorMessage>
+        </>
+      );
+    }
+    return (
+      <>
+        <Heading>Nossos Especialistas</Heading>
+        {isLoading ? <Spinner /> : <RenderManyAdvisors advisors={advisors} />}
+      </>
+    );
+  }
+
   return (
     <Template>
-      <MainWrapper>
-        <Heading>Nossos Especialistas</Heading>
-        {isLoading ? <Spinner /> : <RenderManyAdvisors />}
-      </MainWrapper>
-
+      <MainWrapper>{renderPage()}</MainWrapper>
     </Template>
   );
 }

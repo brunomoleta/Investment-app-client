@@ -9,11 +9,11 @@ import PhoneNumber from "@/components/SignIn/SignInForm/PhoneNumber";
 import Amount from "@/components/SignIn/SignInForm/Amount";
 import DoublePassword from "@/components/SignIn/SignInForm/DoublePassword";
 import { UserType } from "@/types/userContext";
-import ChooseAdvisor from "@/components/SignIn/SignInForm/ChooseAdvisor";
 import Experience from "@/components/SignIn/SignInForm/Experience";
 import AdvisorBio from "@/components/SignIn/SignInForm/AdvisorBio";
-import ChooseSpeciality from "@/components/SignIn/ChooseSpeciality";
 import ImageForm from "@/components/SignIn/SignInForm/ImageForm";
+import ChooseSpeciality from "@/components/SignIn/ChooseSpeciality";
+import ChooseAdvisor from "@/components/SignIn/SignInForm/ChooseAdvisor";
 
 function SignInForm({ userType }: { userType: UserType }) {
   const { step } = useUtilsContext() as IUtilsContext;

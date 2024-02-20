@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { useRouter } from "next/navigation";
 import { IAdvisorContext } from "@/types/advisorContext";
 import { api } from "@/services/api";
 import { toast } from "react-toastify";
@@ -15,14 +14,11 @@ function useAdvisorContext() {
 }
 
 function AdvisorProvider(props: { children: React.ReactNode }) {
-  const { setIsLoading } = useUtilsContext() as IUtilsContext;
-
-  const route = useRouter();
+  const { setIsLoading, changeUrl } = useUtilsContext() as IUtilsContext;
 
   const [advisors, setAdvisors] = React.useState<IAdvisor[] | null>(null);
 
   const getAdvisorsNoAuth = React.useCallback(async () => {
-    setIsLoading(true);
     try {
       const { data } = await api.get("/advisor", {
         params: {
@@ -33,14 +29,16 @@ function AdvisorProvider(props: { children: React.ReactNode }) {
     } catch (error: any) {
       toast.error("Verifique sua conexão com a internet");
       console.error(error);
-    } finally {
-      setIsLoading(false);
     }
   }, []);
-  async function handleMeetClick(event: React.MouseEvent<HTMLButtonElement>) {
-    event.preventDefault();
+
+  async function handleMeetClick() {
+    setIsLoading(true);
     await getAdvisorsNoAuth();
-    route.push("/meet");
+
+    setIsLoading(false);
+
+    changeUrl("/meet");
   }
 
   const values: IAdvisorContext = {

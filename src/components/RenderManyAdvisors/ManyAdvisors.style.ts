@@ -1,5 +1,6 @@
 "use client";
 import styled from "styled-components";
+import {GenericMain} from "@/styled-components/MaxWidth.style";
 
 export const AdvisorList = styled.ol`
   display: flex;
@@ -13,7 +14,7 @@ export const AdvisorList = styled.ol`
   gap: var(--s1);
 `;
 
-export const MainWrapper = styled.main`
+export const MainWrapper = styled(GenericMain)`
     background-color: var(--grey-100);
     margin: auto;
     padding-block: var(--s2);

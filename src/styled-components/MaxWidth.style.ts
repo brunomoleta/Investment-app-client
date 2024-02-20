@@ -16,3 +16,7 @@ export const WidthWrapper = styled.div`
 export const Section = styled.section`
     padding-inline: var(--page-alignment);
 `
+
+export const GenericMain = styled.main`
+    min-height: 300px;
+`
