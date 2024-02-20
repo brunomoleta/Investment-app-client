@@ -14,7 +14,7 @@ The goal of this aplication was to make my first fullstack app using Next at the
 - [Project Structure](#project-structure)
     - [Scripts](#scripts)
     - [Dependencies](#dependencies)
-    - [Dev dependencies](#dev dependencies)
+    - [Dev dependencies](#dev-dependencies)
     - [Installation](#installation)
     - [Architecture](#architecture)
 - [The process](#the-process)
