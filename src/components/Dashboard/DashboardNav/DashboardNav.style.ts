@@ -1,6 +1,7 @@
 "use client";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import styled from "styled-components";
+import {WidthWrapper} from "@/styled-components/MaxWidth.style";
 
 export const Wrapper = styled.header`
     background-color: var(--pure-white);
@@ -15,6 +16,13 @@ export const Wrapper = styled.header`
 
     align-items: center;
 `;
+
+export const InsideWrapper = styled(WidthWrapper)`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+`
 
 export const DMItem = styled(DropdownMenu.Item)`
   cursor: pointer;
@@ -59,11 +67,11 @@ export const DMItemRed = styled(DMItem)`
     }
 `;
 export const DMTrigger = styled(DropdownMenu.Trigger)`
-  background-color: var(--grey-100);
+  background-color: var(--grey-200);
   padding: 20px;
   outline-offset: 4px;
   border-radius: var(--s-2);
-  outline: 1px solid var(--grey-200);
+  outline: 2px solid var(--grey-200);
 
   &:hover {
     outline: 2px solid var(--primary-blue-hover);

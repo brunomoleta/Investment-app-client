@@ -1,27 +1,53 @@
-# Frontend de um projeto Fullstack
+# Easybank frontend app
 
-## Descrição
+## Description
 
-Front-end em React para vínculo de investidores e assessores de investimento.
+Frontend of a fullstack app that connects investors and investment advisors.
+The goal of this aplication was to make my first fullstack app using Next at the frontend and Nest at the backend.
 
-## Autor
+## Table of contents
 
-Bruno Moleta Santos
+- [Overview](#overview)
+    - [Built with](#built-with)
+    - [Screenshot](#homepage-screenshot)
+    - [Deploy links](#deploy-links)
+- [Project Structure](#project-structure)
+    - [Scripts](#scripts)
+    - [Dependencies](#dependencies)
+    - [Dev dependencies](#devdependencies)
+    - [Installation](#installation)
+    - [Architecture](#architecture)
+- [My process](#my-process)
+    - [What I learned](#what-i-learned)
+    - [Continued development](#continued-development)
+    - [Useful resources](#useful-resources)
+- [Acknowledgments](#acknowledgments)
+    - [Author](#author)
 
-## Versopm
+## Overview
 
-1.0.0
+### Built with
 
-## Tech Stack
+- Next.js
+- Typescript
+- Styled components
+- Axios
+- Radix UI
+- React context
+- Cookies
 
-<div style="display: flex; align-items: center">
-  <img title='Next.js' alt='next.js' src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Nextjs-logo.svg/1920px-Nextjs-logo.svg.png" height="40" alt="Next.js" style="margin-right: 10px;">
-  <img title='Typescript' alt='typescript' src="https://cdn-icons-png.flaticon.com/512/919/919832.png" height="50" alt="Typescript" style="margin-right: 10px;">
-  <img title='Zod' alt='Zod' src="https://seeklogo.com/images/Z/zod-logo-B57E684330-seeklogo.com.png" height="50" alt="Zod" style="margin-right: 10px;">
-  <img title='axios' alt='axios' src="https://user-images.githubusercontent.com/43313420/105893220-1bae8780-6013-11eb-87be-eeac845ecc6f.png" height="50" alt="Axios" style="margin-right: 10px;">
-</div>
 
-## Getting Started
+### Homepage Screenshot
+
+
+![](./src/assets/documentation/mobile-homepage.png)
+
+### Deploy links
+
+- Frontend deploy: [Live App](https://easybank-investments.vercel.app/)
+- Backend deploy: [Backend](https://investment-fullstack.onrender.com/)
+
+## Project structure
 
 First, run the development server:
 
@@ -64,7 +90,7 @@ Execute os scripts utilizando `npm run` ou `yarn run`.
 - yarn: ^1.22.21,
 - zod: ^3.22.4
 
-## Devdependencies
+## Dev dependencies
 
 - @swc/plugin-styled-components: ^1.5.116,
 - @testing-library/jest-dom: ^6.4.0,
@@ -90,7 +116,7 @@ Execute os scripts utilizando `npm run` ou `yarn run`.
 git clone git@github.com:brunomoleta/Investment-app-client.git
 ```
 
-2. Clone o backend repo:
+2. Clone the backend repo or use :
 
 ```bash
 git clone git@github.com:brunomoleta/Investment-app-client.git
@@ -106,7 +132,7 @@ npm install
 yarn install
 ```
 
-## Estrutura do Projeto
+## Architecture
 
 ```
 investing-app-client/
@@ -123,48 +149,18 @@ investing-app-client/
 │   ├── components/       React components;
 │   ├── providers/        Componentes de gerenciamento de estado global;
 │   ├── schemas/          Data validation context;
+│   ├── hooks/            Hook functions;
 │   ├── services/         API communication service, data and helper functions.
 │   ├── styled-components/Styled-components components;
 │   ├── types/            Component types;
 │   └── ...
 ```
 
-## Endpoints
+## Acknowledgments
 
-| `Método`   | `Endpoint`                            | `Responsabilidade`                                   | `Autenticação`        |
-|------------|---------------------------------------|------------------------------------------------------|-----------------------|
-| POST       | /session/advisor                      | Gera o token de autenticação de assessor             | Acesso universal      |
-| POST       | /session/investor                     | Gera o token de autenticação de investidor           | Acesso universal      |
-| ---------- | -------------------------------       | --------------------------------------------         | --------------------- |
-| POST       | /investor                             | Cadastro de investidor                               | Acesso universal      |
-| GET        | /investor                             | Lista todos os investidores                          | Usuário autenticado   |
-| GET        | /investor/id                          | Lista investidor por Token                           | Usuário autenticado   |
-| GET        | /investor/advisor/:advisor_id         | Filtra investidores por assessor                     | Usuário autenticado   |
-| PATCH      | /investor                             | Altera dados do investidor pelo Token                | Usuário autenticado   |
-| DELETE     | /investor                             | Exclui investidor pelo Token                         | Usuário autenticado   |
-| ---------- | -------------------------------       | --------------------------------------------         | --------------------- |
-| POST       | /advisor                              | Cria um assessor                                     | Acesso universal      |
-| GET        | /advisor                              | Lista assessores                                     | Acesso universal      |
-| GET        | /advisor/id                           | Lista assessor através do token                      | Usuário autenticado   |
-| PATCH      | /advisor                              | Atualiza assessor através do token                   | Usuário autenticado   |
-| ---------- | -------------------------------       | --------------------------------------------         | --------------------- |
-| POST       | /investment_type                      | Cria categoria de investimento                       | Usuário autenticado   |
-| GET        | /investment_type/all                  | Lista categorias de investimento com info completa   | Usuário autenticado   |
-| GET        | /investment_type                      | Lista categorias de investimento                     | Acesso universal      |
-| PATCH      | /investment_type                      | Altera categoria de investimento                     | Usuário autenticado   |
+### Author
 
-
-For more detailed information, please check the documentation at [https://investment-fullstack.onrender.com/doc](http://localhost:3000/doc).
-
-Or [http://localhost:3001/doc](http://localhost:3001/doc). Available when the server is running locally.
-
-
-## Deploy
-
-If you'd like to test it in production, it's available at [https://nome-do-deploy.vercel.app](https://link-do-deploy.vercel.app).
-
-## Contato
-
-It will be a delight to hear advice from you about how to make the project better.
-You can find me at: brunomoleta@pm.me
-
+- Github - [Bruno Moleta](https://github.com/brunomoleta)
+- Frontend Mentor - [@brunomoleta](https://www.frontendmentor.io/profile/brunomoleta)
+- LinkedIn - [@brunomoleta](https://www.linkedin.com/in/bruno-moleta-santos/)
+- Email - brunomoleta@pm.me 

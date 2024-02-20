@@ -10,21 +10,27 @@ import { Heading } from "@/components/HomePage/WhyUs/WhyUsText/WhyUsText.style";
 import RenderManyAdvisors from "@/components/RenderManyAdvisors";
 import { MainWrapper } from "@/components/RenderManyAdvisors/ManyAdvisors.style";
 import ErrorMessage from "@/components/ErrorMessage";
+import { WidthWrapper } from "@/styled-components/MaxWidth.style";
 
 function MeetAdvisors() {
   const { getAdvisorsNoAuth, advisors } =
     useAdvisorContext() as IAdvisorContext;
-  const { isLoading } = useUtilsContext() as IUtilsContext;
+  const { isLoading, setIsLoading } = useUtilsContext() as IUtilsContext;
 
   React.useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
       await getAdvisorsNoAuth();
+      setIsLoading(false);
     };
 
     fetchData();
-  }, []);
+  }, [getAdvisorsNoAuth]);
 
   function renderPage() {
+    if (isLoading) {
+      return <Spinner />;
+    }
     if (!advisors) {
       return (
         <>
@@ -36,10 +42,10 @@ function MeetAdvisors() {
       );
     }
     return (
-      <>
+      <WidthWrapper>
         <Heading>Nossos Especialistas</Heading>
-        {isLoading ? <Spinner /> : <RenderManyAdvisors advisors={advisors} />}
-      </>
+        {<RenderManyAdvisors advisors={advisors} />}
+      </WidthWrapper>
     );
   }
 
