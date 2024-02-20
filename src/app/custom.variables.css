@@ -58,8 +58,8 @@
 
     /*mockups image sizes*/
 
-    --mockup-image-width: 767px;
-    --mockup-image-height: 939px;
+    --mockup-image-width: 767;
+    --mockup-image-height: 939;
 
     --max-inline-size: 55ch;
     --ratio: 1.5;

@@ -31,11 +31,11 @@ export const BackgroundMobile = styled(Image)`
 `
 export const BackgroundDesktop = styled(Image)`
     position: relative;
-    top: -180px;
+    top: -125px;
     right: -570px;
     max-width: 800px;
     height: auto;
-    scale: .98;
+    scale: 1.28;
     @media (max-width: 919px) {
         display: none;
     }
