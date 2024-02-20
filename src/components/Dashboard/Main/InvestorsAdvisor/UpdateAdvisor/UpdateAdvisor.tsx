@@ -15,7 +15,7 @@ import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Input from "@/components/Input";
 import AdvisorInfo from "@/components/RenderManyAdvisors/RenderAdvisor/AdvisorCard/AdvisorInfo";
 import AdvisorCard from "@/components/RenderManyAdvisors/RenderAdvisor/AdvisorCard";
-import { FormWrapper } from "@/components/SignIn/SignInForm/ChooseAdvisor/ChooseAdvisor.style";
+import { FormWrapper } from "@/components/SignIn/SignInForm/ChooseAdvisor/ChooseAdvisorForm/ChooseAdvisor.style";
 import Button from "@/components/Button";
 import {zodResolver} from "@hookform/resolvers/zod";
 import advisorSchema from "@/schemas/advisorSchema";

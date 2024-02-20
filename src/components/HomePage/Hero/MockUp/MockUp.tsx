@@ -12,8 +12,8 @@ import {
 function MockUp() {
   return (
     <Wrapper>
-      <BackgroundMobile src={Mobile} alt="" />
-      <BackgroundDesktop src={Desktop} alt="" />
+      <BackgroundMobile priority={true} src={Mobile} alt="" />
+      <BackgroundDesktop priority={true} src={Desktop} alt="" />
       <DevicesImage src={Mock} alt="app of the product running" />
     </Wrapper>
   );

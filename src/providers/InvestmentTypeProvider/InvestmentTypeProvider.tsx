@@ -16,14 +16,13 @@ function useInvestmentTypeContext() {
 }
 
 function InvestmentTypeProvider(props: { children: React.ReactNode }) {
-  const { setIsLoading, setPage, page } = useUtilsContext() as IUtilsContext;
+  const { setPage, page } = useUtilsContext() as IUtilsContext;
 
   const [investmentTypes, setInvestmentTypes] =
     React.useState<InvestmentState>(null);
 
   async function getInvestmentTypesNoAuth():Promise<void> {
     try {
-      setIsLoading(true);
       const { data } = await api.get("/investment_type", {
         params: {
           page: 1,
@@ -35,8 +34,6 @@ function InvestmentTypeProvider(props: { children: React.ReactNode }) {
     } catch (error: any) {
       toast.error("Verifique sua conexão com a internet");
       console.error(error);
-    } finally {
-      setIsLoading(false);
     }
   }
 
