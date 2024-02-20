@@ -26,7 +26,7 @@ function ChooseUserForm() {
   }, [setFocus]);
 
   function onSubmit(formData: RadioOutput): void {
-    changeUrl(`/${formData.radioOutput}`);
+    changeUrl(`/user/${formData.radioOutput}`);
     setUserType(formData.radioOutput);
   }
 

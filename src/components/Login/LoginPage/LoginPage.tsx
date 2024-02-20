@@ -1,6 +1,4 @@
 import React from "react";
-import Logo from "@/components/Logo";
-import EasyBank from "@/assets/images/logo.svg";
 import { Main } from "@/components/Login/LoginPage/LoginPage.style";
 import LoginPageHeading from "@/components/Login/LoginPage/LoginPageHeading";
 
@@ -11,8 +9,6 @@ function LoginPage({
 }: Props): React.ReactElement {
   return (
     <Main>
-      <Logo src={EasyBank} />
-
       <LoginPageHeading isLogin={isLogin} />
       {loginForm}
       {signInAlternative}

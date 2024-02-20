@@ -85,7 +85,7 @@ function UserProvider(props: { children: React.ReactNode }) {
 
   function getIsLoggedIn() {
     if (!tokenState) {
-      changeUrl("/choose-user");
+      changeUrl("/user");
     } else {
       changeUrl(`/${userType}/dashboard`);
     }
