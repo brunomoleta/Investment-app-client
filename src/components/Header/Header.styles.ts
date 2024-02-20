@@ -12,6 +12,11 @@ export const StyledHeader = styled.header`
     position: relative;
 `;
 
+export const UserHeader = styled(StyledHeader)`
+    display: grid;
+    place-items: center;
+`
+
 export const HeaderWrapper = styled.div`
     max-width: var(--page-max-width);
     margin: auto;
