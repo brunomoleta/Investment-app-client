@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { Public_Sans } from "next/font/google";
 import React from "react";
+
+import { Public_Sans } from "next/font/google";
 import "./custom.variables.css";
+
 import Providers from "@/providers/Providers";
 
 const publicSans = Public_Sans({
