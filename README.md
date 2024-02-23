@@ -3,13 +3,15 @@
 ## Description
 
 Frontend of a fullstack app that connects investors and investment advisors.
-The goal of this aplication was to make my first fullstack app using Next at the frontend and Nest at the backend.
+The goal of this aplication was to make my first fullstack app using Next.js.
 
 ## Table of contents
 
 - [Overview](#overview)
     - [Built with](#built-with)
-    - [Screenshot](#homepage-screenshot)
+    - [Design](#design)
+      - [User flow](#user-flow)
+      - [Screenshots](#screenshots)
     - [Deploy links](#deploy-links)
 - [Project Structure](#project-structure)
     - [Scripts](#scripts)
@@ -28,18 +30,33 @@ The goal of this aplication was to make my first fullstack app using Next at the
 
 ### Built with
 
+#### React related
 - Next.js
-- Typescript
-- Styled components
-- Axios
-- Radix UI
-- React context
 - Cookies
+- Typescript
+- React context
+
+#### Others
+- Axios
+- Styled components
+- Radix UI
 
 
-### Homepage Screenshot
+### Design
 
+#### User flow
+- The first screen is the homepage. When the user clicks "Entrar"
+they go to the second screen.
 
+- Here they identify as either an advisor or an investor.
+
+- Screens 3 and 4 is where they insert their personal data.
+
+- At 5 is the user logged in dashboard;
+
+- At last, they can edit their password after validating the current one;
+
+#### Screenshots
 ![](./src/assets/documentation/mobile-homepage.png)
 
 ### Deploy links
