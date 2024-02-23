@@ -1,5 +1,5 @@
 import React from "react";
-import headerItems from "@/components/Header/headerItems";
+import HeaderItems from "@/components/Header/HeaderItems";
 import {HeaderWrapper, StyledHeader} from "@/components/Header/Header.styles";
 import Logo from "@/components/Logo";
 import EasyBank from "../../assets/images/logo.svg";
@@ -11,7 +11,7 @@ function Header() {
       <StyledHeader>
         <HeaderWrapper>
           <Logo src={EasyBank} />
-          <headerItems />
+          <HeaderItems />
           <AccessButton />
         </HeaderWrapper>
       </StyledHeader>
