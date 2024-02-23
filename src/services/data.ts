@@ -15,7 +15,7 @@ import Restaurant from "../assets/images/image-restaurant.jpg";
 import Airplane from "../assets/images/image-plane.jpg";
 import Confetti from "../assets/images/image-confetti.jpg";
 
-export const headeritems: string[] = [
+export const headerItems: string[] = [
   "home",
   "sobre",
   "contato",
@@ -23,7 +23,7 @@ export const headeritems: string[] = [
   "carreiras",
 ];
 
-export const footeritems: string[] = [
+export const footerItems: string[] = [
   "sobre",
   "blog",
   "contato",
