@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
-import { headerItems } from "@/services/data";
-import {Items, Nav} from "@/components/Header/headerItems/headerItems.style";
-import HeaderItem from "@/components/Header/headerItems/HeaderItem";
+import {headerItems} from "@/services/data";
+import {Items, Nav} from "@/components/Header/HeaderItems/HeaderItems.style";
+import HeaderItem from "@/components/Header/HeaderItems/HeaderItem";
 
-function headerItems() {
+
+function HeaderItems() {
   return (
     <Nav>
       <Items>
@@ -16,4 +17,4 @@ function headerItems() {
   );
 }
 
-export default headerItems;
+export default HeaderItems;
