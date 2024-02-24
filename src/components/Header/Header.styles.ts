@@ -24,7 +24,7 @@ export const HeaderWrapper = styled.div`
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding-block: var(--s1) var(--s0);
+    padding-block: var(--s0);
 
     @media (min-width: 550px) {
         flex-wrap: nowrap;

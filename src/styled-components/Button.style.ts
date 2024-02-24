@@ -10,15 +10,15 @@ export const ButtonStyle = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     margin-block: 0;
-    padding-inline: var(--s2);
+    padding-inline: clamp(var(--s-1), 8svw, var(--s2));
     padding-block: var(--s-2);
     border-radius: var(--s-2);
 
     max-width: 400px;
-    
-    &:hover{
+
+    &:hover {
         color: var(--primary-blue-hover);
     }
 `;

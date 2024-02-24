@@ -1,4 +1,4 @@
-import {Info, StyledFooter, TopWrapper, Wrapper, WrapperBottom} from "@/components/Footer/Footer.style";
+import {StyledFooter, Wrapper, WrapperBottom} from "@/components/Footer/Footer.style";
 import LogoDark from "../../assets/images/logo-dark.svg";
 import Logo from "@/components/Logo";
 import FooterAnchors from "@/components/Footer/FooterAnchors";
