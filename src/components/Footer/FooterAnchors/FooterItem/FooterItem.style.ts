@@ -3,18 +3,19 @@ import styled from "styled-components";
 import Link from "next/link";
 
 export const LiLink = styled(Link)`
-  padding-inline-end: 20px;
+    text-decoration: none;
+    padding-inline-end: 20px;
 
-  transition: color 300ms;
+    transition: color 300ms;
 
-  &:hover {
-    color: var(--primary-green);
-  }
+    &:hover {
+        color: var(--primary-green);
+    }
 
-  &:focus {
-    outline-offset: 3px;
-    outline: var(--border-thickness) solid var(--primary-green);
-  }
+    &:focus {
+        outline-offset: 3px;
+        outline: var(--border-thickness) solid var(--primary-green);
+    }
 `;
 
 export const HeaderLink = styled(LiLink)`
@@ -27,4 +28,5 @@ export const HeaderLink = styled(LiLink)`
 
 export const Li = styled.li`
   color: var(--grey-100);
+    width: fit-content;
 `;

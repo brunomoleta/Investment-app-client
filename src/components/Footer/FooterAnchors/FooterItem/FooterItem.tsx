@@ -1,5 +1,6 @@
 import React from 'react';
 import {Li, LiLink} from '@/components/Footer/FooterAnchors/FooterItem/FooterItem.style';
+import {upper} from "@/services/service";
 
 interface FooterItemProps {
     anchor: string;
@@ -8,7 +9,7 @@ interface FooterItemProps {
 function FooterItem({ anchor }: FooterItemProps) {
     return (
         <Li>
-            <LiLink href={"/"}>{anchor}</LiLink>
+            <LiLink href={"/"}>{upper(anchor)}</LiLink>
         </Li>
     );
 }
