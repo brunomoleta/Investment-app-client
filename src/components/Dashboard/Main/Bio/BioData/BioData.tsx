@@ -3,7 +3,7 @@ import React from "react";
 import { useUserContext } from "@/providers/UserProvider";
 import { IUserContext } from "@/types/userContext";
 import { Highlight } from "@/components/RenderManyAdvisors/RenderAdvisor/RenderAdvisor.style";
-import { Name } from "@/components/RenderManyAdvisors/RenderAdvisor/AdvisorCard/AdvisorInfo/AdvisorInfo.style";
+import { Bio } from "@/components/RenderManyAdvisors/RenderAdvisor/AdvisorCard/AdvisorInfo/AdvisorInfo.style";
 import { IAdvisor } from "@/types/users";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
@@ -15,9 +15,9 @@ function BioData() {
   const { bio } = activeUser as IAdvisor;
   return (
     <>
-      <Name>
+      <Bio>
         Bio: <Highlight>{bio}</Highlight>
-      </Name>
+      </Bio>
       <Button onClick={() => setIsEditing(true)} content="Editar" />
     </>
   );
