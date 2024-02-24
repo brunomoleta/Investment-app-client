@@ -1,8 +1,9 @@
 import React from "react";
 import {
-  Exp,
-  Name,
-  Speciality,
+    AdvisorWrapper,
+    Exp,
+    Name,
+    Speciality,
 } from "@/components/RenderManyAdvisors/RenderAdvisor/AdvisorCard/AdvisorInfo/AdvisorInfo.style";
 import { Highlight } from "@/components/RenderManyAdvisors/RenderAdvisor/RenderAdvisor.style";
 import { formatPhoneNumber } from "@/services/service";
@@ -14,7 +15,7 @@ function RenderAdvisorInfo() {
   const { activeUser } = useUserContext() as IUserContext;
   const { name, email, phone_number } = activeUser as IUser;
   return (
-    <div>
+    <AdvisorWrapper>
       <Name>
         Nome: <Highlight>{name}</Highlight>
       </Name>
@@ -24,7 +25,7 @@ function RenderAdvisorInfo() {
       <Exp>
         Telefone: <Highlight>{formatPhoneNumber(phone_number)}</Highlight>
       </Exp>
-    </div>
+    </AdvisorWrapper>
   );
 }
 

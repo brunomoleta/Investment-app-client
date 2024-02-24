@@ -5,7 +5,6 @@ export const LogoStyle = styled.button`
     min-width: fit-content;
     max-width: 100px;
     
-    margin-block-start: 6px;
 
     padding-block: 20px;
     padding-inline-end: 20px;

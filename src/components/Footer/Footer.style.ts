@@ -16,11 +16,31 @@ export const StyledFooter = styled.footer`
 
 
 export const Wrapper = styled(WidthWrapper)`
+    gap: var(--s0);
+    
     display: flex;
+    
     flex-wrap: wrap;
-    gap: var(--s1);
     padding: 0;
+    
+    margin-block-end: var(--s2);
+
+    justify-content: space-between;
+    
 `;
+
+export const TopWrapper = styled(Wrapper)`
+    
+    margin-block-end: var(--s1);
+`
+
+export const WrapperBottom = styled(Wrapper)`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block-start: var(--s1);
+    gap: var(--s1);
+`
 
 export const Info = styled.div`
     * > * {
