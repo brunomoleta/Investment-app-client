@@ -5,29 +5,34 @@ import FooterAnchors from "@/components/Footer/FooterAnchors";
 import SocialMediaIcons from "@/components/Footer/SocialMediaIcons";
 import AccessButton from "@/components/Button/AccessButton";
 import {WidthWrapper} from "@/styled-components/MaxWidth.style";
+import {footerRights} from "@/services/data";
 
 function Footer({isDashboard = false}: { isDashboard?: boolean }) {
+    function renderFooterItems() {
+        if (!isDashboard) {
+            return (
+                <>
+                    <Wrapper>
+                        <Logo src={LogoDark}/>
+                        <AccessButton/>
+                    </Wrapper>
+                </>
+            )
+        }
+        return <Logo src={LogoDark}/>
+    }
+
     return (
         <StyledFooter>
             <WidthWrapper>
-                {!isDashboard ? (
-                        <>
-                            <Wrapper>
-                                <Logo src={LogoDark}/>
-                                <AccessButton/>
-                            </Wrapper>
-                        </>
-                    )
-                    :
-                    <Logo src={LogoDark}/>
-                }
+                {renderFooterItems()}
                 {!isDashboard && (
                     <FooterAnchors/>
                 )}
                 <hr/>
                 <WrapperBottom>
                     <SocialMediaIcons/>
-                    <p>© Easybank 2024. Todos os direitos reservados.</p>
+                    <p>{footerRights}</p>
                 </WrapperBottom>
 
             </WidthWrapper>
