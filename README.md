@@ -1,9 +1,13 @@
 # Easybank frontend app
 
+<hr style="border-top: 3px solid #bbb;">
+
 ## Description
 
 Frontend of a fullstack app that connects investors and investment advisors.
 The goal of this aplication was to make my first fullstack app using Next.js.
+
+<hr style="border-top: 3px solid #bbb;">
 
 ## Table of contents
 
@@ -26,6 +30,8 @@ The goal of this aplication was to make my first fullstack app using Next.js.
     - [Useful resources](#useful-resources)
 - [Acknowledgments](#acknowledgments)
     - [Author](#author)
+
+<hr style="border-top: 3px solid #bbb;">
 
 ## Overview
 
@@ -60,10 +66,16 @@ they go to the second screen.
 #### Screenshots
 ![](./src/assets/documentation/mobile-homepage.png)
 
+<hr style="border-top: 3px solid #bbb;">
+
+
 ## Deploy links
 
 - Frontend deploy: [Live App](https://easybank-investments.vercel.app/)
 - Backend deploy: [Backend](https://investment-fullstack.onrender.com/)
+
+
+<hr style="border-top: 3px solid #bbb;">
 
 ## Project structure
 
@@ -162,7 +174,7 @@ yarn dev
 yarn build
 ```
 
-## Architecture
+### Architecture
 
 ```
 investing-app-client/
@@ -186,6 +198,8 @@ investing-app-client/
 │   └── ...
 ```
 
+<hr style="border-top: 3px solid #bbb;">
+
 ## The process
 
 - Started creating multistep forms both for the advisor and for the investor users;
@@ -196,6 +210,7 @@ investing-app-client/
 
 ### What Bruno learned
 
+#### Multi step form
 A code highlight is the multistep form. It renders a component depending on the ````step```` it's at.
 At each time the user sends data, the state adds 1 to the ````step````.
 The final result is:
@@ -227,7 +242,7 @@ The final result is:
 ```
 
 This is a snippet of when the form is sent with React Hook Form validated with Zod.
-It adds the current data to the ````formInfo```` state:
+It adds the current data to the ````formInfo```` state and add 1 to the ```step``` state:
 
 ```tsx
   async function onSubmit(formData: IBio) {
@@ -247,6 +262,8 @@ Use Next.js further in the server as at this project the feature is used only wi
 - [Josh Cameau's blog](https://www.joshwcomeau.com/) - The best frontend blog I know by far;
 - [Radix UI](https://www.radix-ui.com/) - It saved me time from developing components such as the Dropdown and the modal
   dialog;
+
+<hr style="border-top: 3px solid #bbb;">
 
 ## Acknowledgments
 
