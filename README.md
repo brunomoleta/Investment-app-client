@@ -18,9 +18,10 @@ The goal of this aplication was to make my first fullstack app using Next.js.
     - [Dependencies](#dependencies)
     - [Dev dependencies](#dev-dependencies)
     - [Installation](#installation)
+    - [Run the app locally](#run-the-app-locally)
     - [Architecture](#architecture)
 - [The process](#the-process)
-    - [What I learned](#what-i-learned)
+    - [What Bruno learned](#what-bruno-learned)
     - [Continued development](#continued-development)
     - [Useful resources](#useful-resources)
 - [Acknowledgments](#acknowledgments)
@@ -59,7 +60,7 @@ they go to the second screen.
 #### Screenshots
 ![](./src/assets/documentation/mobile-homepage.png)
 
-### Deploy links
+## Deploy links
 
 - Frontend deploy: [Live App](https://easybank-investments.vercel.app/)
 - Backend deploy: [Backend](https://investment-fullstack.onrender.com/)
@@ -82,11 +83,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Scripts
 
-- `dev`: Inicia o ambiente de desenvolvimento usando o Vite.
-- `build`: Usado para construir o aplicativo para produção.
-- `lint`: Executa o ESLint para linting e correção automática.
+- `dev`: Starts development using Vite.
+- `build`: Builds the production app;
+- `lint`: Runs ESLint for linting and auto correction;
 
-Execute os scripts utilizando `npm run` ou `yarn run`.
+Execute the scripts with `npm run` or `yarn run`.
 
 ## Dependencies
 
@@ -136,7 +137,7 @@ git clone git@github.com:brunomoleta/Investment-app-client.git
 2. Clone the backend repo or use :
 
 ```bash
-git clone git@github.com:brunomoleta/Investment-app-client.git
+git clone git@github.com:brunomoleta/Investment-app-server.git
 ```
 
 3. Install the dependencies:
@@ -144,9 +145,21 @@ git clone git@github.com:brunomoleta/Investment-app-client.git
 ```bash
 npm install 
 
-# ou 
+# or
 
 yarn install
+```
+
+### Run the app locally
+
+Run the following command to execute the app:
+
+```bash
+# development
+yarn dev
+
+# production
+yarn build
 ```
 
 ## Architecture
@@ -181,7 +194,7 @@ investing-app-client/
 - Set an authenticator, so it's not possible that an unauthorized user accesses a dashboard;
 - Improved the UI for the desktop user;
 
-### What I learned
+### What Bruno learned
 
 A code highlight is the multistep form. It renders a component depending on the ````step```` it's at.
 At each time the user sends data, the state adds 1 to the ````step````.
