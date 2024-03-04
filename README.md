@@ -82,11 +82,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Scripts
 
-- `dev`: Inicia o ambiente de desenvolvimento usando o Vite.
-- `build`: Usado para construir o aplicativo para produção.
-- `lint`: Executa o ESLint para linting e correção automática.
+- `dev`: Starts the development environment.
+- `build`: Used to build the application for production.
+- `lint`: Executs ESLint for linting and automatic correction.
 
-Execute os scripts utilizando `npm run` ou `yarn run`.
+Execute the scripts with `npm run`, `yarn` or `pnpm`.
 
 ## Dependencies
 
