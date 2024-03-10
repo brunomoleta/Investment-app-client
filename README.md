@@ -5,26 +5,30 @@
 Frontend of a fullstack app that connects investors and investment advisors.
 The goal of this aplication was to make my first fullstack app using Next.js.
 
+<hr style="border-top: 3px solid #bbb;">
+
 ## Table of contents
 
 - [Overview](#overview)
     - [Built with](#built-with)
     - [Design](#design)
       - [User flow](#user-flow)
-      - [Screenshots](#screenshots)
     - [Deploy links](#deploy-links)
 - [Project Structure](#project-structure)
     - [Scripts](#scripts)
     - [Dependencies](#dependencies)
     - [Dev dependencies](#dev-dependencies)
     - [Installation](#installation)
+    - [Run the app locally](#run-the-app-locally)
     - [Architecture](#architecture)
 - [The process](#the-process)
-    - [What I learned](#what-i-learned)
+    - [What Bruno learned](#what-bruno-learned)
     - [Continued development](#continued-development)
     - [Useful resources](#useful-resources)
 - [Acknowledgments](#acknowledgments)
     - [Author](#author)
+
+<hr style="border-top: 3px solid #bbb;">
 
 ## Overview
 
@@ -45,24 +49,34 @@ The goal of this aplication was to make my first fullstack app using Next.js.
 ### Design
 
 #### User flow
-- The first screen is the homepage. When the user clicks "Entrar"
-they go to the second screen.
+- The first screen is the homepage. When you click "Entrar"
+and enter the second screen.
+- Here you identify as either an advisor or an investor.
 
-- Here they identify as either an advisor or an investor.
+![](./src/assets/documentation/01-02.png)
 
-- Screens 3 and 4 is where they insert their personal data.
 
-- At 5 is the user logged in dashboard;
+- Screens 3 and 4 is where you insert e-mail and password separately.
 
-- At last, they can edit their password after validating the current one;
+![](./src/assets/documentation/03-04.png)
 
-#### Screenshots
-![](./src/assets/documentation/mobile-homepage.png)
+- At 5 is the investor user logged in dashboard;
 
-### Deploy links
+- At last, you can edit their password after validating the current one;
+
+![](./src/assets/documentation/05-06.png)
+
+
+<hr style="border-top: 3px solid #bbb;">
+
+
+## Deploy links
 
 - Frontend deploy: [Live App](https://easybank-investments.vercel.app/)
 - Backend deploy: [Backend](https://investment-fullstack.onrender.com/)
+
+
+<hr style="border-top: 3px solid #bbb;">
 
 ## Project structure
 
@@ -82,11 +96,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Scripts
 
-- `dev`: Starts the development environment.
-- `build`: Used to build the application for production.
-- `lint`: Executs ESLint for linting and automatic correction.
+- `dev`: Inicia o ambiente de desenvolvimento usando o Vite.
+- `build`: Usado para construir o aplicativo para produção.
+- `lint`: Executa o ESLint para linting e correção automática.
 
-Execute the scripts with `npm run`, `yarn` or `pnpm`.
+Execute os scripts utilizando `npm run` ou `yarn run`.
 
 ## Dependencies
 
@@ -136,7 +150,7 @@ git clone git@github.com:brunomoleta/Investment-app-client.git
 2. Clone the backend repo or use :
 
 ```bash
-git clone git@github.com:brunomoleta/Investment-app-client.git
+git clone git@github.com:brunomoleta/Investment-app-server.git
 ```
 
 3. Install the dependencies:
@@ -149,7 +163,19 @@ npm install
 yarn install
 ```
 
-## Architecture
+### Run the app locally
+
+Run the following command to execute the app:
+
+```bash
+# development
+yarn dev
+
+# production
+yarn build
+```
+
+### Architecture
 
 ```
 investing-app-client/
@@ -173,6 +199,8 @@ investing-app-client/
 │   └── ...
 ```
 
+<hr style="border-top: 3px solid #bbb;">
+
 ## The process
 
 - Started creating multistep forms both for the advisor and for the investor users;
@@ -181,8 +209,9 @@ investing-app-client/
 - Set an authenticator, so it's not possible that an unauthorized user accesses a dashboard;
 - Improved the UI for the desktop user;
 
-### What I learned
+### What Bruno learned
 
+#### Multi step form
 A code highlight is the multistep form. It renders a component depending on the ````step```` it's at.
 At each time the user sends data, the state adds 1 to the ````step````.
 The final result is:
@@ -234,6 +263,10 @@ Use Next.js further in the server as at this project the feature is used only wi
 - [Josh Cameau's blog](https://www.joshwcomeau.com/) - The best frontend blog I know by far;
 - [Radix UI](https://www.radix-ui.com/) - It saved me time from developing components such as the Dropdown and the modal
   dialog;
+- [Android Mobile PSD Mockup](https://www.freepik.com/free-psd/smartphone-mockup_2103881.htm#query=android%20mockup&position=33&from_view=keyword&track=ais&uuid=cafff37a-0d2f-4d89-8e60-a62c1b805ac2) -
+Template so you can take a screenshot of the app and inserted in Photoshop;
+
+<hr style="border-top: 3px solid #bbb;">
 
 ## Acknowledgments
 
