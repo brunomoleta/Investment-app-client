@@ -1,7 +1,5 @@
 # Easybank frontend app
 
-<hr style="border-top: 3px solid #bbb;">
-
 ## Description
 
 Frontend of a fullstack app that connects investors and investment advisors.
@@ -15,7 +13,6 @@ The goal of this aplication was to make my first fullstack app using Next.js.
     - [Built with](#built-with)
     - [Design](#design)
       - [User flow](#user-flow)
-      - [Screenshots](#screenshots)
     - [Deploy links](#deploy-links)
 - [Project Structure](#project-structure)
     - [Scripts](#scripts)
@@ -52,19 +49,23 @@ The goal of this aplication was to make my first fullstack app using Next.js.
 ### Design
 
 #### User flow
-- The first screen is the homepage. When the user clicks "Entrar"
-they go to the second screen.
+- The first screen is the homepage. When you click "Entrar"
+and enter the second screen.
+- Here you identify as either an advisor or an investor.
 
-- Here they identify as either an advisor or an investor.
+![](./src/assets/documentation/01-02.png)
 
-- Screens 3 and 4 is where they insert their personal data.
 
-- At 5 is the user logged in dashboard;
+- Screens 3 and 4 is where you insert e-mail and password separately.
 
-- At last, they can edit their password after validating the current one;
+![](./src/assets/documentation/03-04.png)
 
-#### Screenshots
-![](./src/assets/documentation/mobile-homepage.png)
+- At 5 is the investor user logged in dashboard;
+
+- At last, you can edit their password after validating the current one;
+
+![](./src/assets/documentation/05-06.png)
+
 
 <hr style="border-top: 3px solid #bbb;">
 
@@ -95,11 +96,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Scripts
 
-- `dev`: Starts development using Vite.
-- `build`: Builds the production app;
-- `lint`: Runs ESLint for linting and auto correction;
+- `dev`: Inicia o ambiente de desenvolvimento usando o Vite.
+- `build`: Usado para construir o aplicativo para produção.
+- `lint`: Executa o ESLint para linting e correção automática.
 
-Execute the scripts with `npm run` or `yarn run`.
+Execute os scripts utilizando `npm run` ou `yarn run`.
 
 ## Dependencies
 
@@ -157,7 +158,7 @@ git clone git@github.com:brunomoleta/Investment-app-server.git
 ```bash
 npm install 
 
-# or
+# ou 
 
 yarn install
 ```
@@ -242,7 +243,7 @@ The final result is:
 ```
 
 This is a snippet of when the form is sent with React Hook Form validated with Zod.
-It adds the current data to the ````formInfo```` state and add 1 to the ```step``` state:
+It adds the current data to the ````formInfo```` state:
 
 ```tsx
   async function onSubmit(formData: IBio) {
@@ -262,6 +263,8 @@ Use Next.js further in the server as at this project the feature is used only wi
 - [Josh Cameau's blog](https://www.joshwcomeau.com/) - The best frontend blog I know by far;
 - [Radix UI](https://www.radix-ui.com/) - It saved me time from developing components such as the Dropdown and the modal
   dialog;
+- [Android Mobile PSD Mockup](https://www.freepik.com/free-psd/smartphone-mockup_2103881.htm#query=android%20mockup&position=33&from_view=keyword&track=ais&uuid=cafff37a-0d2f-4d89-8e60-a62c1b805ac2) -
+Template so you can take a screenshot of the app and inserted in Photoshop;
 
 <hr style="border-top: 3px solid #bbb;">
 
