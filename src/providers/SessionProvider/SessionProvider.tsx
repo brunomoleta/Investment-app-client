@@ -63,7 +63,7 @@ function SessionProvider(props: { children: React.ReactNode }) {
 
       toast.success(`Cadastro realizado com sucesso :)`);
 
-      changeUrl(`/${userType}`);
+      changeUrl(`/user/${userType}`);
     } catch (error: any) {
       if (error?.response) {
         switch (error.response.status) {
