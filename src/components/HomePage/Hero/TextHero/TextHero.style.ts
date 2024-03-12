@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
     padding-inline: var(--page-alignment);
     @media (min-width: 920px) {
         width: 50%;
-        padding-inline: var(--s2) 0;
+        padding-inline: 0;
     }
 `
 

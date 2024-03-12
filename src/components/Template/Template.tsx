@@ -8,7 +8,7 @@ const Template: React.FC<ChildrenProps> = ({ children }) => {
   return (
     <>
       <Header />
-      {children}
+      <main>{children}</main>
       <Footer />
     </>
   );
