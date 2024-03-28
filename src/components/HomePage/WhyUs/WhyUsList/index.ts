@@ -1,2 +1,2 @@
-export * from './WhyUsList';
-export { default } from './WhyUsList';
+export * from "./WhyUsList";
+export { default } from "./WhyUsList";

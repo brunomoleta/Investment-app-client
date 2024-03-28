@@ -1,11 +1,13 @@
-import {IAdvisor} from "@/types/users";
+import { IAdvisor } from "@/types/users";
 import React from "react";
 
 export interface IAdvisorContext {
-    getAdvisorsNoAuth: () => Promise<void>;
+  getAdvisorsNoAuth: () => Promise<void>;
 
-    advisors: IAdvisor[] | null;
-    setAdvisors: React.Dispatch<React.SetStateAction<IAdvisor[] | null>>;
+  advisors: IAdvisor[] | null;
+  setAdvisors: React.Dispatch<React.SetStateAction<IAdvisor[] | null>>;
 
-    handleMeetClick: (event: React.MouseEvent<HTMLButtonElement>)=> Promise<void>;
+  handleMeetClick: (
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => Promise<void>;
 }

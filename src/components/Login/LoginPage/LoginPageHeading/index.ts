@@ -1,2 +1,2 @@
-export * from './LoginPageHeading';
-export { default } from './LoginPageHeading';
+export * from "./LoginPageHeading";
+export { default } from "./LoginPageHeading";

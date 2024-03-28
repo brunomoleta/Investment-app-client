@@ -1,2 +1,2 @@
-export * from './advisorSchema';
-export { default } from './advisorSchema';
+export * from "./advisorSchema";
+export { default } from "./advisorSchema";

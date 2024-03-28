@@ -1,2 +1,2 @@
-export * from './TextHero';
-export { default } from './TextHero';
+export * from "./TextHero";
+export { default } from "./TextHero";

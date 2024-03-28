@@ -24,7 +24,7 @@ function CurrentSpeciality() {
 
   return (
     <>
-      <SpecialityInfo name={speciality.type_name} risk={speciality.risk}/>
+      <SpecialityInfo name={speciality.type_name} risk={speciality.risk} />
       <Button content="Editar" onClick={editSpeciality} />
     </>
   );

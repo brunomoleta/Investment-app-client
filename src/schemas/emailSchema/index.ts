@@ -1,2 +1,2 @@
-export * from './emailSchema';
-export { default } from './emailSchema';
+export * from "./emailSchema";
+export { default } from "./emailSchema";

@@ -1,2 +1,2 @@
-export * from './SMIcon';
-export { default } from './SMIcon';
+export * from "./SMIcon";
+export { default } from "./SMIcon";

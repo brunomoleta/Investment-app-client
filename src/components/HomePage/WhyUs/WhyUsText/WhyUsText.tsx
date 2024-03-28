@@ -1,5 +1,8 @@
 import React from "react";
-import { Heading, Wrapper } from '@/components/HomePage/WhyUs/WhyUsText/WhyUsText.style';
+import {
+  Heading,
+  Wrapper,
+} from "@/components/HomePage/WhyUs/WhyUsText/WhyUsText.style";
 
 function WhyUsText() {
   return (

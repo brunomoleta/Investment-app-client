@@ -158,6 +158,6 @@ export const blogArticles = [
 ];
 
 export const confirmMessage =
-    "Sim, desejo remover minha conta e excluir todos os meus dados.";
+  "Sim, desejo remover minha conta e excluir todos os meus dados.";
 
-export const footerRights = "© Easybank 2024. Todos os direitos reservados."
+export const footerRights = "© Easybank 2024. Todos os direitos reservados.";

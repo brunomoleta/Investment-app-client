@@ -7,9 +7,9 @@ export const Name = styled.h3`
 `;
 
 export const Bio = styled.p`
-    color: var(--primary-blue-hover);
-    margin-block-end: var(--s1);
-`
+  color: var(--primary-blue-hover);
+  margin-block-end: var(--s1);
+`;
 
 export const Speciality = styled.h4`
   color: var(--primary-blue-hover);
@@ -25,10 +25,10 @@ export const MainInfoWrapper = styled.div`
   display: flex;
   flex-flow: column;
   gap: var(--s0);
-    
-    margin-block-end: var(--s-1);
+
+  margin-block-end: var(--s-1);
 `;
 
 export const AdvisorWrapper = styled.div`
-    margin-block: var(--s-1);
-`
+  margin-block: var(--s-1);
+`;

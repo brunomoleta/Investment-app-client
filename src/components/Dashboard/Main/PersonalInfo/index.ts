@@ -1,2 +1,2 @@
-export * from './PersonalInfo';
-export { default } from './PersonalInfo';
+export * from "./PersonalInfo";
+export { default } from "./PersonalInfo";

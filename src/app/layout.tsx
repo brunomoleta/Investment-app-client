@@ -24,9 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-        <body className={publicSans.className}>
-          <Providers>{children}</Providers>
-        </body>
+      <body className={publicSans.className}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

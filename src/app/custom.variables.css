@@ -1,107 +1,107 @@
 :root {
-    --page-max-width: 1150px;
+  --page-max-width: 1150px;
 
-    --border-thickness: 2px;
+  --border-thickness: 2px;
 
-    /*colors*/
-    --primary-green: hsl(136, 64%, 51%);
-    --primary-green-hover: hsl(136, 64%, 40%);
+  /*colors*/
+  --primary-green: hsl(136, 64%, 51%);
+  --primary-green-hover: hsl(136, 64%, 40%);
 
-    --primary-blue: hsl(192, 69%, 51%);
-    --primary-blue-hover: hsl(192, 69%, 40%);
+  --primary-blue: hsl(192, 69%, 51%);
+  --primary-blue-hover: hsl(192, 69%, 40%);
 
-    --secondary-green: hsl(158, 61%, 49%);
+  --secondary-green: hsl(158, 61%, 49%);
 
-    --primary-gradient: linear-gradient(to right,
+  --primary-gradient: linear-gradient(
+    to right,
     var(--primary-green),
-    var(--primary-blue));
-    --primary-gradient-hover: linear-gradient(to right,
+    var(--primary-blue)
+  );
+  --primary-gradient-hover: linear-gradient(
+    to right,
     var(--primary-green-hover),
-    var(--primary-blue-hover));
+    var(--primary-blue-hover)
+  );
 
+  --pure-white: hsl(223, 100%, 100%);
+  --rich-black: hsl(250, 100%, 12.5%);
+  --grey-100: hsl(0, 0%, 98%);
+  --grey-200: hsl(223, 18%, 96%);
+  --grey-300: hsl(232.5, 8.16%, 61.57%);
+  --grey-400: hsl(232.5, 0%, 59%);
+  --grey-400-t: hsl(232.5, 0%, 0%, 30%);
 
-    --pure-white: hsl(223, 100%, 100%);
-    --rich-black: hsl(250, 100%, 12.5%);
-    --grey-100: hsl(0, 0%, 98%);
-    --grey-200: hsl(223, 18%, 96%);
-    --grey-300: hsl(232.5, 8.16%, 61.57%);
-    --grey-400: hsl(232.5, 0%, 59%);
-    --grey-400-t: hsl(232.5, 0%, 0%, 30%);
+  --red-80: hsla(4, 86%, 36%, 1);
+  --red-70: hsla(4, 86%, 47%, 1);
+  --red-60: hsla(4, 86%, 58%, 1);
+  --red-50: hsla(4, 86%, 66%, 1);
+  --red-40: hsla(4, 86%, 74%, 1);
 
-    --red-80: hsla(4, 86%, 36%, 1);
-    --red-70: hsla(4, 86%, 47%, 1);
-    --red-60: hsla(4, 86%, 58%, 1);
-    --red-50: hsla(4, 86%, 66%, 1);
-    --red-40: hsla(4, 86%, 74%, 1);
+  --blue-100: hsl(231, 26%, 24%);
 
-    --blue-100: hsl(231, 26%, 24%);
+  /*font-size*/
+  --font-hero: 3.5rem;
+  --font-large: 2.5rem;
+  --font-medium-2: 1.625rem;
+  --font-medium: 1.125rem;
+  --font-normal: 1rem;
+  --font-small: 0.875rem;
+  --font-smaller: 0.625rem;
 
-    /*font-size*/
-    --font-hero: 3.5rem;
-    --font-large: 2.5rem;
-    --font-medium-2: 1.625rem;
-    --font-medium: 1.125rem;
-    --font-normal: 1rem;
-    --font-small: 0.875rem;
-    --font-smaller: 0.625rem;
+  /*clamp*/
+  --font-heading-clamp: clamp(var(--font-medium-2), 12svw, var(--font-large));
+  --page-alignment: clamp(var(--s0), 10svw, var(--s2));
 
-    /*clamp*/
-    --font-heading-clamp: clamp(var(--font-medium-2), 12svw, var(--font-large));
-    --page-alignment: clamp(var(--s0), 10svw, var(--s2));
+  /*card width*/
+  --flex-wrap-card: 1 0 220px;
 
-    /*card width*/
-    --flex-wrap-card: 1 0 220px;
+  /*media query*/
+  --media-tablet: 550px;
+  --media-desktop: 930px;
 
-    /*media query*/
-    --media-tablet: 550px;
-    --media-desktop: 930px;
+  /*mockups image sizes*/
 
-    /*mockups image sizes*/
+  --mockup-image-width: 767;
+  --mockup-image-height: 939;
 
-    --mockup-image-width: 767;
-    --mockup-image-height: 939;
+  --max-inline-size: 55ch;
+  --ratio: 1.5;
+  --s0: 1rem;
+  --measure: 60ch;
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s-2: calc(var(--s-1) / var(--ratio));
+  --s-3: calc(var(--s-2) / var(--ratio));
+  --s-4: calc(var(--s-3) / var(--ratio));
+  --s-5: calc(var(--s-4) / var(--ratio));
 
-    --max-inline-size: 55ch;
-    --ratio: 1.5;
-    --s0: 1rem;
-    --measure: 60ch;
-    --s-1: calc(var(--s0) / var(--ratio));
-    --s-2: calc(var(--s-1) / var(--ratio));
-    --s-3: calc(var(--s-2) / var(--ratio));
-    --s-4: calc(var(--s-3) / var(--ratio));
-    --s-5: calc(var(--s-4) / var(--ratio));
-
-    --s1: calc(var(--s0) * var(--ratio));
-    --s2: calc(var(--s1) * var(--ratio));
-    --s3: calc(var(--s2) * var(--ratio));
-    --s4: calc(var(--s3) * var(--ratio));
-    --s5: calc(var(--s4) * var(--ratio));
-
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s1) * var(--ratio));
+  --s3: calc(var(--s2) * var(--ratio));
+  --s4: calc(var(--s3) * var(--ratio));
+  --s5: calc(var(--s4) * var(--ratio));
 }
 
-input[type='radio'] {
-    width: 40px;
-    height: 40px;
-    accent-color: var(--primary-green);
-    outline: revert;
-    cursor: pointer;
-    border: 0;
-    outline: 0;
-    outline-offset: 0;
-    padding-inline-end: var(--s2);
+input[type="radio"] {
+  width: 40px;
+  height: 40px;
+  accent-color: var(--primary-green);
+  outline: revert;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+  outline-offset: 0;
+  padding-inline-end: var(--s2);
 
-    transform: translateY(-0.25em) translateX(1.125em);
-
+  transform: translateY(-0.25em) translateX(1.125em);
 }
 
-input[type='radio']:focus {
-    outline: revert;
-    border: 0;
-    outline: var(--border-thickness) solid var(--primary-green);
-    outline-offset: 4px;
-
+input[type="radio"]:focus {
+  outline: revert;
+  border: 0;
+  outline: var(--border-thickness) solid var(--primary-green);
+  outline-offset: 4px;
 }
 
-input[type='radio']:hover {
-    outline: 3px solid var(--primary-green);
+input[type="radio"]:hover {
+  outline: 3px solid var(--primary-green);
 }

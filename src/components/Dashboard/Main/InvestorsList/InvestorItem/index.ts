@@ -1,2 +1,2 @@
-export * from './InvestorItem';
-export { default } from './InvestorItem';
+export * from "./InvestorItem";
+export { default } from "./InvestorItem";

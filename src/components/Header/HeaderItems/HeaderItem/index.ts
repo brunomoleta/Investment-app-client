@@ -1,2 +1,2 @@
-export * from './HeaderItem';
-export { default } from './HeaderItem';
+export * from "./HeaderItem";
+export { default } from "./HeaderItem";

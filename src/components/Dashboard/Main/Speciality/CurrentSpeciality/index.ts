@@ -1,2 +1,2 @@
-export * from './CurrentSpeciality';
-export { default } from './CurrentSpeciality';
+export * from "./CurrentSpeciality";
+export { default } from "./CurrentSpeciality";

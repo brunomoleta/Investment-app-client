@@ -1,2 +1,2 @@
-export * from './Amount';
-export { default } from './Amount';
+export * from "./Amount";
+export { default } from "./Amount";

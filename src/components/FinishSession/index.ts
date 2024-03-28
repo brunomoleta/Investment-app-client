@@ -1,2 +1,2 @@
-export * from './FinishSession';
-export { default } from './FinishSession';
+export * from "./FinishSession";
+export { default } from "./FinishSession";

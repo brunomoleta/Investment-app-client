@@ -27,7 +27,6 @@ function PhoneNumber() {
   });
 
   function submit(formData: IPhoneNumber) {
-
     formData = {
       ...formData,
       phone_number: formData.phone_number.replace(/\D/g, ""),

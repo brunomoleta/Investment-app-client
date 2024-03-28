@@ -1,2 +1,2 @@
-export * from './AccessButton';
-export { default } from './AccessButton';
+export * from "./AccessButton";
+export { default } from "./AccessButton";

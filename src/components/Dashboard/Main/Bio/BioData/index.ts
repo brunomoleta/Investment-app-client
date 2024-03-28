@@ -1,2 +1,2 @@
-export * from './BioData';
-export { default } from './BioData';
+export * from "./BioData";
+export { default } from "./BioData";

@@ -1,2 +1,2 @@
-export * from './singlePasswordSchema';
-export { default } from './singlePasswordSchema';
+export * from "./singlePasswordSchema";
+export { default } from "./singlePasswordSchema";

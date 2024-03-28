@@ -1,6 +1,5 @@
 import React from "react";
-import {Risk} from "@/types/enum";
-
+import { Risk } from "@/types/enum";
 
 export interface IInvestmentType {
   id: string;

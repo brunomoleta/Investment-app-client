@@ -10,7 +10,7 @@ const baseDoublePasswordSchema = z.object({
     .regex(/\d/, "A senha deve conter pelo menos um número")
     .regex(
       /[!@#$%^&*()_+{}[\]:;<>,.?~\\-]/,
-      "A senha deve conter pelo menos um caractere especial"
+      "A senha deve conter pelo menos um caractere especial",
     ),
   confirmPassword: z.string().min(8, "Favor confirmar a senha."),
 });
@@ -20,7 +20,7 @@ const doublePasswordSchema = baseDoublePasswordSchema.refine(
   {
     message: "As senhas hão de ser identicasíssimas.",
     path: ["confirmPassword"],
-  }
+  },
 );
 
 export { doublePasswordSchema, baseDoublePasswordSchema };

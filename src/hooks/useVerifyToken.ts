@@ -6,7 +6,7 @@ export function useVerifyToken(): void {
   const token = getCookie("token", { cookies });
   if (!token) {
     console.log(
-      "Tu não tem acesso a esta página sem autenticação. Por favor faça login."
+      "Tu não tem acesso a esta página sem autenticação. Por favor faça login.",
     );
     redirect("/");
   }

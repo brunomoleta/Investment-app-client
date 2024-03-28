@@ -8,11 +8,10 @@ import emailSchema from "@/schemas/emailSchema";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import Button from "@/components/Button";
-import {IEmail} from "@/types/signUp";
+import { IEmail } from "@/types/signUp";
 
 function Email() {
-  const { setStep, formInfo, setFormInfo } =
-    useUtilsContext() as IUtilsContext;
+  const { setStep, formInfo, setFormInfo } = useUtilsContext() as IUtilsContext;
 
   const id = React.useId();
   const emailId = `${id}-email`;
@@ -40,7 +39,7 @@ function Email() {
           {...register("email")}
           id={emailId}
         />
-        <Button type="submit" content='Avançar'/>
+        <Button type="submit" content="Avançar" />
       </Form>
     </>
   );

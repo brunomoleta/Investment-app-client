@@ -1,2 +1,2 @@
-export * from './RemoveAccountForm';
-export { default } from './RemoveAccountForm';
+export * from "./RemoveAccountForm";
+export { default } from "./RemoveAccountForm";

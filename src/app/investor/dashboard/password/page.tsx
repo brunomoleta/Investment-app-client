@@ -3,10 +3,10 @@ import React from "react";
 import RenderPassword from "@/components/Dashboard/Main/RenderPassword";
 
 export default function InvestorPassword() {
-    return (
-        <>
-            <Heading>Editar senha</Heading>
-            <RenderPassword />
-        </>
-    );
+  return (
+    <>
+      <Heading>Editar senha</Heading>
+      <RenderPassword />
+    </>
+  );
 }

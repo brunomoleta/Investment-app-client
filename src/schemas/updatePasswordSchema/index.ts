@@ -1,2 +1,2 @@
-export * from './updatePasswordSchema';
-export { default } from './updatePasswordSchema';
+export * from "./updatePasswordSchema";
+export { default } from "./updatePasswordSchema";

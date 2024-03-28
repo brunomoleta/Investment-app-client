@@ -8,10 +8,10 @@ import { isStringFunction } from "@/services/service";
 const Input = React.forwardRef(
   (
     { error, id, type = "text", label, ...delegated }: IInput,
-    ref: React.ForwardedRef<HTMLInputElement>
+    ref: React.ForwardedRef<HTMLInputElement>,
   ) => {
     const lowerCaseLabel = (
-      label: string | React.ReactNode
+      label: string | React.ReactNode,
     ): string | React.ReactNode => {
       if (typeof label === "string" && label.toLowerCase().includes("senha")) {
         return <PasswordButton type={type} />;
@@ -30,7 +30,7 @@ const Input = React.forwardRef(
         </Field>
       </>
     );
-  }
+  },
 );
 Input.displayName = "Input";
 export default Input;

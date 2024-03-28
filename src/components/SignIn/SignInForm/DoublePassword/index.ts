@@ -1,2 +1,2 @@
-export * from './DoublePassword';
-export { default } from './DoublePassword';
+export * from "./DoublePassword";
+export { default } from "./DoublePassword";

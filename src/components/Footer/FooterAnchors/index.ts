@@ -1,2 +1,2 @@
-export * from './FooterAnchors';
-export { default } from './FooterAnchors';
+export * from "./FooterAnchors";
+export { default } from "./FooterAnchors";

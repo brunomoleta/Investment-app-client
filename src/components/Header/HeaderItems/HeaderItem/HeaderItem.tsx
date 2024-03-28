@@ -1,7 +1,7 @@
 import React from "react";
 import { upper } from "@/services/service";
-import {HeaderLink} from "@/components/Footer/FooterAnchors/FooterItem/FooterItem.style";
-import {ItemLi} from "@/components/Header/HeaderItems/HeaderItems.style";
+import { HeaderLink } from "@/components/Footer/FooterAnchors/FooterItem/FooterItem.style";
+import { ItemLi } from "@/components/Header/HeaderItems/HeaderItems.style";
 
 interface Props {
   item: string;

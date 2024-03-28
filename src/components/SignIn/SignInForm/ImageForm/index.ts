@@ -1,2 +1,2 @@
-export * from './ImageForm';
-export { default } from './ImageForm';
+export * from "./ImageForm";
+export { default } from "./ImageForm";

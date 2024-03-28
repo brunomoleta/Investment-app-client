@@ -12,7 +12,8 @@ import { useInvestmentTypeContext } from "@/providers/InvestmentTypeProvider";
 import { IInvestmentTypesContext } from "@/types/investmentType";
 
 function AdvisorBio() {
-  const { setStep, setIsLoading, formInfo, setFormInfo } = useUtilsContext() as IUtilsContext;
+  const { setStep, setIsLoading, formInfo, setFormInfo } =
+    useUtilsContext() as IUtilsContext;
   const { getInvestmentTypesNoAuth } =
     useInvestmentTypeContext() as IInvestmentTypesContext;
 
@@ -28,10 +29,10 @@ function AdvisorBio() {
   });
 
   async function onSubmit(formData: IBio) {
-    setIsLoading(true)
+    setIsLoading(true);
     setFormInfo({ ...formInfo, ...formData });
     await getInvestmentTypesNoAuth();
-    setIsLoading(false)
+    setIsLoading(false);
     setStep((prevStep) => prevStep + 1);
   }
 

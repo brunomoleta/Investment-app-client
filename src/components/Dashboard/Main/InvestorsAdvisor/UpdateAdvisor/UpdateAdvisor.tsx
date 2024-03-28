@@ -7,17 +7,14 @@ import { useUserContext } from "@/providers/UserProvider";
 import { IUserContext } from "@/types/userContext";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
-import {
-  IAdvisor,
-  IFullInvestor,
-} from "@/types/users";
+import { IAdvisor, IFullInvestor } from "@/types/users";
 import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Input from "@/components/Input";
 import AdvisorInfo from "@/components/RenderManyAdvisors/RenderAdvisor/AdvisorCard/AdvisorInfo";
 import AdvisorCard from "@/components/RenderManyAdvisors/RenderAdvisor/AdvisorCard";
 import { FormWrapper } from "@/components/SignIn/SignInForm/ChooseAdvisor/ChooseAdvisorForm/ChooseAdvisor.style";
 import Button from "@/components/Button";
-import {zodResolver} from "@hookform/resolvers/zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import advisorSchema from "@/schemas/advisorSchema";
 
 function UpdateAdvisor() {
@@ -41,7 +38,7 @@ function UpdateAdvisor() {
   console.log(advisor);
   const { register, handleSubmit } = useForm<{ advisor_id: string }>({
     defaultValues: { advisor_id: advisor.id },
-    resolver: zodResolver(advisorSchema)
+    resolver: zodResolver(advisorSchema),
   });
 
   if (!advisors) {
@@ -52,7 +49,7 @@ function UpdateAdvisor() {
     setIsLoading(true);
     await updateUser(formData);
     await retrieveUserFromId(tokenState, userType);
-    changeUrl('/advisor/dashboard')
+    changeUrl("/advisor/dashboard");
     setIsLoading(false);
   }
 

@@ -1,2 +1,2 @@
-export * from './WhyUsText';
-export { default } from './WhyUsText';
+export * from "./WhyUsText";
+export { default } from "./WhyUsText";

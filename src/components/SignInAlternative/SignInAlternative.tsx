@@ -18,7 +18,9 @@ function SignInAlternative({
     <Wrapper>
       {step === 0 ? (
         <>
-          <h2>{isSignin ? "Ainda não tens uma conta?" : "Já possui uma conta?"}</h2>
+          <h2>
+            {isSignin ? "Ainda não tens uma conta?" : "Já possui uma conta?"}
+          </h2>
           <Button
             onClick={cleanForm}
             href={href}

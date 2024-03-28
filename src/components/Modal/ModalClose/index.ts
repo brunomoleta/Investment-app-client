@@ -1,2 +1,2 @@
-export * from './ModalClose';
-export { default } from './ModalClose';
+export * from "./ModalClose";
+export { default } from "./ModalClose";

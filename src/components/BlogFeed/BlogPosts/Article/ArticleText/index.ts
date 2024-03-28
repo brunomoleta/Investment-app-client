@@ -1,2 +1,2 @@
-export * from './ArticleText';
-export { default } from './ArticleText';
+export * from "./ArticleText";
+export { default } from "./ArticleText";

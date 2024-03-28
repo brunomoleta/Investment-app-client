@@ -9,12 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'primary': 'linear-gradient(to right, hsl(136, 64%, 51%), hsl(192, 69%, 51%))',
+        primary:
+          "linear-gradient(to right, hsl(136, 64%, 51%), hsl(192, 69%, 51%))",
       },
       colors: {
-        'start': 'hsl(136, 64%, 51%)',
-        'end': 'hsl(192, 69%, 51%)',
-      }
+        start: "hsl(136, 64%, 51%)",
+        end: "hsl(192, 69%, 51%)",
+      },
     },
   },
   plugins: [],

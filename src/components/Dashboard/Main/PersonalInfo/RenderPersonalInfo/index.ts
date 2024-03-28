@@ -1,2 +1,2 @@
-export * from './RenderPersonalInfo';
-export { default } from './RenderPersonalInfo';
+export * from "./RenderPersonalInfo";
+export { default } from "./RenderPersonalInfo";

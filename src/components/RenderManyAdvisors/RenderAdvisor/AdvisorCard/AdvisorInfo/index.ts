@@ -1,2 +1,2 @@
-export * from './AdvisorInfo';
-export { default } from './AdvisorInfo';
+export * from "./AdvisorInfo";
+export { default } from "./AdvisorInfo";

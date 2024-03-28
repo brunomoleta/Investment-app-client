@@ -1,2 +1,2 @@
-export * from './UtilsProvider';
-export { useUtilsContext, UtilsProvider } from './UtilsProvider';
+export * from "./UtilsProvider";
+export { useUtilsContext, UtilsProvider } from "./UtilsProvider";

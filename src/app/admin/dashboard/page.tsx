@@ -1,7 +1,7 @@
-import {useVerifyToken} from "@/hooks/useVerifyToken";
+import { useVerifyToken } from "@/hooks/useVerifyToken";
 
 export default function AdminDashboard() {
-  useVerifyToken()
+  useVerifyToken();
 
   return <div>ADMIN</div>;
 }

@@ -1,2 +1,2 @@
-export * from './specialitySchema';
-export { default } from './specialitySchema';
+export * from "./specialitySchema";
+export { default } from "./specialitySchema";

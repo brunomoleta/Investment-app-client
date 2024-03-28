@@ -10,8 +10,8 @@ function ChooseAdvisor() {
   if (!advisors) {
     return (
       <ErrorMessage>
-          Não é possível apresentar os assessores para ti no momento, por favor
-          cadastre-se mais tarde :)
+        Não é possível apresentar os assessores para ti no momento, por favor
+        cadastre-se mais tarde :)
       </ErrorMessage>
     );
   }

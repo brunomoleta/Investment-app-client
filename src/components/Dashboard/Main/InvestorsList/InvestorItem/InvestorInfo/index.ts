@@ -1,2 +1,2 @@
-export * from './InvestorInfo';
-export { default } from './InvestorInfo';
+export * from "./InvestorInfo";
+export { default } from "./InvestorInfo";

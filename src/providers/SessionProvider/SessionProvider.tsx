@@ -25,8 +25,8 @@ function SessionProvider(props: { children: React.ReactNode }) {
     setIsLoading(true);
     try {
       const { data } = await api.post(`/session/${userType}`, formData);
-      setCookie('token', data.token);
-      setCookie('userRole', userType);
+      setCookie("token", data.token);
+      setCookie("userRole", userType);
 
       setUserType(userType);
       setTokenState(data.token);

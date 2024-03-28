@@ -30,10 +30,10 @@ const TitleWrapper = styled.div`
 `;
 
 const Wrapper = styled.div`
-    position: relative;
-  
-    display: flex;
-    justify-content: space-between;
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
 `;
 export const ModalButton = styled.button`
   min-height: 40px;

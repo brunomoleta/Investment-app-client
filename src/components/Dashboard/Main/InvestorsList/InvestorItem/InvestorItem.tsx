@@ -1,10 +1,14 @@
 import React from "react";
 import { IInvestor } from "@/types/users";
-import {CardImage, ImageWrapper, Li} from "@/components/RenderManyAdvisors/RenderAdvisor/RenderAdvisor.style";
+import {
+  CardImage,
+  ImageWrapper,
+  Li,
+} from "@/components/RenderManyAdvisors/RenderAdvisor/RenderAdvisor.style";
 
 import DefaultImage from "@/assets/illustrations/profile.svg";
 
-import {DashboardArticle} from "@/components/BlogFeed/BlogPosts/Article/Article.style";
+import { DashboardArticle } from "@/components/BlogFeed/BlogPosts/Article/Article.style";
 import InvestorInfo from "@/components/Dashboard/Main/InvestorsList/InvestorItem/InvestorInfo";
 
 function InvestorItem({ investor }: { investor: IInvestor }) {

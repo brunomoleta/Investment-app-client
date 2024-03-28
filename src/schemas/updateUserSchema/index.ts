@@ -1,2 +1,2 @@
-export * from './updateUserSchema';
-export { default } from './updateUserSchema';
+export * from "./updateUserSchema";
+export { default } from "./updateUserSchema";

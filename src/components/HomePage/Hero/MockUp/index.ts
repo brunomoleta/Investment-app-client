@@ -1,2 +1,2 @@
-export * from './MockUp';
-export { default } from './MockUp';
+export * from "./MockUp";
+export { default } from "./MockUp";

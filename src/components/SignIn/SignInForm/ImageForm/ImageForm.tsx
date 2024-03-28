@@ -4,16 +4,13 @@ import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import { Form } from "@/components/Login/LoginForm/LoginForm.style";
 import Input from "@/components/Input";
-import {
-  Optional,
-} from "@/components/SignIn/SignInForm/ImageForm/Image.style";
+import { Optional } from "@/components/SignIn/SignInForm/ImageForm/Image.style";
 import { useForm } from "react-hook-form";
 import { IImageOnly } from "@/types/login";
 import Button from "@/components/Button";
 
 function ImageForm() {
-  const { setStep, formInfo, setFormInfo } =
-    useUtilsContext() as IUtilsContext;
+  const { setStep, formInfo, setFormInfo } = useUtilsContext() as IUtilsContext;
 
   const id = React.useId();
   const imageId = `${id}-image`;
@@ -35,7 +32,7 @@ function ImageForm() {
       />
       <Optional>(opcional)</Optional>
 
-      <Button type="submit" content='Avançar'/>
+      <Button type="submit" content="Avançar" />
     </Form>
   );
 }

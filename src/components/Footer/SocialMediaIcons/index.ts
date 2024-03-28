@@ -1,2 +1,2 @@
-export * from './SocialMediaIcons';
-export { default } from './SocialMediaIcons';
+export * from "./SocialMediaIcons";
+export { default } from "./SocialMediaIcons";

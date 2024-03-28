@@ -1,2 +1,2 @@
-export * from './UpdatePersonalInfo';
-export { default } from './UpdatePersonalInfo';
+export * from "./UpdatePersonalInfo";
+export { default } from "./UpdatePersonalInfo";

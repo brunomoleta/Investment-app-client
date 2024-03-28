@@ -1,6 +1,12 @@
 import React from "react";
 import { ArticleProps } from "@/components/BlogFeed/BlogPosts/Article";
-import {Author, Em, Text, Title, Wrapper} from "@/components/BlogFeed/BlogPosts/Article/ArticleText/ArticleText.style";
+import {
+  Author,
+  Em,
+  Text,
+  Title,
+  Wrapper,
+} from "@/components/BlogFeed/BlogPosts/Article/ArticleText/ArticleText.style";
 
 function ArticleText({ article, isShort }: ArticleTextProps) {
   const { content, author, name } = article;

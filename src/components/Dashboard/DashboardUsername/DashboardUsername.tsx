@@ -20,5 +20,5 @@ function DashboardUsername() {
 export default DashboardUsername;
 
 const Header = styled.h1`
-    margin-block-end: var(--s-2);
-`
+  margin-block-end: var(--s-2);
+`;

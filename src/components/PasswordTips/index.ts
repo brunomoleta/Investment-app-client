@@ -1,2 +1,2 @@
-export * from './PasswordTips';
-export { default } from './PasswordTips';
+export * from "./PasswordTips";
+export { default } from "./PasswordTips";

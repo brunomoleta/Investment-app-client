@@ -12,8 +12,8 @@ function ChooseSpeciality() {
     if (!investmentTypes) {
       return (
         <ErrorMessage>
-            Não foi possível apresentar as especialidades no momento, por favor
-            cadastre-se mais tarde :)
+          Não foi possível apresentar as especialidades no momento, por favor
+          cadastre-se mais tarde :)
         </ErrorMessage>
       );
     }

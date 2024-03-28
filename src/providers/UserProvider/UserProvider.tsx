@@ -30,7 +30,7 @@ function UserProvider(props: { children: React.ReactNode }) {
 
   const retrieveUserFromId = React.useCallback(async function (
     token: TokenType,
-    userRole: UserType
+    userRole: UserType,
   ) {
     if (!token) {
       changeUrl("/");
@@ -62,9 +62,7 @@ function UserProvider(props: { children: React.ReactNode }) {
         toast.error("An unexpected error occurred :)");
       }
     }
-  },
-  []);
-
+  }, []);
 
   React.useEffect(() => {
     const cookies = getCookies();

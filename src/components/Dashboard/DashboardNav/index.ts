@@ -1,2 +1,2 @@
-export * from './DashboardNav';
-export { default } from './DashboardNav';
+export * from "./DashboardNav";
+export { default } from "./DashboardNav";

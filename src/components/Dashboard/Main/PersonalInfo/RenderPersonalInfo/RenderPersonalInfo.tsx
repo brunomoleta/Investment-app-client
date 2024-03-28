@@ -13,8 +13,7 @@ import { IUser } from "@/types/users";
 import { useUtilsContext } from "@/providers/UtilsProvider";
 import { IUtilsContext } from "@/types/utils";
 import RenderAdvisorInfo from "@/components/Dashboard/Main/PersonalInfo/RenderPersonalInfo/RenderAdvisorInfo";
-import {Wrapper} from "@/components/Dashboard/Main/PersonalInfo/RenderPersonalInfo/RenderPersonalInfo.style";
-
+import { Wrapper } from "@/components/Dashboard/Main/PersonalInfo/RenderPersonalInfo/RenderPersonalInfo.style";
 
 function RenderPersonalInfo() {
   const { activeUser } = useUserContext() as IUserContext;

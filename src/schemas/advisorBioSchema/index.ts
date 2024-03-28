@@ -1,2 +1,2 @@
-export * from './advisorBioSchema';
-export { default } from './advisorBioSchema';
+export * from "./advisorBioSchema";
+export { default } from "./advisorBioSchema";

@@ -6,7 +6,7 @@ export default function InvestorLogin() {
   return (
     <LoginPage
       loginForm={<LoginForm userType="investor" />}
-      signInAlternative={<SignInAlternative href={'investor/signup'} />}
+      signInAlternative={<SignInAlternative href={"investor/signup"} />}
     />
   );
 }

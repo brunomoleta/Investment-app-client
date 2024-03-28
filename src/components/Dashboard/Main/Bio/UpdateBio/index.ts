@@ -1,2 +1,2 @@
-export * from './UpdateBio';
-export { default } from './UpdateBio';
+export * from "./UpdateBio";
+export { default } from "./UpdateBio";

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import Spinner from "@/components/Spinner";
 import UpdateBio from "@/components/Dashboard/Main/Bio/UpdateBio";
 import BioData from "@/components/Dashboard/Main/Bio/BioData";

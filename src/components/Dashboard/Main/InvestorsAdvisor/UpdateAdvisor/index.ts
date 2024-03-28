@@ -1,2 +1,2 @@
-export * from './UpdateAdvisor';
-export { default } from './UpdateAdvisor';
+export * from "./UpdateAdvisor";
+export { default } from "./UpdateAdvisor";

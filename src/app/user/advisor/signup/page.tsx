@@ -5,11 +5,11 @@ import SignInForm from "@/components/SignIn/SignInForm";
 export default function AdvisorSignUp() {
   return (
     <LoginPage
-        isLogin={false}
-        loginForm={<SignInForm userType="advisor" />}
-        signInAlternative={
-          <SignInAlternative isSignin={false} href={"/user/advisor"} />
-        }
+      isLogin={false}
+      loginForm={<SignInForm userType="advisor" />}
+      signInAlternative={
+        <SignInAlternative isSignin={false} href={"/user/advisor"} />
+      }
     />
   );
 }

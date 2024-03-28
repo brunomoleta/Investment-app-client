@@ -1,2 +1,2 @@
-export * from './RenderAdvisorInfo';
-export { default } from './RenderAdvisorInfo';
+export * from "./RenderAdvisorInfo";
+export { default } from "./RenderAdvisorInfo";

@@ -5,8 +5,8 @@ import { Heading, Main } from "@/components/Login/LoginPage/LoginPage.style";
 function ChooseUser() {
   return (
     <>
-        <Heading>Identifique-se, por favor :)</Heading>
-        <ChooseUserForm />
+      <Heading>Identifique-se, por favor :)</Heading>
+      <ChooseUserForm />
     </>
   );
 }

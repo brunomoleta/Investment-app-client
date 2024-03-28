@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { Heading } from "@/components/Login/LoginPage/LoginPage.style";
 import React from "react";
 import UpdateAdvisor from "@/components/Dashboard/Main/InvestorsAdvisor/UpdateAdvisor";

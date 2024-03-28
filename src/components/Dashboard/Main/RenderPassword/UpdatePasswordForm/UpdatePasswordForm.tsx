@@ -67,12 +67,12 @@ function UpdatePasswordForm() {
 
         <Button type="submit" content="Enviar" />
       </Form>
-        <Button
-            onClick={() => changeUrl(`/${userType}/dashboard`)}
-            isPrimary={false}
-            type="button"
-            content="cancelar"
-        />
+      <Button
+        onClick={() => changeUrl(`/${userType}/dashboard`)}
+        isPrimary={false}
+        type="button"
+        content="cancelar"
+      />
       <PasswordTips />
     </>
   );

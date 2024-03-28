@@ -6,7 +6,7 @@ export default function AdvisorBio() {
   return (
     <>
       <Heading>Sua bio</Heading>
-      <RenderBio/>
+      <RenderBio />
     </>
   );
 }

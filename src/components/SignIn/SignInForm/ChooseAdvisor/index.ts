@@ -1,2 +1,2 @@
-export * from './ChooseAdvisor';
-export { default } from './ChooseAdvisor';
+export * from "./ChooseAdvisor";
+export { default } from "./ChooseAdvisor";

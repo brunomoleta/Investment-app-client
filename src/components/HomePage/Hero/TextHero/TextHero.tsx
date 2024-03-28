@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import { HomeHero } from "@/services/data";
 import Button from "@/components/Button";
@@ -17,10 +17,7 @@ function TextHero() {
     <Wrapper>
       <HeroH1>{HomeHero.heading}</HeroH1>
       <SubTitle>{HomeHero.subheading}</SubTitle>
-      <Button
-        onClick={handleMeetClick}
-        content="Conhecer assessores"
-      />
+      <Button onClick={handleMeetClick} content="Conhecer assessores" />
     </Wrapper>
   );
 }

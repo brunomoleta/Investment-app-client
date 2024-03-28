@@ -1,2 +1,2 @@
-export * from './removeAccountSchema';
-export { default } from './removeAccountSchema';
+export * from "./removeAccountSchema";
+export { default } from "./removeAccountSchema";

@@ -1,2 +1,2 @@
-export * from './AdvisorCard';
-export { default } from './AdvisorCard';
+export * from "./AdvisorCard";
+export { default } from "./AdvisorCard";

@@ -37,13 +37,13 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledPasswordButton = styled.button`
-    background-color: inherit;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: .4em;
-    
-    & * {
-        color: var(--grey-300)
-    }
+  background-color: inherit;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0.4em;
+
+  & * {
+    color: var(--grey-300);
+  }
 `;

@@ -6,7 +6,7 @@ import { Heading } from "@/components/Login/LoginPage/LoginPage.style";
 import React from "react";
 import { upper } from "@/services/service";
 import RemoveAccountForm from "@/components/RemoveAccountForm";
-import {TopText} from "@/components/RemoveAccountForm/RemoveAccount.style";
+import { TopText } from "@/components/RemoveAccountForm/RemoveAccount.style";
 
 export default function RemoveAccount() {
   const { activeUser } = useUserContext() as IUserContext;

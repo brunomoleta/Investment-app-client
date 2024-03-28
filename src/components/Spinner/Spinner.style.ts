@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import styled, { keyframes } from "styled-components";
 
 const spin = keyframes`
@@ -12,10 +12,10 @@ const spin = keyframes`
 `;
 
 export const Span = styled.span<{ speed: number }>`
-    display: block;
-    animation: ${spin} ${props => `${props.speed}ms`} linear infinite;
+  display: block;
+  animation: ${spin} ${(props) => `${props.speed}ms`} linear infinite;
 
-    & svg {
-        display: block;
-    }
+  & svg {
+    display: block;
+  }
 `;

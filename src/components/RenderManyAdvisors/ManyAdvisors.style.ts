@@ -1,6 +1,6 @@
 "use client";
 import styled from "styled-components";
-import {GenericMain} from "@/styled-components/MaxWidth.style";
+import { GenericMain } from "@/styled-components/MaxWidth.style";
 
 export const AdvisorList = styled.ol`
   display: flex;
@@ -15,16 +15,16 @@ export const AdvisorList = styled.ol`
 `;
 
 export const MainWrapper = styled(GenericMain)`
-    background-color: var(--grey-100);
-    margin: auto;
-    padding-block: var(--s2);
+  background-color: var(--grey-100);
+  margin: auto;
+  padding-block: var(--s2);
 
-    padding-inline: clamp(var(--s-3), 8%, var(--s2));
+  padding-inline: clamp(var(--s-3), 8%, var(--s2));
 
-    width: 100%;
+  width: 100%;
 `;
 
 export const DashboardMain = styled(MainWrapper)`
-    height: 100%;
-    padding-block: var(--s2);
-`
+  height: 100%;
+  padding-block: var(--s2);
+`;

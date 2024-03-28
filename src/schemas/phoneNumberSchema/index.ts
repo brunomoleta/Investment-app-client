@@ -1,2 +1,2 @@
-export * from './phoneNumberSchema';
-export { default } from './phoneNumberSchema';
+export * from "./phoneNumberSchema";
+export { default } from "./phoneNumberSchema";

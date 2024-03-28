@@ -1,2 +1,2 @@
-export * from './RenderBio';
-export { default } from './RenderBio';
+export * from "./RenderBio";
+export { default } from "./RenderBio";

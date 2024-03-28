@@ -1,2 +1,2 @@
-export * from './RenderPassword';
-export { default } from './RenderPassword';
+export * from "./RenderPassword";
+export { default } from "./RenderPassword";

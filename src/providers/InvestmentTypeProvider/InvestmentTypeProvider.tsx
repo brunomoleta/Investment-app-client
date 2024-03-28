@@ -21,7 +21,7 @@ function InvestmentTypeProvider(props: { children: React.ReactNode }) {
   const [investmentTypes, setInvestmentTypes] =
     React.useState<InvestmentState>(null);
 
-  async function getInvestmentTypesNoAuth():Promise<void> {
+  async function getInvestmentTypesNoAuth(): Promise<void> {
     try {
       const { data } = await api.get("/investment_type", {
         params: {
@@ -40,10 +40,8 @@ function InvestmentTypeProvider(props: { children: React.ReactNode }) {
   const values: IInvestmentTypesContext = {
     investmentTypes,
     setInvestmentTypes,
-    getInvestmentTypesNoAuth
+    getInvestmentTypesNoAuth,
   };
-
-
 
   return (
     <InvestmentTypeContext.Provider value={values}>

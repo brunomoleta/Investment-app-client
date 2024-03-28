@@ -6,7 +6,7 @@ import { Title } from "@/components/HomePage/WhyUs/WhyUs.style";
 function ListItem({ item }: Props): JSX.Element {
   const { image, name, paragraph } = item;
   return (
-    <Item >
+    <Item>
       <Image alt="" src={image} />
       <div>
         <Title>{name}</Title>

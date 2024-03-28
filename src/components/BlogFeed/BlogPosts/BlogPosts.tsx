@@ -1,7 +1,7 @@
 import React from "react";
 import { blogArticles } from "@/services/data";
 import Article from "@/components/BlogFeed/BlogPosts/Article";
-import {PostsUl} from "@/components/BlogFeed/BlogPosts/BlogPosts.style";
+import { PostsUl } from "@/components/BlogFeed/BlogPosts/BlogPosts.style";
 
 function BlogPosts() {
   return (

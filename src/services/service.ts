@@ -52,7 +52,7 @@ export function handleDigits(value: string) {
 }
 
 export const isStringFunction = (
-  input: string | React.ReactNode
+  input: string | React.ReactNode,
 ): string | React.ReactNode => {
   if (typeof input === "string") {
     return upper(input);

@@ -1,10 +1,10 @@
 "use client";
 import styled from "styled-components";
-import {Section} from "@/styled-components/MaxWidth.style";
+import { Section } from "@/styled-components/MaxWidth.style";
 
 export const Wrapper = styled(Section)`
   background-color: var(--grey-200);
-    
+
   padding-block: var(--s3);
 
   display: flex;

@@ -7,7 +7,7 @@ function SocialMediaIcons() {
   return (
     <SMList>
       {SMIcons.map((icon) => (
-        <SMIcon key={icon.id} icon={icon}/>
+        <SMIcon key={icon.id} icon={icon} />
       ))}
     </SMList>
   );

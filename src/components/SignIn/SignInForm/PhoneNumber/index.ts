@@ -1,2 +1,2 @@
-export * from './PhoneNumber';
-export { default } from './PhoneNumber';
+export * from "./PhoneNumber";
+export { default } from "./PhoneNumber";

@@ -1,2 +1,2 @@
-export * from './SignInAlternative';
-export { default } from './SignInAlternative';
+export * from "./SignInAlternative";
+export { default } from "./SignInAlternative";

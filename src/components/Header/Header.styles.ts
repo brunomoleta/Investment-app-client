@@ -2,31 +2,31 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-    padding-inline: var(--page-alignment);
+  padding-inline: var(--page-alignment);
 
-    background-color: var(--pure-white);
-    box-shadow: 3px 3px 16px 12px var(--grey-400-t);
+  background-color: var(--pure-white);
+  box-shadow: 3px 3px 16px 12px var(--grey-400-t);
 
-    font-size: var(--font-small);
-    z-index: 1;
-    position: relative;
+  font-size: var(--font-small);
+  z-index: 1;
+  position: relative;
 `;
 
 export const UserHeader = styled(StyledHeader)`
-    display: grid;
-    place-items: center;
-`
+  display: grid;
+  place-items: center;
+`;
 
 export const HeaderWrapper = styled.div`
-    max-width: var(--page-max-width);
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding-block: var(--s0);
+  max-width: var(--page-max-width);
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--s0);
 
-    @media (min-width: 550px) {
-        flex-wrap: nowrap;
-    }
+  @media (min-width: 550px) {
+    flex-wrap: nowrap;
+  }
 `;
